@@ -12,3 +12,4 @@ clean:
 	rm thesis_text.pdf
 	rm thesis_text.toc
 	rm thesis_text.synctex.gz
+	rm thesis_text.idx
