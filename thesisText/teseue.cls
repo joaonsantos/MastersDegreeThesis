@@ -1,5 +1,5 @@
 % Latex style for dissertations (Departamento de Informatica, Universidade de Evora)
-% Versão 1.5
+% Versão 1.5.2
 %
 % With the contributes of fc, jsaias, tcg, dmendes, ... well, almost everyone @di.uevora.pt
 %
@@ -99,7 +99,7 @@
 	ItalicFont = *It,
 	BoldFont = SourceSansPro-Light
 ]
-%\newfontfamily\lightfont{Source Sans Pro}[UprightFont = {* Light}]
+% \newfontfamily\lightfont{Source Sans Pro}[UprightFont = {* Light}]
 %
 %
 %
@@ -472,6 +472,7 @@
 \newcommand{\@PREAMBULOLATEX}{\makeindex}
 \DeclareRobustCommand{\tuePREAMBULOLATEX}[1]{%
 	\renewcommand{\@PREAMBULOLATEX}{#1}
+  \makeindex
 }
 %
 %
@@ -558,18 +559,18 @@
 	\@PREAMBULOLATEX
 	\begin{document}
 		\frontmatter
-		\@CAPA
-		\@SUBCAPA
-		\@PAGINADEDICATORIA
-		\@PREAMBULO
+		  \@CAPA
+		  \@SUBCAPA
+		  \@PAGINADEDICATORIA
+		  \@PREAMBULO
 		\mainmatter
-		\@CONTEUDO
-		\appendix
-		\@APENDICES
+		  \@CONTEUDO
+		  \appendix
+		  \@APENDICES
 		\backmatter
-		\@BIBLIOGRAFIA
-		\@INDICEREMISSIVO
-		\@CONTRACAPA
+		  \@BIBLIOGRAFIA
+		  \@INDICEREMISSIVO
+		  \@CONTRACAPA
 	\end{document}
 }
 %
