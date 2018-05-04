@@ -1,0 +1,198 @@
+%!TEX root = main.tex
+\chapter{State of the Art}
+\section{Background} \label{background}
+
+While Blockchain is not a new concept at this point, it is an evolving
+technology that is being used to solve old problems with new approaches. This
+section will explore the Blockchain technology origins and history, some of its
+different implementations and a brief history to the identity problem is
+presented.
+
+\subsection{Blockchain Technology}
+
+A Blockchain can be many things. It can refer to the Bitcoin Blockchain,
+alternative implementations or forks of the Bitcoin Blockchain called Altchains
+or even platforms that allow execution of code in an autonomous manner, exactly
+as it was programmed, with no human intervention.  It is a continuously growing
+list of records, written in the ledger, a structure where records are written,
+that is being replicated across a network of devices in opposition to having a
+single central record history, making it a good example of a distributed
+database.  \cite{Wood2017}
+
+The main design goal of the Blockchain is security and to fulfill this purpose
+it uses techniques such as cryptography and digital signatures to not only
+verify the authenticity of records but also read or write access to the
+network.
+
+Unlike a conventional central data storage, where only a single entity keeps a
+copy of the underlying database, the ledger of the Blockchain is replicated
+across any number of nodes.  Not every participant has the same ability to
+interact with the ledger and in this respect a Blockchain can be permissionless
+or permissioned. In a permissionless Blockchain every node of the network can
+write in the Blockchain whereas in a permissioned Blockchain only a select
+group of entities have access to writing in the ledger, making the permissioned
+version, by default, secure if the entities themselves are secure and
+considered trustworthy.
+
+How does a permissionless Blockchain maintain security if every participant has
+access to writing on it, including potentially malicious parties?
+
+Take for example the Bitcoin Blockchain that uses a peer-to-peer network to
+avoid meddling from a financial institution or a third party in a financial
+transaction. Given that participating nodes in the network can belong to
+different and often competing parties, there is no implied trust between them,
+so the Blockchain needs a mechanism to ensure the integrity of the ledger and
+prevent malicious meddling from interested parties or to avoid a central
+authority.\cite{Barclay2017}
+
+To solve this problem, consensus mechanisms are used differently, depending on
+its implementation, but having, at its core, a solution to create immutable
+records and ensure security.  In Bitcoin Blockchain’s case, consensus is
+reached by the longest chain rule where the longest chain not only serves as
+proof of the sequence of events witnessed, but as proof that it came from the
+largest pool of computing power.\cite{Baars2016}
+
+While the first Blockchain was conceptualized as the public ledger for the
+Bitcoin cryptocurrency in 2008 by Satoshi Nakamoto and implemented in 2009,
+many are now using it as a foundation across many application areas such as
+identity management, traceability and asset management.  Thanks to the roaring
+success of Bitcoin and the increasingly apparent use cases that the Blockchain
+can provide, the public awareness of it is rising and it is quickly becoming a
+technological foundation in our economic and social systems.
+% Need References for this
+
+\subsubsection{Ethereum}
+
+Bitcoin is getting media coverage almost everyday and public awareness in
+cryptocurrencies in general is rising.  Some people are considering
+cryptocurrencies and the Blockchain, to be essentially the same technology and,
+while that may have been somewhat true not so long ago, Blockchain technology
+is starting to be used in a plethora of ways.
+
+Ethereum is an open-source platform based on the Blockchain technology that
+enables developers to build and deploy Decentralized Applications
+(\textit{DAPPs}).  Ethereum is being developed by the Ethereum Foundation and
+was first discussed by Buterin in 2013.  Ethereum intends to provide a
+Blockchain with a built-in programming language that is used to create
+\textit{Smart contracts}.  \cite{Wood2017}
+
+These contracts are used to describe the logic of any system that developers
+can imagine and, when created, can then be deployed to the Blockchain where
+they execute as “autonomous agents”.  Thanks to these tools it is safe to say
+that long gone are the days where building Blockchain applications required a
+complex background in coding cryptography, mathematics as well as significant
+resources.\cite{Wood2017,BlockGeeks2017}
+
+Ethereum Blockchain is a permissionless Blockchain, and thus, it must have a
+consensus mechanism to ensure the validation process of every record and, in
+turn, ensure security and immutability. While other implementations of the
+Blockchain have different consensus mechanics, in Ethereum’s case, all
+participants have to reach consensus over the order of all transactions that
+have taken place. If a definitive order cannot be established then a
+double-spend might have occurred.
+
+\subsubsection{Fabric}
+
+Hyperledger Fabric (HLF) is part of the
+\href{http://www.hyperledger.org/projects/fabric}{Hyperledger} project started
+in December 2015 by the Linux Foundation, and is an open-source
+developer-focused community of communities focused on the development of
+enterprise-grade, open-source Blockchain-based solutions.  Fabric is an
+implementation of a Distributed Ledger Platform (DLP) under the Hyperledger
+umbrella.  \cite{Cachin2016}
+
+HLF’s initial commit was contributed by IBM and written in Go language.  It is
+a permissioned Blockchain and its main design goal was to surpass previous
+Blockchain implementation limitations, such as, lack of true private
+transactions and confidential contracts.
+
+This is achieved thanks to assigning peers in the network three distinct roles
+and by offering the ability to create channels each with its own private
+ledger.  A peer can have the role of endorser, committer or consenter or
+sometimes multiple roles.  HLF is intended as a foundation for developing
+applications in a modular fashion, opting for a plug-and-play approach to
+various components. \cite{HyperledgerFabricDocs2017}
+
+HLF, as discussed, also allows the creation of smart contracts which can be
+written in Chaincode.  As this Blockchain's key operational requirement is
+privacy, true private transactions and confidential contracts can exist and are
+a great asset for a business environment where sensitive information is
+necessary and disclosed often.  Thanks to its modular approach consensus
+protocols are no longer hard-coded and trust models can be repurposed.
+
+\subsubsection{Burrow}
+
+Hyperledger Burrow (HLB) is also part of the Hyperledger project and its
+development started in 2014 by Monax and sponsored by Intel. It is a
+permissionable smart contract machine written in Go and offers a modular
+Blockchain client with a permissioned smart contract interpreter built, in
+part, to the specification of the Ethereum Virtual Machine (EVM) and the client
+has, essentially, three main components, the consensus engine, the permissioned
+EVM and the Remote Procedure Call (RPC) gateway.
+\cite{Kuhlman2017,HyperledgerBurrow2017}
+
+HLB has its own Consensus Engine, the Byzantine fault-tolerant Tendermint
+protocol.  The Tendermint protocol is an open-source effort that allows high
+performance in solving the consensus problem and also has a flexible interface
+for building arbitrary applications above the consensus, as well as, a suite of
+tools for deployments and their management. \cite{Buchman2016}
+%
+%#===========================Identity in
+%Healthcare===================================#%
+
+\subsection{Identity in Healthcare} Originally records of a patient were stored
+in a physical format.  Thanks to the advent of the computers more and more
+records are stored on a digital format and the Electronic Health Record (EHR)
+was created.  This benefits handling of information between the patient and the
+medical professionals and medical institutions. But first we must discuss what
+is defined as identity in this specific case.
+
+Identity is a construct that depends on the context.  Identity can be defined
+as the characteristics determining who or what a person is.  In this paper we
+define identity as the set of characteristics that determine who is the patient
+in the given Healthcare ecosystem they belong to, such as, the name, the age,
+the cellphone number, the gender and the birth date of the patient.  Electronic
+Health Records encapsulate this information in digital format, however, they
+are usually represented in a format according to the Information System they
+were designed to work with.
+
+To enable interoperability, standards for EHRs were created and many failed to
+bring the much needed consensus that was required for interoperability between
+different Information Systems in different institutions.  Health Level 7 has
+done much work to be recognized in many countries and is quickly being
+implemented in many countries to allow for joint efforts between organizations.
+
+Even with these advances in mind, the nature of many clinics and hospitals
+Information Systems makes the management of their patients identity a very
+cumbersome, costly and risky affair to handle.  Security in a connected age,
+where internet is easily available, is lagging behind and presenting some
+problems.  There is also the question of transparent use of information by the
+organizations that store it.
+%
+%#===========================Related Work===================================#%
+
+\subsection{Blockchain for Identity Management in Healthcare: Use Cases} Some
+companies have already started developing Blockchain applications in the
+Healthcare field and established some key partnerships.
+
+Many Blockchain-based solutions are still very early on development or
+deployment.  One exception is Guardtime, that has fully deployed their system
+in 2008, started cooperating in 2011 and in 2016 announced a partnership with
+the Estonian Government, where a million patient records are now secured by the
+strategy and, until today, still proves the resilience of the Blockchain
+technology, as well as, other advances in cryptography.  Now other companies
+like Verizon are becoming interested in this technology for their own purposes.
+\cite{GuardTime2018,EstonianGovernmentGuardTime2016}
+
+Another company, Gem, is collaborating with Phillips Healthcare to explore
+options in this area, and is opting to solve the interoperability problem with
+an additional layer of abstraction they call GemOS.  Factom, another
+Blockchain-based service, has also announced a partnership with a major US
+medical services provider
+HealthNautica.\cite{BlockchainCompHealth2017,FactomPartnership2017}
+
+The use of the Blockchain technology in the health field is expanding. Just
+recently a new platform appeared, called Medichain that allows patients to
+store their own data in a secure way and give anonymized access to this data to
+specialists. Giving data allows for users to gain tokens that represent value.
+\cite{MediChain2018}

@@ -78,8 +78,9 @@
 %
 \RequirePackage{fontspec}
 %
+%   Urls
 %
-%
+\RequirePackage{hyperref}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 %	Configuracao das fontes
