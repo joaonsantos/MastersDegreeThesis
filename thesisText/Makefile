@@ -3,8 +3,8 @@ clean:
 	rm acronimos.aux
 	rm agradecimentos.aux
 	rm sumario.aux
+	rm introduction.aux
 	rm thesis_text.aux
-	rm thesis_text.bbl
 	rm thesis_text.blg
 	rm thesis_text.lof
 	rm thesis_text.log
