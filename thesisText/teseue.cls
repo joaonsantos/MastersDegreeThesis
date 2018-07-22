@@ -485,8 +485,8 @@
 %	\include{prefacio}
 	\include{agradecimentos}
 	\@TABELAS
-	\include{sumario}
 	\include{abstract}
+	\include{sumario}
 }
 \DeclareRobustCommand{\tuePREAMBULO}[1]{%
 	\renewcommand{\@PREAMBULO}{#1}
@@ -601,10 +601,10 @@
 \newenvironment{tueSUMARIO}{
 	\typeout{***}
 	\typeout{*** tueSUMARIO}
-	\typeout{*** ------ SUMARIO(\@TXT@SUMARIO@A)}
-	\typeout{*** ------ PAL.CHAV(\@TXT@PALCHAVE@A)}
-	\chapter*{\@TXT@SUMARIO@A}
-	\addcontentsline{toc}{chapter}{\@TXT@SUMARIO@A}
+	\typeout{*** ------ SUMARIO(\@TXT@SUMARIO@B)}
+	\typeout{*** ------ PAL.CHAV(\@TXT@PALCHAVE@B)}
+	\chapter*{\@TXT@SUMARIO@B}
+	\addcontentsline{toc}{chapter}{\@TXT@SUMARIO@B}
 	\markboth{\uppercase{\@TXT@SUMARIO@A}}{}
 }{
 	\par
@@ -619,9 +619,9 @@
 %
 %
 \newenvironment{tueABSTRACT}{
-	\chapter*{\@TXT@SUMARIO@B}
-	\addcontentsline{toc}{chapter}{\@TXT@SUMARIO@B}
-	\markboth{\uppercase{\@TXT@SUMARIO@B}}{}
+	\chapter*{\@TXT@SUMARIO@A}
+	\addcontentsline{toc}{chapter}{\@TXT@SUMARIO@A}
+	\markboth{\uppercase{\@TXT@SUMARIO@A}}{}
 	\begin{center}
 		\huge
 		\textbf{\@TITLE}
@@ -636,7 +636,7 @@
 }{
 	\par
 	\bigskip
-	\textbf{\@TXT@PALCHAVE@B:}~\@KEYWORDS
+	\textbf{\@TXT@PALCHAVE@A:}~\@KEYWORDS
 }
 %
 %
