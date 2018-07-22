@@ -78,8 +78,9 @@
 %
 \RequirePackage{fontspec}
 %
+%   Urls
 %
-%
+\RequirePackage{hyperref}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 %	Configuracao das fontes
@@ -270,10 +271,10 @@
 		\renewcommand{\@LST@FIG}{\@LST@FIG@EN}
 		\renewcommand{\@LST@CONT}{\@LST@CONT@EN}
 		\renewcommand{\@LST@TAB}{\@LST@TAB@EN}
-		\renewcommand{\@TXT@SUMARIO@A}{\@TXT@SUMARIO@EN}
-		\renewcommand{\@TXT@SUMARIO@B}{\@TXT@SUMARIO@PT}
-		\renewcommand{\@TXT@PALCHAVE@A}{\@TXT@PALCHAVE@EN}
-		\renewcommand{\@TXT@PALCHAVE@B}{\@TXT@PALCHAVE@PT}
+		\renewcommand{\@TXT@SUMARIO@A}{\@TXT@SUMARIO@PT}
+		\renewcommand{\@TXT@SUMARIO@B}{\@TXT@SUMARIO@EN}
+		\renewcommand{\@TXT@PALCHAVE@A}{\@TXT@PALCHAVE@PT}
+		\renewcommand{\@TXT@PALCHAVE@B}{\@TXT@PALCHAVE@EN}
 	}{
 		%
 		%	Portugues
