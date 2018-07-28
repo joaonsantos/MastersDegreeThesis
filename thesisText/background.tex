@@ -2,135 +2,146 @@
 
 While Blockchain is not a new concept at this point, it is an evolving
 technology that is being used to solve old problems with new approaches. This
-section will explore the Blockchain technology origins and history, some of its
-different implementations and a brief history to the identity problem is
-presented.
+section will explore the Blockchain technology, its origins and history, as
+well as some of its different implementations. 
 
 \section{Blockchain Technology}
 
   A Blockchain can be many things. It can refer to the Bitcoin Blockchain,
-  alternative implementations or forks of the Bitcoin Blockchain called Altchains
-  or even platforms that allow execution of code in an autonomous manner, exactly
-  as it was programmed, with no human intervention.  It is a continuously growing
-  list of records, written in the ledger, a structure where records are written,
-  that is being replicated across a network of devices in opposition to having a
-  single central record history, making it a good example of a distributed
-  database.  \cite{Wood2017}
+  alternative implementations or forks of the Bitcoin Blockchain called
+  Altchains.  It can even refer to platforms that allow execution of code in an
+  autonomous manner, exactly as it was programmed, with no human intervention.
+  A Blockchain is a continuously growing list of records, written in the
+  ledger, a structure where records are written, that is constantly being
+  replicated across a network of peers, in opposition to having a single
+  central record history, making it a good example of a distributed database,
+  thus avoiding having a single central point of failure that can be easily
+  targetable.  \cite{Wood2017}
 
-  The main design goal of the Blockchain is security and to fulfill this purpose
-  it uses techniques such as cryptography and digital signatures to not only
-  verify the authenticity of records but also read or write access to the
-  network.
+  The main design goal of the Blockchain is resiliency, transparency and
+  immutability. To fulfill this purpose it uses cryptographic techniques and
+  digital signatures to not only verify the authenticity of records but also to
+  as a way to manage read or write access to the network and as proof that a
+  transaction occurred.
 
-  Unlike a conventional central data storage, where only a single entity keeps a
-  copy of the underlying database, the ledger of the Blockchain is replicated
-  across any number of nodes.  Not every participant has the same ability to
-  interact with the ledger and in this respect a Blockchain can be permissionless
-  or permissioned. In a permissionless Blockchain every node of the network can
-  write in the Blockchain whereas in a permissioned Blockchain only a select
-  group of entities have access to writing in the ledger, making the permissioned
-  version, by default, secure if the entities themselves are secure and
-  considered trustworthy.
+  Unlike a conventional data storage, where only a single entity keeps a copy
+  of the underlying database, making it centralized by desing, the ledger of
+  the Blockchain is replicated across any number of participating nodes in the
+  network. In some implementations, not every participant has the same ability
+  to interact with the ledger and in this respect a Blockchain can be
+  permissionless or permissioned. In a permissionless Blockchain every node of
+  the network can write in the ledger whereas in a permissioned Blockchain only
+  a select group of entities have access to writing in the ledger, making the
+  permissioned version, by default, secure if the entities themselves are
+  secure and considered trustworthy.
 
-  How does a permissionless Blockchain maintain security if every participant has
-  access to writing on it, including potentially malicious parties?
+  But then, how does a permissionless Blockchain maintain security if every
+  participant has access to writing on it, including potentially malicious
+  parties?
 
   Take for example the Bitcoin Blockchain that uses a peer-to-peer network to
-  avoid meddling from a financial institution or a third party in a financial
-  transaction. Given that participating nodes in the network can belong to
-  different and often competing parties, there is no implied trust between them,
-  so the Blockchain needs a mechanism to ensure the integrity of the ledger and
-  prevent malicious meddling from interested parties or to avoid a central
+  avoid the requirement of a third party being involved in a financial
+  transaction such as a financial institution of a middle man. Given that
+  participating nodes in the network can belong to different and often
+  competing parties, there is no implied trust between them, so the Blockchain
+  needs a mechanism to ensure the integrity of the ledger and prevent malicious
+  meddling from interested parties and avoid having the need for a central
   authority.\cite{Barclay2017}
 
-  To solve this problem, consensus mechanisms are used differently, depending on
-  its implementation, but having, at its core, a solution to create immutable
-  records and ensure security.  In Bitcoin Blockchain’s case, consensus is
-  reached by the longest chain rule where the longest chain not only serves as
-  proof of the sequence of events witnessed, but as proof that it came from the
-  largest pool of computing power.\cite{Baars2016}
+  Consensus is a mechanism employed by the Blockchain to solve this problem.
+  Even though consensus mechanisms can behave vastly different, depending on
+  its implementation and purpose, they are at core, a solution to create
+  immutable records and ensure resiliency.  For example, in the Bitcoin's
+  Blockchain case, consensus is reached by the longest chain rule where the
+  longest chain not only serves as proof of the sequence of events witnessed,
+  but as proof that it came from the largest pool of computing power as it uses
+  a proof of work algorithm that relies on brute force to solve a complex
+  mathematical puzzle.\cite{Baars2016}
 
-  While the first Blockchain was conceptualized as the public ledger for the
-  Bitcoin cryptocurrency in 2008 by Satoshi Nakamoto and implemented in 2009,
-  many are now using it as a foundation across many application areas such as
-  identity management, traceability and asset management.  Thanks to the roaring
-  success of Bitcoin and the increasingly apparent use cases that the Blockchain
-  can provide, the public awareness of it is rising and it is quickly becoming a
-  technological foundation in our economic and social systems.
+  While the Blockchain, we now know today, was conceptualized as the public
+  ledger for the Bitcoin cryptocurrency in 2008 by Satoshi Nakamoto and
+  implemented in 2009, many are now using it as a foundation across many
+  application areas such as identity management, traceability and asset
+  management.  Thanks to the roaring success of Bitcoin and the increasingly
+  apparent use cases that the Blockchain can provide, the public and the
+  various industries interest in this technological advance is rising and it is
+  quickly becoming a technological foundation in our economic and social
+  systems.
   % Need References for this
 
   \subsection{Ethereum}
 
-  Bitcoin is getting media coverage almost everyday and public awareness in
-  cryptocurrencies in general is rising.  Some people are considering
-  cryptocurrencies and the Blockchain, to be essentially the same technology and,
-  while that may have been somewhat true not so long ago, Blockchain technology
-  is starting to be used in a plethora of ways.
+  Due to Bitcoin getting extensive media coverage, the average public awareness
+  in cryptocurrencies is rising.  While there are some people considering
+  cryptocurrencies and the Blockchain to be essentially the same technology,
+  Blockchain has evolved to be capable of being a platform that can be
+  developed on to create Decentralized Applications (\textbf{Ðapps})
 
   Ethereum is an open-source platform based on the Blockchain technology that
-  enables developers to build and deploy Decentralized Applications
-  (\textit{DAPPs}).  Ethereum is being developed by the Ethereum Foundation and
-  was first discussed by Buterin in 2013.  Ethereum intends to provide a
-  Blockchain with a built-in programming language that is used to create
-  \textit{Smart contracts}.  \cite{Wood2017}
+  enables developers to build and deploy \textbf{Ðapps}. Ethereum is being
+  developed by the Ethereum Foundation and was first discussed by Buterin in
+  2013.  Ethereum intends to provide a Blockchain with a built-in programming
+  language that is used to create \textit{Smart contracts}.  \cite{Wood2017}
 
-  These contracts are used to describe the logic of any system that developers
-  can imagine and, when created, can then be deployed to the Blockchain where
-  they execute as “autonomous agents”.  Thanks to these tools it is safe to say
-  that long gone are the days where building Blockchain applications required a
+  These are used to describe the logic of any system that developers can
+  imagine and, when created, can be deployed to the Blockchain where they
+  execute as “autonomous agents”.  Thanks to these tools it is safe to say that
+  long gone are the days where building Blockchain applications required a
   complex background in coding cryptography, mathematics as well as significant
   resources.\cite{Wood2017,BlockGeeks2017}
 
-  Ethereum Blockchain is a permissionless Blockchain, and thus, it must have a
-  consensus mechanism to ensure the validation process of every record and, in
-  turn, ensure security and immutability. While other implementations of the
-  Blockchain have different consensus mechanics, in Ethereum’s case, all
+  The Ethereum Blockchain is a permissionless Blockchain, and thus, it must
+  have a consensus mechanism to ensure the validation process of every record
+  and, in turn, ensure resiliency and immutability. While other implementations
+  of the Blockchain have different consensus mechanics, in Ethereum’s case, all
   participants have to reach consensus over the order of all transactions that
   have taken place. If a definitive order cannot be established then a
-  double-spend might have occurred.
+  double-spend might have occurred and the transaction is rejected.
 
   \subsection{Fabric}
 
-  Hyperledger Fabric (HLF) is part of the
-  Hyperledger project started
+  Hyperledger Fabric (\textbf{hlf}) is part of the Hyperledger project started
   in December 2015 by the Linux Foundation, and is an open-source
   developer-focused community of communities focused on the development of
   enterprise-grade, open-source Blockchain-based solutions.  Fabric is an
-  implementation of a Distributed Ledger Platform (DLP) under the Hyperledger
-  umbrella.  \cite{Cachin2016}
+  implementation of a Distributed Ledger Platform (\textbf{dlp}) under the
+  Hyperledger umbrella.  \cite{Cachin2016}
 
-  HLF’s initial commit was contributed by IBM and written in Go language.  It is
-  a permissioned Blockchain and its main design goal was to surpass previous
-  Blockchain implementation limitations, such as, lack of true private
-  transactions and confidential contracts.
+  Hyperledger Fabric’s initial commit was contributed by IBM and written in the
+  Go programming language.  It is a permissioned Blockchain and its main design
+  goal was to surpass previous Blockchain implementation limitations, such as,
+  lack of true private transactions and confidential contracts.
 
-  This is achieved thanks to assigning peers in the network three distinct roles
-  and by offering the ability to create channels each with its own private
-  ledger.  A peer can have the role of endorser, committer or consenter or
-  sometimes multiple roles.  HLF is intended as a foundation for developing
-  applications in a modular fashion, opting for a plug-and-play approach to
-  various components. \cite{HyperledgerFabricDocs2017}
+  These goals are achieved thanks to assigning peers in the network three
+  distinct roles and by offering the ability to create channels each with its
+  own private ledger.  A peer can have the role of endorser, committer or
+  consenter or sometimes multiple roles.  Hyperledger Fabric is intended as a
+  foundation for developing applications in a modular fashion, opting for a
+  plug-and-play approach to its various components as well as its consensus
+  mechanism. \cite{HyperledgerFabricDocs2017}
 
-  HLF, as discussed, also allows the creation of smart contracts which can be
-  written in Chaincode.  As this Blockchain's key operational requirement is
-  privacy, true private transactions and confidential contracts can exist and are
-  a great asset for a business environment where sensitive information is
-  necessary and disclosed often.  Thanks to its modular approach consensus
+  Hyperledger Fabric, as discussed, also allows the creation of smart contracts
+  which can be written in Chaincode.  Given that this Blockchain's key
+  operational requirement is privacy, featuring true private transactions and
+  confidential contracts, it makes this technology a great asset for a business
+  environment where sensitive information must be handled with care and
+  disclosed on a case by case basis.  Thanks to its modular approach consensus
   protocols are no longer hard-coded and trust models can be repurposed.
 
   \subsection{Burrow}
 
-  Hyperledger Burrow (HLB) is also part of the Hyperledger project and its
-  development started in 2014 by Monax and sponsored by Intel. It is a
+  Hyperledger Burrow (\textbf{hlb}) is also part of the Hyperledger project and
+  its development started in 2014 by Monax and sponsored by Intel. It is a
   permissionable smart contract machine written in Go and offers a modular
   Blockchain client with a permissioned smart contract interpreter built, in
-  part, to the specification of the Ethereum Virtual Machine (EVM) and the client
-  has, essentially, three main components, the consensus engine, the permissioned
-  EVM and the Remote Procedure Call (RPC) gateway.
-  \cite{Kuhlman2017,HyperledgerBurrow2017}
+  part, to the specification of the Ethereum Virtual Machine (\textbf{evm})
+  with the client having, essentially, three main components, the consensus
+  engine, the permissioned \textbf{evm} and the Remote Procedure Call
+  (\textbf{rpc}) gateway.  \cite{Kuhlman2017,HyperledgerBurrow2017}
 
-  HLB has its own Consensus Engine, the Byzantine fault-tolerant Tendermint
-  protocol.  The Tendermint protocol is an open-source effort that allows high
-  performance in solving the consensus problem and also has a flexible interface
-  for building arbitrary applications above the consensus, as well as, a suite of
-  tools for deployments and their management. \cite{Buchman2016}
+  Hyperledger Burrow has its own Consensus Engine, the Byzantine fault-tolerant
+  Tendermint protocol.  The Tendermint protocol is an open-source effort that
+  allows high performance in solving the consensus problem and also has a
+  flexible interface for building arbitrary applications above the consensus,
+  as well as, a suite of tools for deployments and their management.
+  \cite{Buchman2016}
