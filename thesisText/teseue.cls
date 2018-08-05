@@ -13,16 +13,6 @@
 	Com o contributo de fc, jsaias, vbn, ipr, tcg, dmendes e quase todos @di.uevora.pt --- 
 	Codigo Livre 
 ]
-% Hyperref adjustments
-% \RequirePackage{hyperref}
-% \hypersetup{
-% 	colorlinks=true,
-% 	%pdfstartview=FitV,
-% 	%pdfpagelabels=true,
-% 	linkcolor=[rgb]{0.4 0.1 0.1},
-% 	citecolor=[rgb]{0.1 0.4 0.1},
-% 	urlcolor=[rgb]{0.1 0.1 0.4}
-% }
 
 % Document adjustment
 %
@@ -80,6 +70,16 @@
 %
 %
 %
+% Hyperref adjustments
+\RequirePackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	pdfstartview=FitV,
+	pdfpagelabels=true,
+	linkcolor=[rgb]{0.4 0.1 0.1},
+	citecolor=[rgb]{0.1 0.4 0.1},
+	urlcolor=[rgb]{0.1 0.1 0.4}
+}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 %	Configuracao das fontes
@@ -523,10 +523,9 @@
 \newcommand{\@BIBLIOGRAFIA}{
 	%	Incluir todas as entradas na bibliografia
 	\nocite{*}
-	%	Estilo das citações
-	\bibliographystyle{alpha}
-	%	Lista das referências
-	\bibliography{bibliografia}
+	%   Corrigir a formatação
+	\raggedright
+	
 }
 \DeclareRobustCommand{\tueBIBLIOGRAFIA}[1]{%
 	\renewcommand{\@BIBLIOGRAFIA}{#1}
