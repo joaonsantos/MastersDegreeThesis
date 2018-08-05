@@ -9,31 +9,32 @@ well as some of its different implementations.
 
   A Blockchain can be many things. It can refer to the Bitcoin Blockchain,
   alternative implementations or forks of the Bitcoin Blockchain called
-  Altchains.  It can even refer to platforms that allow execution of code in an
-  autonomous manner, exactly as it was programmed, with no human intervention.
-  A Blockchain is a continuously growing list of records, written in the
-  ledger, a structure where records are written, that is constantly being
-  replicated across a network of peers, in opposition to having a single
-  central record history, making it a good example of a distributed database,
-  thus avoiding having a single central point of failure that can be easily
-  targetable.  \cite{Wood2017}
+  Altchains. \cite{Lewis2015} It can even refer to platforms that allow
+  execution of code in an autonomous manner, exactly as it was programmed, with
+  no human intervention.  A Blockchain is a continuously growing list of
+  records, written in the ledger, a structure where records are written, that
+  is constantly being replicated across a network of peers, in opposition to
+  having a single central record history, making it a good example of a
+  distributed database, thus avoiding having a single central point of failure
+  that can be easily targetable. \cite{Barclay2017}
 
-  The main design goal of the Blockchain is resiliency, transparency and
-  immutability. To fulfill this purpose it uses cryptographic techniques and
-  digital signatures to not only verify the authenticity of records but also to
-  as a way to manage read or write access to the network and as proof that a
-  transaction occurred.
+  The purpose of the Blockchain is to maintain integrity in distributed
+  systems. \cite{Drescher2017} To fulfill this purpose it uses cryptographic
+  techniques and digital signatures to not only verify the authenticity of
+  records but also as a way to manage read or write access to the network and
+  as proof that a transaction occurred.
 
   Unlike a conventional data storage, where only a single entity keeps a copy
-  of the underlying database, making it centralized by desing, the ledger of
+  of the underlying database, making it centralized by design, the ledger of
   the Blockchain is replicated across any number of participating nodes in the
-  network. In some implementations, not every participant has the same ability
-  to interact with the ledger and in this respect a Blockchain can be
-  permissionless or permissioned. In a permissionless Blockchain every node of
-  the network can write in the ledger whereas in a permissioned Blockchain only
-  a select group of entities have access to writing in the ledger, making the
-  permissioned version, by default, secure if the entities themselves are
-  secure and considered trustworthy.
+  network.\cite{Lewis2015} In some implementations, not every participant has
+  the same ability to interact with the ledger and in this respect a Blockchain
+  can be permissionless or permissioned. In a permissionless Blockchain every
+  node of the network can write in the ledger whereas in a permissioned
+  Blockchain only a select group of entities have access to writing in the
+  ledger, making the permissioned version, by default, secure if the entities
+  themselves are secure and considered trustworthy.
+  \cite{Lewis2015,Valenta2017}
 
   But then, how does a permissionless Blockchain maintain security if every
   participant has access to writing on it, including potentially malicious
@@ -41,12 +42,12 @@ well as some of its different implementations.
 
   Take for example the Bitcoin Blockchain that uses a peer-to-peer network to
   avoid the requirement of a third party being involved in a financial
-  transaction such as a financial institution of a middle man. Given that
-  participating nodes in the network can belong to different and often
-  competing parties, there is no implied trust between them, so the Blockchain
-  needs a mechanism to ensure the integrity of the ledger and prevent malicious
-  meddling from interested parties and avoid having the need for a central
-  authority.\cite{Barclay2017}
+  transaction such as a financial institution of a middle man.
+  \cite{Nakamoto2008} Given that participating nodes in the network can belong
+  to different and often competing parties, there is no implied trust between
+  them, so the Blockchain needs a mechanism to ensure the integrity of the
+  ledger and prevent malicious meddling from interested parties and avoid
+  having the need for a central authority.\cite{Barclay2017}
 
   Consensus is a mechanism employed by the Blockchain to solve this problem.
   Even though consensus mechanisms can behave vastly different, depending on
@@ -56,26 +57,26 @@ well as some of its different implementations.
   longest chain not only serves as proof of the sequence of events witnessed,
   but as proof that it came from the largest pool of computing power as it uses
   a proof of work algorithm that relies on brute force to solve a complex
-  mathematical puzzle.\cite{Baars2016}
+  mathematical puzzle.\cite{Baars2016,Wood2017}
 
   While the Blockchain, we now know today, was conceptualized as the public
   ledger for the Bitcoin cryptocurrency in 2008 by Satoshi Nakamoto and
   implemented in 2009, many are now using it as a foundation across many
   application areas such as identity management, traceability and asset
-  management.  Thanks to the roaring success of Bitcoin and the increasingly
-  apparent use cases that the Blockchain can provide, the public and the
-  various industries interest in this technological advance is rising and it is
-  quickly becoming a technological foundation in our economic and social
-  systems.
-  % Need References for this
+  management. \cite{MIT2016} Thanks to the roaring success of Bitcoin and the
+  increasingly apparent use cases that the Blockchain can provide, the public
+  and the various industries interest in this technological advance is rising
+  and it is quickly becoming a technological foundation in our economic and
+  social systems. \cite{Zago2018, Marr2018,Long2018}
 
   \subsection{Ethereum}
 
   Due to Bitcoin getting extensive media coverage, the average public awareness
-  in cryptocurrencies is rising.  While there are some people considering
-  cryptocurrencies and the Blockchain to be essentially the same technology,
-  Blockchain has evolved to be capable of being a platform that can be
-  developed on to create Decentralized Applications (\textbf{Ðapps})
+  in cryptocurrencies is rising. \cite{BitAwareness2017} While there are some
+  people considering cryptocurrencies and the Blockchain to be essentially the
+  same technology, Blockchain has evolved to be capable of being a platform
+  that can be developed on to create Decentralized Applications
+  (\textbf{Ðapps})
 
   Ethereum is an open-source platform based on the Blockchain technology that
   enables developers to build and deploy \textbf{Ðapps}. Ethereum is being
@@ -97,6 +98,7 @@ well as some of its different implementations.
   participants have to reach consensus over the order of all transactions that
   have taken place. If a definitive order cannot be established then a
   double-spend might have occurred and the transaction is rejected.
+  \cite{Wood2017}
 
   \subsection{Fabric}
 

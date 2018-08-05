@@ -525,7 +525,6 @@
 	\nocite{*}
 	%   Corrigir a formatação
 	\raggedright
-	
 }
 \DeclareRobustCommand{\tueBIBLIOGRAFIA}[1]{%
 	\renewcommand{\@BIBLIOGRAFIA}{#1}
