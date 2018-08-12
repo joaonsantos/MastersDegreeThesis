@@ -3,53 +3,54 @@
 This project aims to design a Blockchain based system to provide a more
 transparent and secure system to identify a patient in Healthcare. While
 Blockchain is not a new concept at this point, it is an evolving technology
-that is being used to solve old problems with new approaches. This section will
-briefly explore some implementations of this technology, as well as, its
-origins and history.
+that is being used to solve old problems with new approaches. This chapter will
+briefly explore some implementations of this technology, as well as its origins
+and history.
 
 \section{Blockchain Technology}
 
   A Blockchain can be many things. It can refer to the Bitcoin Blockchain,
   alternative implementations or forks of the Bitcoin Blockchain called
-  Altchains. \cite{Lewis2015} It can even refer to platforms that allow
+  Altchains~\cite{Lewis2015}. It can even refer to platforms that allow
   execution of code in an autonomous manner, exactly as it was programmed, with
   no human intervention.  A Blockchain is a continuously growing list of
   records, written in the ledger, a structure where records are written, that
   is constantly being replicated across a network of peers, in opposition to
   having a single central record history, making it a good example of a
   distributed database, thus avoiding having a single central point of failure
-  that can be easily targetable. \cite{Barclay2017}
+  that can be easily targetable~\cite{Barclay2017}.
 
   The purpose of the Blockchain is to maintain integrity in distributed
-  systems. \cite{Drescher2017} To fulfill this purpose it uses cryptographic
+  systems~\cite{Drescher2017}. To fulfill this purpose it uses cryptographic
   techniques and digital signatures to not only verify the authenticity of
   records but also as a way to manage read or write access to the network and
-  as proof that a transaction occurred.
+  as proof that a record was written in the ledger.
 
   Unlike a conventional data storage, where only a single entity keeps a copy
   of the underlying database, making it centralized by design, the ledger of
   the Blockchain is replicated across any number of participating nodes in the
-  network.\cite{Lewis2015} In some implementations, not every participant has
+  network~\cite{Lewis2015}. In some implementations, not every participant has
   the same ability to interact with the ledger and in this respect a Blockchain
   can be permissionless or permissioned. In a permissionless Blockchain every
   node of the network can write in the ledger whereas in a permissioned
   Blockchain only a select group of entities have access to writing in the
   ledger, making the permissioned version, by default, secure if the entities
-  themselves are secure and considered trustworthy.
-  \cite{Lewis2015,Valenta2017}
+  themselves are secure and considered
+  trustworthy~\cite{Lewis2015,Valenta2017}.
 
   But then, how does a permissionless Blockchain maintain security if every
   participant has access to writing on it, including potentially malicious
   parties?
 
-  Take for example the Bitcoin Blockchain that uses a peer-to-peer network to
-  avoid the requirement of a third party being involved in a financial
-  transaction such as a financial institution of a middle man.
-  \cite{Nakamoto2008} Given that participating nodes in the network can belong
-  to different and often competing parties, there is no implied trust between
-  them, so the Blockchain needs a mechanism to ensure the integrity of the
-  ledger and prevent malicious meddling from interested parties and avoid
-  having the need for a central authority.\cite{Barclay2017}
+  Given that participating nodes in the network can belong to different and
+  often competing parties, there is no implied trust between them, so the
+  Blockchain needs a mechanism to ensure the integrity of the ledger and
+  prevent malicious meddling from interested parties and avoid having the need
+  for a central authority~\cite{Barclay2017}.  Take for example the Bitcoin
+  Blockchain that uses a peer-to-peer network to avoid the requirement of a
+  third party being involved in a financial transaction such as a financial
+  institution or a middle man, which must be trusted with the details of a
+  transaction and its value to complete a transaction~\cite{Nakamoto2008}.
 
   Consensus is a mechanism employed by the Blockchain to solve this problem.
   Even though consensus mechanisms can behave vastly different, depending on
@@ -59,22 +60,22 @@ origins and history.
   longest chain not only serves as proof of the sequence of events witnessed,
   but as proof that it came from the largest pool of computing power as it uses
   a proof of work algorithm that relies on brute force to solve a complex
-  mathematical puzzle.\cite{Baars2016,Wood2017}
+  mathematical puzzle~\cite{Baars2016,Wood2017}.
 
   While the Blockchain, we now know today, was conceptualized as the public
   ledger for the Bitcoin cryptocurrency in 2008 by Satoshi Nakamoto and
   implemented in 2009, many are now using it as a foundation across many
   application areas such as identity management, traceability and asset
-  management. \cite{MIT2016} Thanks to the roaring success of Bitcoin and the
+  management~\cite{MIT2016}. Thanks to the roaring success of Bitcoin and the
   increasingly apparent use cases that the Blockchain can provide, the public
   and the various industries interest in this technological advance is rising
   and it is quickly becoming a technological foundation in our economic and
-  social systems. \cite{Zago2018, Marr2018,Long2018}
+  social systems~\cite{Zago2018, Marr2018,Long2018}.
 
   \subsection{Ethereum}
 
   Due to Bitcoin getting extensive media coverage, the average public awareness
-  in cryptocurrencies is rising. \cite{BitAwareness2017} While there are some
+  in cryptocurrencies is rising~\cite{BitAwareness2017}. While there are some
   people considering cryptocurrencies and the Blockchain to be essentially the
   same technology, Blockchain has evolved to be capable of being a platform
   that can be developed on to create Decentralized Applications
@@ -84,14 +85,14 @@ origins and history.
   enables developers to build and deploy \textbf{Ðapps}. Ethereum is being
   developed by the Ethereum Foundation and was first discussed by Buterin in
   2013.  Ethereum intends to provide a Blockchain with a built-in programming
-  language that is used to create \textit{Smart contracts}.  \cite{Wood2017}
+  language that is used to create \textit{Smart contracts}~\cite{Wood2017}.
 
   These are used to describe the logic of any system that developers can
   imagine and, when created, can be deployed to the Blockchain where they
   execute as “autonomous agents”.  Thanks to these tools it is safe to say that
   long gone are the days where building Blockchain applications required a
   complex background in coding cryptography, mathematics as well as significant
-  resources.\cite{Wood2017,BlockGeeks2017}
+  resources~\cite{Wood2017,BlockGeeks2017}.
 
   The Ethereum Blockchain is a permissionless Blockchain, and thus, it must
   have a consensus mechanism to ensure the validation process of every record
@@ -99,8 +100,15 @@ origins and history.
   of the Blockchain have different consensus mechanics, in Ethereum’s case, all
   participants have to reach consensus over the order of all transactions that
   have taken place. If a definitive order cannot be established then a
-  double-spend might have occurred and the transaction is rejected.
-  \cite{Wood2017}
+  double-spend~\footnote{Double-spending is a potential flaw in a digital cash
+  scheme in which the same single digital token can be spent more than once.
+  This is possible because a digital token consists of a digital file that can
+  be duplicated or falsified. As with counterfeit money, such double-spending
+  leads to inflation by creating a new amount of fraudulent currency that did
+  not previously exist. This devalues the currency relative to other monetary
+  units, and diminishes user trust as well as the circulation and retention of
+  the currency.} might have occurred and the transaction is
+  rejected~\cite{Wood2017}.
 
   \subsection{Fabric}
 
@@ -109,7 +117,7 @@ origins and history.
   developer-focused community of communities focused on the development of
   enterprise-grade, open-source Blockchain-based solutions.  Fabric is an
   implementation of a Distributed Ledger Platform (\textbf{dlp}) under the
-  Hyperledger umbrella.  \cite{Cachin2016}
+  Hyperledger umbrella~\cite{Cachin2016}.
 
   Hyperledger Fabric’s initial commit was contributed by IBM and written in the
   Go programming language.  It is a permissioned Blockchain and its main design
@@ -122,7 +130,7 @@ origins and history.
   consenter or sometimes multiple roles.  Hyperledger Fabric is intended as a
   foundation for developing applications in a modular fashion, opting for a
   plug-and-play approach to its various components as well as its consensus
-  mechanism. \cite{HyperledgerFabricDocs2017}
+  mechanism~\cite{HyperledgerFabricDocs2017}.
 
   Hyperledger Fabric, as discussed, also allows the creation of smart contracts
   which can be written in Chaincode.  Given that this Blockchain's key
@@ -141,11 +149,11 @@ origins and history.
   part, to the specification of the Ethereum Virtual Machine (\textbf{evm})
   with the client having, essentially, three main components, the consensus
   engine, the permissioned \textbf{evm} and the Remote Procedure Call
-  (\textbf{rpc}) gateway.  \cite{Kuhlman2017,HyperledgerBurrow2017}
+  (\textbf{rpc}) gateway~\cite{Kuhlman2017,HyperledgerBurrow2017}.
 
   Hyperledger Burrow has its own Consensus Engine, the Byzantine fault-tolerant
   Tendermint protocol.  The Tendermint protocol is an open-source effort that
   allows high performance in solving the consensus problem and also has a
   flexible interface for building arbitrary applications above the consensus,
-  as well as, a suite of tools for deployments and their management.
-  \cite{Buchman2016}
+  as well as, a suite of tools for deployments and their
+  management~\cite{Buchman2016}.
