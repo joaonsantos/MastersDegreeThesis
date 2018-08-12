@@ -1,37 +1,62 @@
-\chapter{Blockchain: Overview and Use Cases}
+\chapter{Blockchain: Properties and Use Cases}
 
-This chapter will provide a more in-depth exploration of the Blockchain
-technology purpose and explore its emerging ecosystem as a growing platform to
-solve everyday problems. These Blockchain based systems will be presented,
-including some examples of how it is being used in the Healthcare field. This
-chapter also discusses why, after analyzing the different implementations and
-approaches mentioned in Chapter \ref{background}, the Hyperledger Fabric
-Distributed Ledger Platform (\textbf{dlp}) was chosen to achieve the purpose
-mentioned in Chapter \ref{introduction}.
+The Blockchain, initially used to solve problems in traditional financial
+transactions, has inherent characteristics that, depending on the
+implementation, make it suitable for a variety of use cases. This Chapter will
+provide a more in-depth exploration of the Blockchain technology showing some
+of the considerations that were taken into account, after analyzing the
+alternative implementations previously mentioned in Chapter~\ref{background},
+to choose the Hyperledger Fabric Distributed Ledger Platform (\textbf{dlp}) to
+achieve the purpose mentioned in Chapter~\ref{introduction}. Finally some
+pratical implementations of Blockchain based solutions created to solve
+problems in the Healthcare field or problems managing entities are presented
+that provide context and show the current state of this technology in a
+production environment, providing an overview of both its shortcomings and
+successes thus far.
 
-\section{Trust in the Network}
+\section{Trusting the Network}
 
-Banks used to keep track of their financial transactions writing on a book
-called the ledger. This ledger maintains all the transaction information
-between the bank and other entities. Nowadays the ledger is not a book but some
-form of database that holds the records and has the same function. 
+Blockchain implementations are an emerging structure for distributed computing
+systems, and provide an accurate and unchangeable history of transactions
+written to a publicly available ledger or record, even when there is no trust
+relationship between the parties involved~\cite{Barclay2017}.
+
+Banks used to keep track of their financial transactions by writing on a book
+called the ledger. The ledger would be written on when a new transaction
+occurred, storing all details of the transaction that occurred between the bank
+and other entities. Nowadays the ledger is not a book, instead being a
+centralized database with the same function of recording all the transactions
+that are made.
 
 Imagine the following, Joe is on vacation and needs to borrow money from Jane,
 his wife. Joe calls Jane to ask for some money and Jane tells him it will send
 the money right away. Jane then proceeds to call her account manager in the
 bank to transfer money to Joe. Finally Jane calls Joe to tell him the transfer
-went through. Joe and Jane need to trust the bank to complete this transaction
-and if the bank was ever to be unavailable or the database was corrupted then
-all transactions would fail. 
+went through.  As seen on Figure~\ref{fig:centralizedvsdescentralized} Joe and
+Jane need to use and trust the bank as a middle man in order to complete this
+transaction. If the bank was ever to be unavailable, the database was corrupted
+or if someone with  privileged access to the central database and malicious
+intent was able to intercept the transactions from inside the bank then all
+transactions between Joe and Jane would fail creating additional costs to all
+parties involved. 
 
-To establish trust between two entities a middle-man with a neutral stake must
-be present. The ledger is also the basis of the Blockchain, however this
-technology aims to solve the dependency placed upon third parties and aims to
-make two different entities trust each other through the process of consensus.
-Consensus is a mechanism that appeared as a direct response to this problem,
-estabilishing a set of rules that define if a record on the ledger can be
-trusted or not. To properly define consensus Blockchain network implementations
-must be categorized into two distinct categories.
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=1\linewidth]{imgs/blockchainvscentralizedNetwork.png}
+  \caption{\label{fig:centralizedvsdescentralized} A comparison between a
+  Centralized Banking System and a Distributed Ledger. (Source: Finance \&
+  Development, 2016)}
+\end{figure}
+
+It was for a long time necessary, to establish trust between two entities, a
+middle-man with a neutral stake in the transaction. While the ledger is also at
+the core of the Blockchain, this technology aims to solve the dependency placed
+upon third parties and aims to make two different entities trust each other
+through replication and through a process called consensus.  Consensus is a
+mechanism that estabilishes a set of rules that define if a record on the
+ledger can be trusted or not. In order to properly explain how consensus works
+and why it is of such importance then Blockchain network implementations must
+be categorized into two distinct categories.
 
 \section{Permissionless and Permissioned Networks}
 %TODO
@@ -50,21 +75,21 @@ in 2008, started cooperating in 2011 and in 2016 announced a partnership with
 the Estonian Government, where a million patient records are now secured by the
 strategy and, until today, still proves the resilience of the Blockchain
 technology, as well as, other advances in cryptography.  Now other companies
-like Verizon are becoming interested in this technology for their own purposes.
-\cite{GuardTime2018,EstonianGovernmentGuardTime2016}
+like Verizon are becoming interested in this technology for their own
+purposes~\cite{GuardTime2018,EstonianGovernmentGuardTime2016}.
 
 Another company, Gem, is collaborating with Phillips Healthcare to explore
 options in this area, and is opting to solve the interoperability problem with
 an additional layer of abstraction they call GemOS.  Factom, another
 Blockchain-based service, has also announced a partnership with a major US
 medical services provider
-HealthNautica.\cite{BlockchainCompHealth2017,FactomPartnership2017}
+HealthNautica~\cite{BlockchainCompHealth2017,FactomPartnership2017}.
 
 The use of the Blockchain technology in the health field is expanding. Just
 recently a new platform appeared, called Medichain that allows patients to
 store their own data in a secure way and give anonymized access to this data to
-specialists. Giving data allows for users to gain tokens that represent value.
-\cite{MediChain2018}
+specialists. Giving data allows for users to gain tokens that represent
+value~\cite{MediChain2018}.
 
 \section{Hyperledger Fabric}
 %TODO
