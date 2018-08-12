@@ -15,7 +15,7 @@ interoperability between different organizations. The Health Level 7
 (\textbf{hl7}) standard, being developed by Health Level Seven organization, is
 growing in use and is represented internationally. Health Level Seven Portugal
 is starting its operations and is building a community to support the use of
-this standard in Portugal. \cite{HealthLevel7}
+this standard in Portugal~\cite{HealthLevel7}.
 
 This paper provides an overview into the design and implementation of a
 Blockchain based system for managing the identity of a patient in a Healthcare
@@ -26,9 +26,10 @@ used to handle the patient’s medical identity, for example, in hospitals or
 clinics and would help solve the aforementioned problems in how data is handled
 in the Information Systems available in nowadays regular medical environments.
 
-Blockchain is often known as the technology behind the Bitcoin Cryptocurrency,
-and its main design goal is to provide a higher degree of resiliency,
-transparency and immutability to an agreed upon list of records.
+Blockchain is often known as the technology behind the Bitcoin Cryptocurrency.
+The phenomenon we know as Bitcoin depends on two complementary technologies,
+digital tokens and blockchain, that together facilitate digital identity,
+ownership, contracts, and trust~\cite{Evans2016}.
 
 A Blockchain runs on a network of computers and has a list of records that are
 replicated across the participating peers. Blockchain as we know today was
@@ -37,20 +38,25 @@ Satoshi Nakamoto, a pen name of, a still unknown to this day, individual or
 organization of individuals. The network was implemented in 2009 and many are
 now finding it has a much broader potential across many fields, with some
 implementations even resembling a programming platform to execute code in an
-autonomous manner.  \cite{Nakamoto2008}
+autonomous manner~\cite{Nakamoto2008}.
 
 Traditional databases and architectures can become vulnerable and a target to
 groups of malicious actors that possess the technical expertise to deny
-services with Distributed Denial of Service (\textbf{ddos}) attacks or leak
-sensitive information out of these data repositories. Making matters worse
-other problems spring to mind. The data that forms the identity of a patient is
-often fragmented across multiple Healthcare organizations, in such a way that,
-to get a true overview of the patients history and diagnosis you would need to
-merge together all the pieces of information stored in data systems that are
-hosted in architecturally different and sometimes competing Healthcare
-Information Systems. Transparency is also a concern, as a patient does not
-currently possess the means to track how his medical data is being handled by
-the medical services he used.
+services with Distributed Denial of Service (\textbf{ddos})
+attacks~\footnote[1]{A Distributed Denial of Service (\textbf{ddos}) attack is
+an attempt to make an online service unavailable by overwhelming it with
+traffic from multiple sources.} or cause a data breach~\footnote[2]{A data
+breach is the intentional or unintentional release of secure or
+private/confidential information to an untrusted environment.}. 
+
+Making matters worse other problems spring to mind. The data that forms the
+identity of a patient is often fragmented across multiple Healthcare
+organizations, in such a way that, to get a true overview of the patients
+history and diagnosis you would need to merge together all the pieces of
+information stored in data systems that are hosted in architecturally different
+and sometimes competing Healthcare Information Systems. Transparency is also a
+concern, as a patient does not currently possess the means to track how his
+medical data is being handled by the medical services he used.
 
 As more information becomes available, new insights can be extracted by health
 professionals that lead to an overall improvement of the patients interaction
