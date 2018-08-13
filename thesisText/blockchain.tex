@@ -1,18 +1,18 @@
 \chapter{Blockchain: Properties and Use Cases}
 
-The Blockchain, initially used to solve problems in traditional financial
-transactions, has inherent characteristics that, depending on the
-implementation, make it suitable for a variety of use cases. This Chapter will
-provide a more in-depth exploration of the Blockchain technology showing some
-of the considerations that were taken into account, after analyzing the
-alternative implementations previously mentioned in Chapter~\ref{background},
-to choose the Hyperledger Fabric Distributed Ledger Platform (\textbf{dlp}) to
-achieve the purpose mentioned in Chapter~\ref{introduction}. Finally some
-pratical implementations of Blockchain based solutions created to solve
-problems in the Healthcare field or problems managing entities are presented
-that provide context and show the current state of this technology in a
-production environment, providing an overview of both its shortcomings and
-successes thus far.
+\begin{quote} \emph{"The Blockchain, initially used to solve problems in
+  centralized financial systems, has inherent characteristics that, depending
+  on the implementation, make it suitable for a variety of use cases. This
+  Chapter will provide a more in-depth exploration of the Blockchain technology
+  showing some of the considerations that were taken into account, after
+  analyzing the alternative implementations previously mentioned in
+  Chapter~\ref{background}, to choose the Hyperledger Fabric Distributed Ledger
+  Platform to achieve the purpose mentioned in Chapter~\ref{introduction}.
+  Finally some pratical implementations of Blockchain based solutions created
+  to solve problems in the Healthcare field or problems managing entities are
+  presented that provide context and show the current state of this technology
+  in a production environment, providing an overview of both its shortcomings
+  and successes thus far."} \end{quote}
 
 \section{Trusting the Network}
 
@@ -51,14 +51,32 @@ parties involved.
 It was for a long time necessary, to establish trust between two entities, a
 middle-man with a neutral stake in the transaction. While the ledger is also at
 the core of the Blockchain, this technology aims to solve the dependency placed
-upon third parties and aims to make two different entities trust each other
-through replication and through a process called consensus.  Consensus is a
-mechanism that estabilishes a set of rules that define if a record on the
-ledger can be trusted or not. In order to properly explain how consensus works
-and why it is of such importance then Blockchain network implementations must
-be categorized into two distinct categories.
+upon third parties using decentralization and aims to make two different
+entities trust each other through constant replication and through a process
+called consensus.  Consensus is a mechanism that establishes a set of rules
+that define if a chain of blocks is considered valid or not. In order to
+properly explain how consensus works and why it is of such importance then
+Blockchain network implementations must be categorized into two distinct
+categories.
 
 \section{Permissionless and Permissioned Networks}
+
+As mentioned before, Blockchain was created to solve problems that were
+displayed in centralized financial systems. A centralized system is one that is
+governed by a hierarchical authority; examples of such being banks, credit card
+company’s, etc. If you want to use a Visa card you must request access from
+Visa and be approved. At any time your access to that line of credit and your
+funds may be made unavailable to you and your access permanently revoked
+\cite{Dreifuerst2018}. The problem is that these centralized systems are
+singular in number and therefore easily targetable.
+
+In a decentralized system, all participants work together to keep the network
+corruption free. A decentralized network means that no single node can make a
+decision individually, instead relying on other nodes to approve that change
+and permanently add it to the record list. A decentralized network is a
+subsystem of a distributed network.
+
+
 %TODO
 
 \section{Dealing with Identity Using Blockchain}

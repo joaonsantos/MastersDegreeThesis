@@ -1,85 +1,115 @@
 \chapter{Background}\label{background}
 
-This project aims to design a Blockchain based system to provide a more
-transparent and secure system to identify a patient in Healthcare. While
-Blockchain is not a new concept at this point, it is an evolving technology
-that is being used to solve old problems with new approaches. This chapter will
-briefly explore some implementations of this technology, as well as its origins
-and history.
+
+\begin{quote} \emph{"This project aims to build a Blockchain based system to
+  manage the identity of patients and investigating the suitability of creating
+  such a system in the Healthcare environment according to objective criteria.
+  While Blockchain is not a new concept at this point, it is an evolving
+  technology that is being used to solve old problems with new approaches while
+  at the same time creating new application fields and challenging old
+  conventions and methodologies. This Chapter will provide an overview of this
+  technology and some of its most prominent implementations. Finally, some
+  context is given to how technology has been helping the Healthcare industry
+  to enable better management of their patients identity and how the current
+  information systems of Healthcare establishments handle this task."}
+\end{quote}
 
 \section{Blockchain Technology}
 
-  A Blockchain can be many things. It can refer to the Bitcoin Blockchain,
-  alternative implementations or forks of the Bitcoin Blockchain called
-  Altchains~\cite{Lewis2015}. It can even refer to platforms that allow
-  execution of code in an autonomous manner, exactly as it was programmed, with
-  no human intervention.  A Blockchain is a continuously growing list of
-  records, written in the ledger, a structure where records are written, that
-  is constantly being replicated across a network of peers, in opposition to
+  The concept of Blockchain is abstract. It is a collection of technologies
+  orchestrated to work together. In this sense the concept can be used to refer
+  to the Bitcoin's Blockchain, alternative implementations or even forks of the
+  Bitcoin Blockchain called Altchains~\cite{Lewis2015} that share many
+  characteristics but may have different features and purposes. It can even
+  refer to platforms that allow execution of code in an autonomous manner,
+  exactly as it was programmed, with no human intervention.  A Blockchain is,
+  generally speaking, a continuously growing list of records being written in
+  the ledger, a structure where all records are written and stored, that is
+  constantly being replicated across a network of peers, in opposition to
   having a single central record history, making it a good example of a
   distributed database, thus avoiding having a single central point of failure
   that can be easily targetable~\cite{Barclay2017}.
 
-  The purpose of the Blockchain is to maintain integrity in distributed
-  systems~\cite{Drescher2017}. To fulfill this purpose it uses cryptographic
-  techniques and digital signatures to not only verify the authenticity of
-  records but also as a way to manage read or write access to the network and
-  as proof that a record was written in the ledger.
+  The purpose of a Blockchain is to maintain integrity in a network of
+  distributed systems~\cite{Drescher2017}. To fulfill this purpose it uses
+  cryptographic techniques and digital signatures to not only verify the
+  authenticity of records but also as a way to manage read or write access to
+  the network and as proof that a record was written in the ledger and was
+  never tampered with, creating an immutable history of records, that benefits
+  various use cases as discussed later in this document.
 
-  Unlike a conventional data storage, where only a single entity keeps a copy
-  of the underlying database, making it centralized by design, the ledger of
-  the Blockchain is replicated across any number of participating nodes in the
-  network~\cite{Lewis2015}. In some implementations, not every participant has
-  the same ability to interact with the ledger and in this respect a Blockchain
-  can be permissionless or permissioned. In a permissionless Blockchain every
-  node of the network can write in the ledger whereas in a permissioned
-  Blockchain only a select group of entities have access to writing in the
-  ledger, making the permissioned version, by default, secure if the entities
-  themselves are secure and considered
-  trustworthy~\cite{Lewis2015,Valenta2017}.
+  Unlike a conventional database system running in a server, where only a
+  single entity keeps a copy of the underlying database, making it centralized
+  by design, the ledger of the Blockchain is constantly replicated across any
+  number of participating nodes in the network~\cite{Lewis2015} in a regular
+  cadence defined at the genesis of the network. In some implementations, not
+  every participant has the same ability to interact with the ledger and in
+  this respect a Blockchain can be permissionless or permissioned. Generally
+  speaking, in a permissionless Blockchain every node of the network can write
+  in the ledger whereas in a permissioned Blockchain only a select group of
+  entities have access to writing in the ledger, making the permissioned
+  version, by default secure, if the entities themselves who manage the network
+  are considered secure and trustworthy by the participants in the
+  network~\cite{Lewis2015,Valenta2017}.
 
   But then, how does a permissionless Blockchain maintain security if every
-  participant has access to writing on it, including potentially malicious
-  parties?
+  participant in the network has access to writing on it, including potentially
+  malicious parties?
 
-  Given that participating nodes in the network can belong to different and
-  often competing parties, there is no implied trust between them, so the
+  Given that participating nodes in a public network can belong to different
+  and often competing parties, there is no implied trust between them, so the
   Blockchain needs a mechanism to ensure the integrity of the ledger and
-  prevent malicious meddling from interested parties and avoid having the need
-  for a central authority~\cite{Barclay2017}.  Take for example the Bitcoin
+  prevent malicious meddling from interested parties and avoiding the need for
+  a central authority~\cite{Barclay2017}.  Take for example the Bitcoin
   Blockchain that uses a peer-to-peer network to avoid the requirement of a
   third party being involved in a financial transaction such as a financial
   institution or a middle man, which must be trusted with the details of a
-  transaction and its value to complete a transaction~\cite{Nakamoto2008}.
+  transaction to see it through~\cite{Nakamoto2008}.
 
   Consensus is a mechanism employed by the Blockchain to solve this problem.
   Even though consensus mechanisms can behave vastly different, depending on
-  its implementation and purpose, they are at core, a solution to create
-  immutable records and ensure resiliency.  For example, in the Bitcoin's
-  Blockchain case, consensus is reached by the longest chain rule where the
-  longest chain not only serves as proof of the sequence of events witnessed,
-  but as proof that it came from the largest pool of computing power as it uses
-  a proof of work algorithm that relies on brute force to solve a complex
-  mathematical puzzle~\cite{Baars2016,Wood2017}.
+  its implementation and purpose, they are at the core a solution to create
+  immutability and ensure resiliency by ensuring the majority of the network
+  agrees upon the sequence of events.  For example, in the Bitcoin's Blockchain
+  case, consensus is reached by the longest chain rule where the longest chain
+  of blocks not only serves as proof of the sequence of events witnessed, but
+  as proof that it came from the largest pool of computing power, as it uses a
+  proof of work (\textbf{pow}) algorithm that relies on brute force to solve a
+  complex mathematical puzzle, making the longest chain of blocks the one with
+  the most computing power behind it and therefore agreed upon by the majority
+  of the network~\cite{Baars2016,Wood2017} making it the most likely to be the
+  one that represents the sequence of events witnessed.
 
   While the Blockchain, we now know today, was conceptualized as the public
   ledger for the Bitcoin cryptocurrency in 2008 by Satoshi Nakamoto and
   implemented in 2009, many are now using it as a foundation across many
-  application areas such as identity management, traceability and asset
-  management~\cite{MIT2016}. Thanks to the roaring success of Bitcoin and the
-  increasingly apparent use cases that the Blockchain can provide, the public
-  and the various industries interest in this technological advance is rising
-  and it is quickly becoming a technological foundation in our economic and
-  social systems~\cite{Zago2018, Marr2018,Long2018}.
+  application areas such as traceability and asset management~\cite{MIT2016}.
+  Thanks to the roaring success of Bitcoin and the increasingly apparent use
+  cases that the Blockchain can provide, the public and the various industries
+  interest in this technological advance is rising and it is quickly becoming a
+  technological foundation in our economic and social systems~\cite{Zago2018,
+  Marr2018,Long2018}.
 
   \subsection{Ethereum}
 
   Due to Bitcoin getting extensive media coverage, the average public awareness
-  in cryptocurrencies is rising~\cite{BitAwareness2017}. While there are some
-  people considering cryptocurrencies and the Blockchain to be essentially the
-  same technology, Blockchain has evolved to be capable of being a platform
-  that can be developed on to create Decentralized Applications
-  (\textbf{Ðapps})
+  in cryptocurrencies is shown to be rising~\cite{BitAwareness2017}. While
+  Blockchain is used as a means to increase the resiliency of the Bitcoin
+  cryptocurrency from malicious parties, a token is used to represent the coin. 
+  
+  Just like a Dollar it has no value by itself, it has value only because we
+  agree to trade goods and services in exchange for a higher amount of the
+  currency under our control and we believe others will do the same
+  \cite{aliessi2016}. Through the years Blockchain has evolved to be capable of
+  being an independent development platform using the token as a means to
+  reward those who maintain the consensus by spending electricity and
+  computation power in the network. In some networks like Ethereum one can
+  build upon the network to create Decentralized Applications (\textbf{Ðapps})
+  that allow logic to be executed in an autonomous manner~\cite{Wood2017}. 
+  
+  In the same manner that the Bitcoin Blockchain can be seen as an adding
+  machine, the Ethereum Blockchain can be seen as a computer able to execute
+  programs designed for it~\cite{Wood2015}.
 
   Ethereum is an open-source platform based on the Blockchain technology that
   enables developers to build and deploy \textbf{Ðapps}. Ethereum is being
@@ -157,3 +187,36 @@ and history.
   flexible interface for building arbitrary applications above the consensus,
   as well as, a suite of tools for deployments and their
   management~\cite{Buchman2016}.
+  
+  \section{Identity in Healthcare}
+  
+  Originally records of a patient were stored in paper, a physical format.
+  Thanks to the advent of the computers more and more records are stored on a
+  digital format and the Electronic Health Record (EHR) was created.
+  \cite{Marquez2017}  This benefits handling of information between the patient
+  and the medical professionals and medical
+  institutions.\cite{ONCoordinator2017} But first we must discuss what is
+  defined as identity in this specific case.
+  
+  Identity is a construct that depends on the context.  Identity can be defined
+  as the characteristics determining who or what a person is.  In this paper we
+  define identity as the set of characteristics that determine who is the
+  patient in the given Healthcare ecosystem they belong to, such as, the name,
+  the age, the cellphone number, the gender and the birth date of the patient.
+  Electronic Health Records encapsulate this information in digital format,
+  however, they are usually represented in a format according to the
+  Information System they were designed to work with.
+  
+  To enable interoperability, standards for EHRs were created and many failed
+  to bring the much needed consensus that was required for interoperability
+  between different Information Systems in different institutions.
+  \cite{Eichelberg2006} Health Level 7 has done much work to be recognized in
+  many countries and is quickly being implemented in many countries to allow
+  for joint efforts between organizations. \cite{HL7Anual2016}
+  
+  Even with these advances in mind, the nature of many clinics and hospitals
+  Information Systems makes the management of their patients identity a very
+  cumbersome, costly and risky affair to handle.  Security in a connected age,
+  where internet is easily available, is lagging behind and presenting some
+  problems.  There is also the question of transparent use of information by
+  the organizations that store it.
