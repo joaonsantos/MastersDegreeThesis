@@ -1,4 +1,4 @@
-\chapter{Blockchain: Properties and Use Cases}
+\chapter{Blockchain: A Practical Overview and Use Cases}
 
 \begin{quote} \emph{"The Blockchain, initially used to solve problems in
   centralized financial systems, has inherent characteristics that, depending
@@ -17,15 +17,14 @@
 \section{Trusting the Network}
 
 Blockchain implementations are an emerging structure for distributed computing
-systems, and provide an accurate and unchangeable history of transactions
+systems that provide an accurate and unchangeable history of transactions
 written to a publicly available ledger or record, even when there is no trust
 relationship between the parties involved~\cite{Barclay2017}.
 
 Banks used to keep track of their financial transactions by writing on a book
 called the ledger. The ledger would be written on when a new transaction
-occurred, storing all details of the transaction that occurred between the bank
-and other entities. Nowadays the ledger is not a book, instead being a
-centralized database with the same function of recording all the transactions
+occurred, storing all details of the transactions that occurred between the bank
+and other entities. Nowadays the ledger is not a book, instead being database storing information in a server, with the same function of recording all the transactions
 that are made.
 
 Imagine the following, Joe is on vacation and needs to borrow money from Jane,
@@ -54,35 +53,45 @@ the core of the Blockchain, this technology aims to solve the dependency placed
 upon third parties using decentralization and aims to make two different
 entities trust each other through constant replication and through a process
 called consensus.  Consensus is a mechanism that establishes a set of rules
-that define if a chain of blocks is considered valid or not. In order to
-properly explain how consensus works and why it is of such importance then
-Blockchain network implementations must be categorized into two distinct
+that define if a chain of blocks is considered valid or not and depending on the Blockchain implementation works in a different manner. With this in mind, Blockchain implementations can be categorized into two distinct
 categories.
 
-\section{Permissionless and Permissioned Networks}
+\section{Permissionless and Permissioned Blockchain Implementations}
 
-As mentioned in this Chapter, Blockchain was created to solve problems that were
-displayed in centralized financial systems. A centralized system is one that is
+There are three types of systems in computing, as seen on Figure \ref{fig:typesofnetworks}. Each has their own advantages and disadvantages, each suiting a specific use case. As previously mentioned in this Chapter, Blockchain was created out of a desire to solve problems that are
+displayed in the centralized financial systems that society is currently based upon.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=1\linewidth]{imgs/typesofnetworks.png}
+	\caption{\label{fig:typesofnetworks} A comparison between different types of networks. (Source: Eric Grange, 2016)}
+\end{figure}
+
+Put simply, a centralized system is one that is
 governed by a hierarchical authority; examples of such being banks, credit card
 company’s, etc. If you want to use a Visa card you must request access from
 Visa and be approved. At any time your access to that line of credit and your
-funds may be made unavailable to you and your access permanently revoked
-\cite{Dreifuerst2018}. The problem is that these centralized systems are
-singular in number and therefore easily targetable.
+funds may be made unavailable to you and your access permanently revoked~\cite{Dreifuerst2018}.
 
-In a decentralized network, participants work together to keep the network
-corruption free. A decentralized network means that no single node can make a
-decision individually, instead relying on other nodes to approve that change
-and permanently add it to the record list. A decentralized network is a
-subset of a distributed network.
+In contrast, distributed systems are based upon the philosophy that processing is shared across multiple nodes even if the decisions themselves may still be  centralized and use complete system state knowledge of the network. Finally, a decentralized system is one where no single node can make a
+decision individually, instead relying on the other participants to reach an agreement and make a decision, as no single node has a complete system state knowledge. With this in mind, a decentralized system is seen as a subset of a distributed system.
 
+A Blockchain is distributed by nature but internally how the system handles the distributed nature creates two major implementation categories.
+
+Permisionless Blockchain implementations, like the Bitcoin's and Ethereum's Blockchain for example, have no barrier to entry. This means that anyone can, in theory, participate in the network, write into it as a result of mining and store data in the ledger. Permisionless implementations have some strengths; such as being completely open, transactions are transparent while offering anonymity or pseudo-anonymity and also take away the need for system administrators or central servers since the network is based on peer-to-peer, creating reduced costs to maintain and deploy \textbf{Ðapps}. On the other hand, they are slow because every node must participate in consensus, they operate without clear legal rules and are trust-free, meaning that no one is really responsible if some bugs or corruption happened to cause damages to systems based on this implementation.
+
+Permisionless Blockchains were the first to appear and while some industries saw benefits in using the technology, some saw drawbacks to using it in enterprise-grade systems~\cite{Gopinath2016}.
+
+The permissioned variant of this technology has some clear advantages for enterprise and commercial industries; it is faster because consensus is done by a set of nodes instead of the entire network, can fall on legal back on the legal system because it features an identity service and are immediately trustworthy if the entities that manage the network are considered themselves trustworthy because it is auditable and there is a legal responsible entity or entities that manage the network. However, costs when compared to the permissionless variant are higher due to having the need for a system administrator and servers to manage the network, feature a private membership meaning that they are closed to the general public and managed by a set of entities and are a compromise between the original vision of a distributed network and enterprise needs and concerns. 
+
+With these two variants in mind, Section~\ref{choosingHyperledger} provides an insight into the characterists deemed important to achieve the estabilished purposes that this project set out to achieve and explains the decision processes behind the choice of a permissioned implementation of the Blockchain technology being used to build a system for managing patients in Healthcare. In Section~\ref{blockchainHealthcare} some previous blockchain based solution in the Healthcare context are analyzed to take away key learnings that may be used to improve or be aware of in designing the system.
 
 %TODO
 
-\section{Dealing with Identity Using Blockchain}
+\section{Dealing with Identity Using Blockchain}\label{choosingHyperledger}
 %TODO
 
-\section{Blockchain Applied to Healthcare}
+\section{Blockchain Applied to Healthcare}\label{blockchainHealthcare}
 
 Some companies have already started developing Blockchain applications in the
 Healthcare field and established some key partnerships.
