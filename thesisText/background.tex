@@ -16,69 +16,69 @@
 
 \section{Blockchain Technology}
 
-The concept of Blockchain is abstract. It is a collection of technologies
-orchestrated to work together. In this sense the concept can be used to refer
-to the Bitcoin's Blockchain, alternative implementations or even forks of the
-Bitcoin Blockchain called Altchains~\cite{Lewis2015} that share many
-characteristics but may have different features and purposes. It can even
-refer to platforms that allow execution of code in an autonomous manner,
-exactly as it was programmed, with no human intervention.  A Blockchain is,
-generally speaking, a continuously growing list of records being written in
-the ledger, a structure where all records are written and stored, that is
-constantly being replicated across a network of peers, in opposition to
-having a single central record history, making it a good example of a
-distributed database, thus avoiding having a single central point of failure
-that can be easily targetable~\cite{Barclay2017}.
+Blockchain is an abstract concept, being a collection of cryptographic and
+network technologies orchestrated. The concept can be used to refer to the
+Bitcoin's Blockchain, refer to forks of the Bitcoin's Blockchain called
+Altchains~\cite{Lewis2015} that share many characteristics but may have
+different features and purposes and even alternative implementations of the
+technology. Some of these result in platforms that allow execution of code in
+an autonomous manner, exactly as it was programmed, with no human intervention.
+A Blockchain is, generally speaking, a continuously growing list of records
+being written in the ledger, a structure where all records are written and
+stored, that is constantly being replicated across a network of peers, in
+opposition to having a single central record history, making it a good example
+of a distributed database, thus avoiding having a single central point of
+failure that can be easily targetable~\cite{Barclay2017}.
 
 The purpose of a Blockchain is to maintain integrity in a network of
 distributed systems~\cite{Drescher2017}. To fulfill this purpose it uses
 cryptographic techniques and digital signatures to not only verify the
-authenticity of records but also as a way to manage read or write access to
-the network and as proof that a record was written in the ledger and was
-never tampered with, creating an immutable history of records, that benefits
-various use cases as discussed later in this document.
+authenticity of records but also as a way to manage read or write access to the
+network and as proof that a record was written in the ledger and was never
+tampered with, creating an immutable history of records, that benefits various
+use cases as discussed later in this document.
 
-Unlike a conventional database system running in a server, where only a
-single entity keeps a copy of the underlying database, making it centralized
-by design, the ledger of the Blockchain is constantly replicated across any
-number of participating nodes in the network~\cite{Lewis2015} in a regular
-cadence defined at the genesis of the network. In some implementations, not
-every participant has the same ability to interact with the ledger and in
-this respect a Blockchain can be permissionless or permissioned. Generally
-speaking, in a permissionless Blockchain every node of the network can write
-in the ledger whereas in a permissioned Blockchain only a select group of
-entities have access to writing in the ledger, making the permissioned
-version, by default secure, if the entities themselves who manage the network
-are considered secure and trustworthy by the participants in the
+Unlike a conventional database system running in a server, where only a single
+entity keeps a copy of the underlying database, making it centralized by
+design, the ledger of the Blockchain is constantly replicated across any number
+of participating nodes in the network~\cite{Lewis2015} in a regular cadence
+defined at the genesis of the network. In some implementations, not every
+participant has the same ability to interact with the ledger and in this
+respect a Blockchain can be permissionless or permissioned. Generally speaking,
+in a permissionless Blockchain every node of the network can write in the
+ledger whereas in a permissioned Blockchain only a select group of entities
+have access to writing in the ledger, making the permissioned version, by
+default secure, if the entities themselves who manage the network are
+considered secure and trustworthy by the participants in the
 network~\cite{Lewis2015,Valenta2017}.
 
 But then, how does a permissionless Blockchain maintain security if every
 participant in the network has access to writing on it, including potentially
 malicious parties?
 
-Given that participating nodes in a public network can belong to different
-and often competing parties, there is no implied trust between them, so the
-Blockchain needs a mechanism to ensure the integrity of the ledger and
-prevent malicious meddling from interested parties and avoiding the need for
-a central authority~\cite{Barclay2017}.  Take for example the Bitcoin
-Blockchain that uses a peer-to-peer network to avoid the requirement of a
-third party being involved in a financial transaction such as a financial
-institution or a middle man, which must be trusted with the details of a
-transaction to see it through~\cite{Nakamoto2008}.
+Given that participating nodes in a public network can belong to different and
+often competing parties, there is no implied trust between them, so the
+Blockchain needs a mechanism to ensure the integrity of the ledger and prevent
+malicious meddling from interested parties and avoiding the need for a central
+authority~\cite{Barclay2017}.  Take for example the Bitcoin Blockchain that
+uses a peer-to-peer network to avoid the requirement of a third party being
+involved in a financial transaction such as a financial institution or a middle
+man, which must be trusted with the details of a transaction to see it
+through~\cite{Nakamoto2008}.
 
 Consensus is a mechanism employed by the Blockchain to solve this problem.
-Even though consensus mechanisms can behave vastly different, depending on
-its implementation and purpose, they are at the core a solution to create
+Even though consensus mechanisms can behave vastly different, depending on its
+implementation and purpose, they are at the core a solution to create
 immutability and ensure resiliency by ensuring the majority of the network
 agrees upon the sequence of events.  For example, in the Bitcoin's Blockchain
-case, consensus is reached by the longest chain rule where the longest chain
-of blocks not only serves as proof of the sequence of events witnessed, but
-as proof that it came from the largest pool of computing power, as it uses a
-proof of work (\textbf{pow}) algorithm that relies on brute force to solve a
-complex mathematical puzzle, making the longest chain of blocks the one with
-the most computing power behind it and therefore agreed upon by the majority
-of the network~\cite{Baars2016,Wood2017} making it the most likely to be the
-one that represents the sequence of events witnessed.
+case, consensus is reached by the longest chain rule where the longest chain of
+blocks not only serves as proof of the sequence of events witnessed, but as
+proof that it came from the largest pool of computing power, as it uses a proof
+of work (\textbf{pow}) algorithm that relies on brute force to solve a complex
+mathematical puzzle, making the longest chain of blocks the one with the most
+computing power behind it and therefore agreed upon by the majority of the
+network~\cite{Baars2016,Wood2017} making it the most likely to be the one that
+represents the sequence of events witnessed.
 
 While the Blockchain, we now know today, was conceptualized as the public
 ledger for the Bitcoin cryptocurrency in 2008 by Satoshi Nakamoto and
@@ -101,11 +101,11 @@ Just like a Dollar it has no value by itself, it has value only because we
 agree to trade goods and services in exchange for a higher amount of the
 currency under our control and we believe others will do the same
 \cite{aliessi2016}. Through the years Blockchain has evolved to be capable of
-being an independent development platform using the token as a means to
-reward those who maintain the consensus by spending electricity and
-computation power in the network. In some networks like Ethereum one can
-build upon the network to create Decentralized Applications (\textbf{Ðapps})
-that allow logic to be executed in an autonomous manner~\cite{Wood2017}. 
+being an independent development platform using the token as a means to reward
+those who maintain the consensus by spending electricity and computation power
+in the network. In some networks like Ethereum one can build upon the network
+to create Decentralized Applications (\textbf{Ðapps}) that allow logic to be
+executed in an autonomous manner~\cite{Wood2017}. 
 
 In the same manner that the Bitcoin Blockchain can be seen as an adding
 machine, the Ethereum Blockchain can be seen as a computer able to execute
@@ -117,37 +117,36 @@ developed by the Ethereum Foundation and was first discussed by Buterin in
 2013.  Ethereum intends to provide a Blockchain with a built-in programming
 language that is used to create \textit{Smart contracts}~\cite{Wood2017}.
 
-These are used to describe the logic of any system that developers can
-imagine and, when created, can be deployed to the Blockchain where they
-execute as “autonomous agents”.  Thanks to these tools it is safe to say that
-long gone are the days where building Blockchain applications required a
-complex background in coding cryptography, mathematics as well as significant
+These are used to describe the logic of any system that developers can imagine
+and, when created, can be deployed to the Blockchain where they execute as
+“autonomous agents”.  Thanks to these tools it is safe to say that long gone
+are the days where building Blockchain applications required a complex
+background in coding cryptography, mathematics as well as significant
 resources~\cite{Wood2017,BlockGeeks2017}.
 
-The Ethereum Blockchain is a permissionless Blockchain, and thus, it must
-have a consensus mechanism to ensure the validation process of every record
-and, in turn, ensure resiliency and immutability. While other implementations
-of the Blockchain have different consensus mechanics, in Ethereum’s case, all
+The Ethereum Blockchain is a permissionless Blockchain, and thus, it must have
+a consensus mechanism to ensure the validation process of every record and, in
+turn, ensure resiliency and immutability. While other implementations of the
+Blockchain have different consensus mechanics, in Ethereum’s case, all
 participants have to reach consensus over the order of all transactions that
 have taken place. If a definitive order cannot be established then a
 double-spend~\footnote{Double-spending is a potential flaw in a digital cash
 scheme in which the same single digital token can be spent more than once.
-This is possible because a digital token consists of a digital file that can
-be duplicated or falsified. As with counterfeit money, such double-spending
-leads to inflation by creating a new amount of fraudulent currency that did
-not previously exist. This devalues the currency relative to other monetary
-units, and diminishes user trust as well as the circulation and retention of
-the currency.} might have occurred and the transaction is
-rejected~\cite{Wood2017}.
+This is possible because a digital token consists of a digital file that can be
+duplicated or falsified. As with counterfeit money, such double-spending leads
+to inflation by creating a new amount of fraudulent currency that did not
+previously exist. This devalues the currency relative to other monetary units,
+and diminishes user trust as well as the circulation and retention of the
+currency.} might have occurred and the transaction is rejected~\cite{Wood2017}.
 
 \subsection{Fabric}
 
-Hyperledger Fabric (\textbf{hlf}) is part of the Hyperledger project started
-in December 2015 by the Linux Foundation, and is an open-source
-developer-focused community of communities focused on the development of
-enterprise-grade, open-source Blockchain-based solutions.  Fabric is an
-implementation of a Distributed Ledger Platform (\textbf{dlp}) under the
-Hyperledger umbrella~\cite{Cachin2016}.
+Hyperledger Fabric (\textbf{hlf}) is part of the Hyperledger project started in
+December 2015 by the Linux Foundation, and is an open-source developer-focused
+community of communities focused on the development of enterprise-grade,
+open-source Blockchain-based solutions.  Fabric is an implementation of a
+Distributed Ledger Platform (\textbf{dlp}) under the Hyperledger
+umbrella~\cite{Cachin2016}.
 
 Hyperledger Fabric’s initial commit was contributed by IBM and written in the
 Go programming language.  It is a permissioned Blockchain and its main design
@@ -155,20 +154,20 @@ goal was to surpass previous Blockchain implementation limitations, such as,
 lack of true private transactions and confidential contracts.
 
 These goals are achieved thanks to assigning peers in the network three
-distinct roles and by offering the ability to create channels each with its
-own private ledger.  A peer can have the role of endorser, committer or
-consenter or sometimes multiple roles.  Hyperledger Fabric is intended as a
-foundation for developing applications in a modular fashion, opting for a
-plug-and-play approach to its various components as well as its consensus
+distinct roles and by offering the ability to create channels each with its own
+private ledger.  A peer can have the role of endorser, committer or consenter
+or sometimes multiple roles.  Hyperledger Fabric is intended as a foundation
+for developing applications in a modular fashion, opting for a plug-and-play
+approach to its various components as well as its consensus
 mechanism~\cite{HyperledgerFabricDocs2017}.
 
 Hyperledger Fabric, as discussed, also allows the creation of smart contracts
 which can be written in Chaincode.  Given that this Blockchain's key
 operational requirement is privacy, featuring true private transactions and
 confidential contracts, it makes this technology a great asset for a business
-environment where sensitive information must be handled with care and
-disclosed on a case by case basis.  Thanks to its modular approach consensus
-protocols are no longer hard-coded and trust models can be repurposed.
+environment where sensitive information must be handled with care and disclosed
+on a case by case basis.  Thanks to its modular approach consensus protocols
+are no longer hard-coded and trust models can be repurposed.
 
 \subsection{Burrow}
 
@@ -176,16 +175,16 @@ Hyperledger Burrow (\textbf{hlb}) is also part of the Hyperledger project and
 its development started in 2014 by Monax and sponsored by Intel. It is a
 permissionable smart contract machine written in Go and offers a modular
 Blockchain client with a permissioned smart contract interpreter built, in
-part, to the specification of the Ethereum Virtual Machine (\textbf{evm})
-with the client having, essentially, three main components, the consensus
-engine, the permissioned \textbf{evm} and the Remote Procedure Call
-(\textbf{rpc}) gateway~\cite{Kuhlman2017,HyperledgerBurrow2017}.
+part, to the specification of the Ethereum Virtual Machine (\textbf{evm}) with
+the client having, essentially, three main components, the consensus engine,
+the permissioned \textbf{evm} and the Remote Procedure Call (\textbf{rpc})
+gateway~\cite{Kuhlman2017,HyperledgerBurrow2017}.
 
 Hyperledger Burrow has its own Consensus Engine, the Byzantine fault-tolerant
 Tendermint protocol.  The Tendermint protocol is an open-source effort that
 allows high performance in solving the consensus problem and also has a
-flexible interface for building arbitrary applications above the consensus,
-as well as, a suite of tools for deployments and their
+flexible interface for building arbitrary applications above the consensus, as
+well as, a suite of tools for deployments and their
 management~\cite{Buchman2016}.
 
 \section{Identity in Healthcare}
@@ -194,29 +193,28 @@ Originally records of a patient were stored in paper, a physical format.
 Thanks to the advent of the computers more and more records are stored on a
 digital format and the Electronic Health Record (EHR) was created.
 \cite{Marquez2017}  This benefits handling of information between the patient
-and the medical professionals and medical
-institutions.\cite{ONCoordinator2017} But first we must discuss what is
-defined as identity in this specific case.
+and the medical professionals and medical institutions.\cite{ONCoordinator2017}
+But first we must discuss what is defined as identity in this specific case.
 
 Identity is a construct that depends on the context.  Identity can be defined
 as the characteristics determining who or what a person is.  In this paper we
-define identity as the set of characteristics that determine who is the
-patient in the given Healthcare ecosystem they belong to, such as, the name,
-the age, the cellphone number, the gender and the birth date of the patient.
-Electronic Health Records encapsulate this information in digital format,
-however, they are usually represented in a format according to the
-Information System they were designed to work with.
+define identity as the set of characteristics that determine who is the patient
+in the given Healthcare ecosystem they belong to, such as, the name, the age,
+the cellphone number, the gender and the birth date of the patient.  Electronic
+Health Records encapsulate this information in digital format, however, they
+are usually represented in a format according to the Information System they
+were designed to work with.
 
-To enable interoperability, standards for EHRs were created and many failed
-to bring the much needed consensus that was required for interoperability
-between different Information Systems in different institutions.
-\cite{Eichelberg2006} Health Level 7 has done much work to be recognized in
-many countries and is quickly being implemented in many countries to allow
-for joint efforts between organizations. \cite{HL7Anual2016}
+To enable interoperability, standards for EHRs were created and many failed to
+bring the much needed consensus that was required for interoperability between
+different Information Systems in different institutions.  \cite{Eichelberg2006}
+Health Level 7 has done much work to be recognized in many countries and is
+quickly being implemented in many countries to allow for joint efforts between
+organizations. \cite{HL7Anual2016}
 
 Even with these advances in mind, the nature of many clinics and hospitals
 Information Systems makes the management of their patients identity a very
 cumbersome, costly and risky affair to handle.  Security in a connected age,
 where internet is easily available, is lagging behind and presenting some
-problems.  There is also the question of transparent use of information by
-the organizations that store it.
+problems.  There is also the question of transparent use of information by the
+organizations that store it.

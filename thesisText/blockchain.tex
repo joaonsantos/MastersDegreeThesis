@@ -10,11 +10,11 @@
   Platform to achieve the purpose mentioned in Chapter~\ref{introduction}.
   Finally some pratical implementations of Blockchain based solutions created
   to solve problems in the Healthcare field or problems managing entities are
-  presented that provide context and show the current state of this technology
-  in a production environment, providing an overview of both its shortcomings
-  and successes thus far."} \end{quote}
+presented that provide context and show the current state of this technology in
+a production environment, providing an overview of both its shortcomings and
+successes thus far."} \end{quote}
 
-\section{Trusting the Network}
+\section{Trust in a Network}
 
 Blockchain implementations are an emerging structure for distributed computing
 systems that provide an accurate and unchangeable history of transactions
@@ -23,9 +23,10 @@ relationship between the parties involved~\cite{Barclay2017}.
 
 Banks used to keep track of their financial transactions by writing on a book
 called the ledger. The ledger would be written on when a new transaction
-occurred, storing all details of the transactions that occurred between the bank
-and other entities. Nowadays the ledger is not a book, instead being database storing information in a server, with the same function of recording all the transactions
-that are made.
+occurred, storing all details of the transactions that occurred between the
+bank and other entities. Nowadays the ledger is not a book, instead being
+database storing information in a server, with the same function of recording
+all the transactions that are made.
 
 Imagine the following, Joe is on vacation and needs to borrow money from Jane,
 his wife. Joe calls Jane to ask for some money and Jane tells him it will send
@@ -53,43 +54,126 @@ the core of the Blockchain, this technology aims to solve the dependency placed
 upon third parties using decentralization and aims to make two different
 entities trust each other through constant replication and through a process
 called consensus.  Consensus is a mechanism that establishes a set of rules
-that define if a chain of blocks is considered valid or not and depending on the Blockchain implementation works in a different manner. With this in mind, Blockchain implementations can be categorized into two distinct
-categories.
+that define if a chain of blocks is considered valid or not and depending on
+the Blockchain implementation works in a different manner. With this in mind,
+Blockchain implementations can be categorized into two distinct categories.
 
 \section{Permissionless and Permissioned Blockchain Implementations}
 
-There are three types of systems in computing, as seen on Figure \ref{fig:typesofnetworks}. Each has their own advantages and disadvantages, each suiting a specific use case. As previously mentioned in this Chapter, Blockchain was created out of a desire to solve problems that are
-displayed in the centralized financial systems that society is currently based upon.
+There are three types of systems in computing, as seen on Figure
+\ref{fig:typesofnetworks}. Each has their own advantages and disadvantages,
+each suiting a specific use case. As previously mentioned in this Chapter,
+Blockchain was created out of a desire to solve problems that are displayed in
+the centralized financial systems that society is currently based upon.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=1\linewidth]{imgs/typesofnetworks.png}
-	\caption{\label{fig:typesofnetworks} A comparison between different types of networks. (Source: Eric Grange, 2016)}
+  \caption{\label{fig:typesofnetworks} A comparison between different types of
+  networks. (Source: Eric Grange, 2016)}
 \end{figure}
 
-Put simply, a centralized system is one that is
-governed by a hierarchical authority; examples of such being banks, credit card
-company’s, etc. If you want to use a Visa card you must request access from
-Visa and be approved. At any time your access to that line of credit and your
-funds may be made unavailable to you and your access permanently revoked~\cite{Dreifuerst2018}.
+Put simply, a centralized system is one that is governed by a hierarchical
+authority; examples of such being banks, credit card company’s, etc. If you
+want to use a Visa card you must request access from Visa and be approved. At
+any time your access to that line of credit and your funds may be made
+unavailable to you and your access permanently revoked~\cite{Dreifuerst2018}.
 
-In contrast, distributed systems are based upon the philosophy that processing is shared across multiple nodes even if the decisions themselves may still be  centralized and use complete system state knowledge of the network. Finally, a decentralized system is one where no single node can make a
-decision individually, instead relying on the other participants to reach an agreement and make a decision, as no single node has a complete system state knowledge. With this in mind, a decentralized system is seen as a subset of a distributed system.
+In contrast, distributed systems are based upon the philosophy that processing
+is shared across multiple nodes even if the decisions themselves may still be
+centralized and use complete system state knowledge of the network. Finally, a
+decentralized system is one where no single node can make a decision
+individually, instead relying on the other participants to reach an agreement
+and make a decision, as no single node has a complete system state knowledge.
+With this in mind, a decentralized system is seen as a subset of a distributed
+system.
 
-A Blockchain is distributed by nature but internally how the system handles the distributed nature creates two major implementation categories.
+A Blockchain is distributed by nature but internally how the system handles the
+distributed nature creates two major implementation categories.
 
-Permisionless Blockchain implementations, like the Bitcoin's and Ethereum's Blockchain for example, have no barrier to entry. This means that anyone can, in theory, participate in the network, write into it as a result of mining and store data in the ledger. Permisionless implementations have some strengths; such as being completely open, transactions are transparent while offering anonymity or pseudo-anonymity and also take away the need for system administrators or central servers since the network is based on peer-to-peer, creating reduced costs to maintain and deploy \textbf{Ðapps}. On the other hand, they are slow because every node must participate in consensus, they operate without clear legal rules and are trust-free, meaning that no one is really responsible if some bugs or corruption happened to cause damages to systems based on this implementation.
+Permisionless Blockchain implementations, like the Bitcoin's and Ethereum's
+Blockchain for example, have no barrier to entry. This means that anyone can,
+in theory, participate in the network, write into it as a result of mining and
+store data in the ledger. Permisionless implementations have some strengths;
+such as being completely open, transactions are transparent while offering
+anonymity or pseudo-anonymity and also take away the need for system
+administrators or central servers since the network is based on peer-to-peer,
+creating reduced costs to maintain and deploy \textbf{Ðapps}. On the other
+hand, they are slow because every node must participate in consensus, they
+operate without clear legal rules and are trust-free, meaning that no one is
+really responsible if some bugs or corruption happened to cause damages to
+systems based on this implementation.
 
-Permisionless Blockchains were the first to appear and while some industries saw benefits in using the technology, some saw drawbacks to using it in enterprise-grade systems~\cite{Gopinath2016}.
+Permisionless Blockchains were the first to appear and while some industries
+saw benefits in using the technology, some saw drawbacks to using it in
+enterprise-grade systems~\cite{Gopinath2016}.
 
-The permissioned variant of this technology has some clear advantages for enterprise and commercial industries; it is faster because consensus is done by a set of nodes instead of the entire network, can fall on legal back on the legal system because it features an identity service and are immediately trustworthy if the entities that manage the network are considered themselves trustworthy because it is auditable and there is a legal responsible entity or entities that manage the network. However, costs when compared to the permissionless variant are higher due to having the need for a system administrator and servers to manage the network, feature a private membership meaning that they are closed to the general public and managed by a set of entities and are a compromise between the original vision of a distributed network and enterprise needs and concerns. 
+The permissioned variant of this technology has some clear advantages for
+enterprise; it is faster because consensus is done by a set of nodes instead of
+the entire network, can fall on legal back on the legal system because it
+features an identity service and is immediately trustworthy if the entities
+that manage the network are considered themselves trustworthy because it is
+auditable and there is a legal responsible entity or entities that manage the
+network. However, costs when compared to the permissionless variant are higher
+due to having the need for a system administrator and servers to manage the
+network, feature a private membership meaning that they are closed to the
+general public and managed by a set of entities and are a compromise between
+the original vision of a distributed network and enterprise needs and concerns. 
 
-With these two variants in mind, Section~\ref{choosingHyperledger} provides an insight into the characterists deemed important to achieve the estabilished purposes that this project set out to achieve and explains the decision processes behind the choice of a permissioned implementation of the Blockchain technology being used to build a system for managing patients in Healthcare. In Section~\ref{blockchainHealthcare} some previous blockchain based solution in the Healthcare context are analyzed to take away key learnings that may be used to improve or be aware of in designing the system.
+Enterprises benefit greatly from the immutability of the Blockchain
+architecture, in that all records cannot be changed. By adding authorised
+identity services onto Blockchain, they can meet the regulatory needs of their
+industries, by allowing the network to be auditable and assets to be traceable,
+falling back to laws if a dispute between participating entities
+occurs~\cite{Barclay2017}.
+
+With these two variants in mind, Section~\ref{choosingHyperledger} provides an
+insight into the characterists deemed important to achieve the estabilished
+purposes that this project set out to achieve and explains the decision
+processes behind the choice of a permissioned implementation of the Blockchain
+technology being used to build a system for managing patients in Healthcare. In
+Section~\ref{blockchainHealthcare} some previous Blockchain based solutions in
+the Healthcare context are analyzed to take away key learnings that may be used
+to improve or be aware of in designing the system.
+
+\section{Starting Blocks and System Requirements}\label{choosingHyperledger}
+
+After considering the project goals of investigating the suitability of a
+Blockchain based system to manage patients in Healthcare, it was decided to
+build a prototype of a system that would represent the network, albeit on a
+smaller scale. The insights gained from developing a simple working system
+would enable benefits and risks of the approach to be identified, and
+opportunities for further research to be laid out.
+
+The requirements for this project are deemed to be as follows:
+
+\renewcommand{\labelenumi}{\Roman{enumi}.}
+\begin{enumerate}
+  \item The system must allow a patient to opt into the network securely.
+  \item The system must allow a patient to record his medical data under the
+    approval of an administrator.
+  \item The system must keep information confidential, transparent and have
+    high availability.
+  \item The system must provide the patient with the ability to share his data
+    with another entity participating in the network, for example sharing
+    information with a doctor.
+  \item The system must allow data  of patient to be erased in some manner if
+    he wishes so, in order to comply with European privacy laws.
+\end{enumerate}
+
+This section discusses the key benefits and drawbacks of various possible
+Blockchain deployments, in regards to the suitability of usage as a platform
+for developing the system.
+
+Blockchain platforms often have different goals even tough they originate from
+the realization that full centralization has major drawbacks. Ranging from open
+networks, such as Ethereum which anyone can join and use, to permissioned
+Blockchains, which can run publicly or privately but are only open to access
+and participation through a membership service, such as the Hyperledger Fabric
+and Hyperledger Indy.
 
 %TODO
-
-\section{Dealing with Identity Using Blockchain}\label{choosingHyperledger}
-%TODO
+% Talk about Ethereum vs Fabric vs Indy
 
 \section{Blockchain Applied to Healthcare}\label{blockchainHealthcare}
 
