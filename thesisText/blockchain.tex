@@ -136,7 +136,7 @@ Section~\ref{blockchainHealthcare} some previous Blockchain based solutions in
 the Healthcare context are analyzed to take away key learnings that may be used
 to improve or be aware of in designing the system.
 
-\section{Starting Blocks and System Requirements}\label{choosingHyperledger}
+\section{System Requirements and Starting Blocks}\label{choosingHyperledger}
 
 After considering the project goals of investigating the suitability of a
 Blockchain based system to manage patients in Healthcare, it was decided to
@@ -158,11 +158,10 @@ The requirements for this project are deemed to be as follows:
     with another entity participating in the network, for example sharing
     information with a doctor.
   \item The system must allow data  of patient to be erased in some manner if
-    he wishes so, in order to comply with European privacy laws.
+    he wishes to do so, in order to comply with European privacy laws.
 \end{enumerate}
 
-This section discusses the key benefits and drawbacks of various possible
-Blockchain deployments, in regards to the suitability of usage as a platform
+This section  explores some Blockchain deployments and discusses the key benefits and drawbacks of these, in regards to the suitability of usage as a platform
 for developing the system.
 
 Blockchain platforms often have different goals even tough they originate from
@@ -172,7 +171,26 @@ Blockchains, which can run publicly or privately but are only open to access
 and participation through a membership service, such as the Hyperledger Fabric
 and Hyperledger Indy.
 
-\subsection{Comparing the Possibilities}
+\subsection{An Open Platform - Ethereum}
+
+Ethereum is a permissionless Blockchain implementation. It is a platform that lets anyone build and use decentralized applications commonly named \textbf{Ðapps}. It is an open-source project developed primarily by the Ethereum Foundation and was designed to be adaptable and flexible, in contrast to Bitcoin's Blockchain that only records financial transactions~\cite{EthereumDocs2018}.
+
+ It features a friendly programming language called Solidity that is influenced by C++, Python and Javascript that is designed to allow an easy way for developers to create new applications on the Ethereum platform with code of arbitrary algorithmic complexity in a turing complete language. Smart Contract application code targets the Ethereum Virtual Machine, which is then
+deployed to the Blockchain via a local Ethereum node~\cite{Wood2017,Barclay2017}.
+
+At the heart of Ethereum is the Ethereum Virtual Machine (\textbf{evm}) and, like any Blockchain, Ethereum also includes a peer-to-peer network protocol. The Ethereum Blockchain database is maintained and updated by many nodes connected to the network. Each and every node of the network runs the EVM and executes the same instructions in order to maintain consensus across the entire Blockchain. Decentralized consensus gives Ethereum a high degree of fault tolerance, ensures zero downtime, and makes data stored on the Blockchain forever unchangeable and censorship-resistant~\cite{EthereumDocs2018}.
+
+Users must pay a small transaction fee to the network each time they execute a transaction. This protects the Ethereum Blockchain from frivolous or malicious computational tasks, like \textbf{ddos} attacks or infinite loops. The sender of a transaction must pay for each step of the “program” they activated, including computation and memory storage. These fees are paid in amounts of Ethereum’s native value-token, ether, and then these transaction fees are collected by the nodes that validate the network commonly called miners - which are nodes in the network that receive, propagate, verify, and execute transactions. Ethereum currently uses a \textbf{pow} based consensus algorithm but plans to change to a proof of stake (\textbf{pos}) algorithm due to environmental and financial concerns as well as reduced centralization risks~\cite{EthereumDocs2018,EthereumPOSFAQ2018}.
+
+Ethereum has a live
+production network called “mainnet” available for any developer to deploy applications to,
+as well as three test networks. "Ropsten” is based on a \textbf{pow} algorithm while "Rinkeby" and "Kovan" are based on a Proof of Authority (\textbf{poa}) and all of them are publicly available and free to use~\cite{Barclay2017,EthereumTestNetworks2018}.
+
+Ethereum has had some unforeseen problems along the way, namely the DAO heist. Also with the Ethereum blockchain reaching 1 million transactions per day, and both Ethereum and other blockchain projects frequently reaching their full transaction capacity, the need for scaling progress is becoming more and more clear and urgent. With sharding the aim is to make sure that every node doesn’t have to process all the data to verify and process a transaction. The complete blockchain state can be separated and divided into different shards. Once the blockchain is divided into shards the need to store all the data by every node can be compromised as every node as only a part of the state would be required to be stored by particular nodes. Now when the transactions are initiated on the blockchain they will not be directed to all the nodes but only to those depending on the shard they affect. It is categorized in such a manner that each shard only processes a part of the entire state.
+
+Off chain computation is a concept that allows for a layer apart from the Blockchain where all the computation or solving of complex mathematical equation takes place. This would not only take the load off the Ethereum Blockchain but also help decrease the cost of transaction verification and processing. This works in a way that not every node in the Blockchain participates in the computations rather particular participants in the blockchain perform the complex computations along with a deposit. If the solution is correct then the participant gets the reward and also keeps the deposit. If the solution is incorrect the deposit is forfeited. The offchain computation calls for a verification and therefore there are verifiers who verify the solutions. This mechanism would ensure that the tasks that account for slower transaction speeds on the Ethereum’s blockchain are performed separately by adding a seperate layer to the blockchain. 
+
+One of the biggest challenges in achieving fast transaction speed for Ethereum is to cut down the data and load which is increasing on the nodes. Currently every node has to store all the data on the blockchain. Therefore a decentralized storage mechanism that share the load of the data could help make the transaction processing more efficient and quicker. A decentralized data storing mechanism which can be integrated to the blockchain allowing the nodes to store only that data which is frequently and locally used will take the load off the nodes and make transaction processing faster. The complete blockchain data can be stored on cloud and each node only has to store and load relevant data for particular transaction processing which are more frequent. This kind of storage mechanism can make Ethereum scalable and there’s a need to focus on such solutions.
 %TODO
 % Talk about Ethereum vs Fabric vs Indy
 
