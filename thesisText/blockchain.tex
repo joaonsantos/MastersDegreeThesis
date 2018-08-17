@@ -190,16 +190,20 @@ Users must pay a small transaction fee to the network each time they execute a t
 
 Ethereum has a live
 production network called “mainnet” available for any developer to deploy applications to,
-as well as three test networks. "Ropsten” is based on a \textbf{pow} algorithm while "Rinkeby" and "Kovan" are based on a Proof of Authority (\textbf{poa}) and all of them are publicly available and free to use~\cite{Barclay2017,EthereumTestNetworks2018}.
+as well as three test networks. "Ropsten” is based on a \textbf{pow} algorithm while "Rinkeby" and "Kovan" are based on a Proof of Authority~\footnote{In Proof of Authority based networks, transactions and blocks are validated by approved accounts, known as validators. Validators run software allowing them to put transactions in blocks. The process is automated and does not require validators to be constantly monitoring their computers. It does, however, require maintaining the authority node uncompromised.} (\textbf{poa}) and all of them are publicly available and free to use~\cite{Barclay2017,EthereumTestNetworks2018}.
 
-Ethereum has had some unforeseen problems along the way, namely the DAO heist where a hacker took advantage of a bug in a smart contract to a great sum of money. With Ethereum frequently reaching full transaction capacity, scaling solutions are the next big investment~~\cite{ethereumScalability2018}.
+Ethereum has had some unforeseen problems along the way, namely the DAO heist where a hacker took advantage of a bug in a smart contract to steal a great sum of money. With Ethereum frequently reaching full transaction capacity, scaling solutions are the next big investment~~\cite{ethereumScalability2018}.
 
  There are a few proposed solutions by Buterin - sharding aims to avoid every node processing all data in order to verify and process a transaction. When transactions are initiated they will not be directed to all the nodes but would instead only be directed to those depending on the shard in question. Another solution is off chain computation where a layer apart from the Blockchain is created and where all the computation or solving of a complex mathematical equation takes place. This would not only take the load off the Ethereum Blockchain but also help decrease the cost of transaction verification and processing. This mechanism would ensure that the tasks that account for slower transaction speeds on the Ethereum’s Blockchain do not affect the whole network. Finally, to avoid every node having the need to download the entirety of the Blockchain's data, the complete picture can be stored on cloud and each node only has to store and load relevant data~\cite{ethereumBlogScalability2018}.
+
+\subsection{A Permissioned Distributed Ledger Platform - Hyperledger Fabric}
+
+Hyperledger Fabric is a platform for distributed ledger solutions underpinned by a modular architecture. It provides developers with a permissioned platform targeted at business and enterprise that supports pluggable implementations of different components to accommodate the complexity and intricacies that exist across the economic ecosystem~\cite{HyperledgerFabricDocs2017}. It is an open source project initially commited by IBM  and estabilished under the Linux Foundation, being developed by over 35 organizations and nearly 200 developers.
+
+It supports the creation of smart contracts, commonly called "chaincode" in this context, that are authored in general-purpose programming languages such as Java, Go and Node.js rather than constrained domain-specific languages (\textbf{dsl}). Chaincode implements a prescribed interface and runs in a secured Docker container isolated from the peer process which consented its installation. Chaincode also initializes and manages ledger state through transactions as well as the world state~\cite{HyperledgerFabricDocs2017}.
+
+At the heart of Fabric is the permissioned distributed ledger that provides a way to secure the interactions among a group of entities that have a common goal but which may not fully trust each other. By relying on the identities of the participants, a permissioned ledger platform can use more traditional crash fault tolerant (\textbf{cft}) or byzantine fault tolerant (\textbf{bft}) consensus protocols that do not require costly mining~\cite{HyperledgerFabricDocs2017}.
+%TODO
+\section{Choosing a Platform}
 % Talk about Ethereum vs Fabric vs Indy
-
-\subsection{An Overview of Hyperledger Fabric}
-
-As previously mentioned, Hyperledger Fabric is a permissioned Blockchain implementation. It provides developers with a platform targeted at businesses and enterprise where regulations and handling of data in regards to privacy is a key operational requirement. Its main design
-goal was to surpass previous efforts limitations, such as, a
-lack of true private transactions and confidential contracts.
 %TODO
