@@ -161,49 +161,193 @@ The requirements for this project are deemed to be as follows:
     he wishes to do so, in order to comply with European privacy laws.
 \end{enumerate}
 
-This section  explores some Blockchain deployments and discusses the key benefits and drawbacks of these, in regards to the suitability of usage as a platform
-for developing the system.
+This section  explores some Blockchain deployments and discusses the key
+benefits and drawbacks of these, in regards to the suitability of usage as a
+platform for developing the system.
 
 Blockchain platforms often have different goals even tough they originate from
 the realization that full centralization has major drawbacks. Ranging from open
 networks, such as Ethereum which anyone can join and use, to permissioned
-Blockchains, which can run publicly or privately but are only open to access
-and participation through a membership service, such as the Hyperledger Fabric
-and Hyperledger Indy.
+distributed ledgers, which can be run publicly or privately but are only open
+to access and participation through a membership service, such as Hyperledger
+Fabric and Hyperledger Indy.
 
 \subsection{A Decentralized Open Platform - Ethereum}
 
-Ethereum is a permissionless Blockchain implementation. It is a platform that lets anyone build and use decentralized applications commonly named \textbf{Ðapps}. It is an open-source project developed primarily by the Ethereum Foundation and was designed to be adaptable and flexible, in contrast to Bitcoin's Blockchain that only records financial transactions~\cite{EthereumDocs2018}.
+Ethereum is a permissionless Blockchain implementation. It is a platform that
+lets anyone build and use decentralized applications commonly named
+\textbf{Ðapps}. It is an open-source project developed primarily by the
+Ethereum Foundation and was designed to be adaptable and flexible, in contrast
+to Bitcoin's Blockchain that only records financial
+transactions~\cite{EthereumDocs2018}.
 
- It features a friendly programming language called Solidity that is influenced by C++, Python and Javascript that is designed to allow an easy way for developers to create new applications on the Ethereum platform with code of arbitrary algorithmic complexity in a turing complete language. Smart Contract application code targets the Ethereum Virtual Machine, which is then
-deployed to the Blockchain via a local Ethereum node~\cite{Wood2017,Barclay2017}.
+ It features a friendly programming language called Solidity that is influenced
+ by C++, Python and Javascript that is designed to allow an easy way for
+ developers to create new applications on the Ethereum platform with code of
+ arbitrary algorithmic complexity in a turing complete language. Smart Contract
+ application code targets the Ethereum Virtual Machine, which is then deployed
+ to the Blockchain via a local Ethereum node~\cite{Wood2017,Barclay2017}.
 
-At the heart of Ethereum is the Ethereum Virtual Machine (\textbf{evm}) as seen on Figure~\ref{fig:evm} and, like any Blockchain, Ethereum also includes a peer-to-peer network protocol. The Ethereum Blockchain database is maintained and updated by many nodes connected to the network. Each and every node of the network runs the EVM and executes the same instructions in order to maintain consensus across the entire Blockchain. Decentralized consensus gives Ethereum a high degree of fault tolerance, ensures zero downtime, and makes data stored on the Blockchain forever unchangeable and censorship-resistant~\cite{EthereumDocs2018}.
+At the heart of Ethereum is the Ethereum Virtual Machine (\textbf{evm}) as seen
+on Figure~\ref{fig:evm} and, like any Blockchain, Ethereum also includes a
+peer-to-peer network protocol. The Ethereum Blockchain database is maintained
+and updated by many nodes connected to the network. Each and every node of the
+network runs the EVM and executes the same instructions in order to maintain
+consensus across the entire Blockchain. Decentralized consensus gives Ethereum
+a high degree of fault tolerance, ensures zero downtime, and makes data stored
+on the Blockchain forever unchangeable and
+censorship-resistant~\cite{EthereumDocs2018}.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=1\linewidth]{imgs/ethereumVirtualMachine.png}
-	\caption{\label{fig:evm} A diagram of where \textbf{evm} fits into the Ethereum Platform (Original: Vaibhav Saini, 2018)}
+  \caption{\label{fig:evm} A diagram of where \textbf{evm} fits into the
+  Ethereum Platform (Original: Vaibhav Saini, 2018)}
 \end{figure}
 
-Users must pay a small transaction fee to the network each time they execute a transaction. This protects the Ethereum Blockchain from frivolous or malicious computational tasks, like \textbf{ddos} attacks or infinite loops. The sender of a transaction must pay for each step of the “program” they activated, including computation and memory storage. These fees are paid in amounts of Ethereum’s native value-token, ether, and then these transaction fees are collected by the nodes that validate the network commonly called miners - which are nodes in the network that receive, propagate, verify, and execute transactions. Ethereum currently uses a \textbf{pow} based consensus algorithm but plans to change to a proof of stake (\textbf{pos}) algorithm due to environmental and financial concerns as well as reduced centralization risks~\cite{EthereumDocs2018,EthereumPOSFAQ2018}.
+Users must pay a small transaction fee to the network each time they execute a
+transaction. This protects the Ethereum Blockchain from frivolous or malicious
+computational tasks, like \textbf{ddos} attacks or infinite loops. The sender
+of a transaction must pay for each step of the “program” they activated,
+including computation and memory storage. These fees are paid in amounts of
+Ethereum’s native value-token, ether, and then these transaction fees are
+collected by the nodes that validate the network commonly called miners - which
+are nodes in the network that receive, propagate, verify, and execute
+transactions. Ethereum currently uses a \textbf{pow} based consensus algorithm
+but plans to change to a proof of stake (\textbf{pos}) algorithm due to
+environmental and financial concerns as well as reduced centralization
+risks~\cite{EthereumDocs2018,EthereumPOSFAQ2018}.
 
-Ethereum has a live
-production network called “mainnet” available for any developer to deploy applications to,
-as well as three test networks. "Ropsten” is based on a \textbf{pow} algorithm while "Rinkeby" and "Kovan" are based on a Proof of Authority~\footnote{In Proof of Authority based networks, transactions and blocks are validated by approved accounts, known as validators. Validators run software allowing them to put transactions in blocks. The process is automated and does not require validators to be constantly monitoring their computers. It does, however, require maintaining the authority node uncompromised.} (\textbf{poa}) and all of them are publicly available and free to use~\cite{Barclay2017,EthereumTestNetworks2018}.
+Ethereum has a live production network called “mainnet” available for any
+developer to deploy applications to, as well as three test networks. "Ropsten”
+is based on a \textbf{pow} algorithm while "Rinkeby" and "Kovan" are based on a
+Proof of Authority~\footnote{In Proof of Authority based networks, transactions
+and blocks are validated by approved accounts, known as validators. Validators
+run software allowing them to put transactions in blocks. The process is
+automated and does not require validators to be constantly monitoring their
+computers. It does, however, require maintaining the authority node
+uncompromised.} (\textbf{poa}) and all of them are publicly available and free
+to use~\cite{Barclay2017,EthereumTestNetworks2018}.
 
-Ethereum has had some unforeseen problems along the way, namely the DAO heist where a hacker took advantage of a bug in a smart contract to steal a great sum of money. With Ethereum frequently reaching full transaction capacity, scaling solutions are the next big investment~~\cite{ethereumScalability2018}.
+Ethereum has had some unforeseen problems along the way, namely the DAO heist
+where a hacker took advantage of a bug in a smart contract to steal a great sum
+of money. With Ethereum frequently reaching full transaction capacity, scaling
+solutions are the next big investment~~\cite{ethereumScalability2018}.
 
- There are a few proposed solutions by Buterin - sharding aims to avoid every node processing all data in order to verify and process a transaction. When transactions are initiated they will not be directed to all the nodes but would instead only be directed to those depending on the shard in question. Another solution is off chain computation where a layer apart from the Blockchain is created and where all the computation or solving of a complex mathematical equation takes place. This would not only take the load off the Ethereum Blockchain but also help decrease the cost of transaction verification and processing. This mechanism would ensure that the tasks that account for slower transaction speeds on the Ethereum’s Blockchain do not affect the whole network. Finally, to avoid every node having the need to download the entirety of the Blockchain's data, the complete picture can be stored on cloud and each node only has to store and load relevant data~\cite{ethereumBlogScalability2018}.
+There are a few proposed solutions by Buterin - sharding aims to avoid every
+node processing all data in order to verify and process a transaction. When
+transactions are initiated they will not be directed to all the nodes but
+would instead only be directed to those depending on the shard in question.
+Another solution is off chain computation where a layer apart from the
+Blockchain is created and where all the computation or solving of a complex
+mathematical equation takes place. This would not only take the load off the
+Ethereum Blockchain but also help decrease the cost of transaction
+verification and processing. This mechanism would ensure that the tasks that
+account for slower transaction speeds on the Ethereum’s Blockchain do not
+affect the whole network. Finally, to avoid every node having the need to
+download the entirety of the Blockchain's data, the complete picture can be
+stored on cloud and each node only has to store and load relevant
+data~\cite{ethereumBlogScalability2018}.
 
 \subsection{A Permissioned Distributed Ledger Platform - Hyperledger Fabric}
 
-Hyperledger Fabric is a platform for distributed ledger solutions underpinned by a modular architecture. It provides developers with a permissioned platform targeted at business and enterprise that supports pluggable implementations of different components to accommodate the complexity and intricacies that exist across the economic ecosystem~\cite{HyperledgerFabricDocs2017}. It is an open source project initially commited by IBM  and estabilished under the Linux Foundation, being developed by over 35 organizations and nearly 200 developers.
+Hyperledger Fabric is a platform for distributed ledger solutions underpinned
+by a modular architecture. It provides developers with a permissioned platform
+targeted at business and enterprise that supports pluggable implementations of
+different components to accommodate the complexity and intricacies that exist
+across the economic ecosystem. It is an open source project initially commited
+by IBM  and estabilished under the Linux Foundation, being developed by over 35
+organizations and nearly 200 developers~\cite{HyperledgerFabricDocs2017}.
 
-It supports the creation of smart contracts, commonly called "chaincode" in this context, that are authored in general-purpose programming languages such as Java, Go and Node.js rather than constrained domain-specific languages (\textbf{dsl}). Chaincode implements a prescribed interface and runs in a secured Docker container isolated from the peer process which consented its installation. Chaincode also initializes and manages ledger state through transactions as well as the world state~\cite{HyperledgerFabricDocs2017}.
+It supports the creation of smart contracts programs, commonly called
+"chaincode" in Fabric, that are authored in general-purpose programming
+languages such as Java, Go and Node.js rather than constrained domain-specific
+languages (\textbf{dsl}). Chaincode runs in a secured Docker container isolated
+from the peer process which consented its installation. Chaincode also
+initializes and manages ledger state through transactions as well as the world
+state.
 
-At the heart of Fabric is the permissioned distributed ledger that provides a way to secure the interactions among a group of entities that have a common goal but which may not fully trust each other. By relying on the identities of the participants, a permissioned ledger platform can use more traditional crash fault tolerant (\textbf{cft}) or byzantine fault tolerant (\textbf{bft}) consensus protocols that do not require costly mining~\cite{HyperledgerFabricDocs2017}.
-%TODO
+At the heart of Fabric is the permissioned distributed ledger that provides a
+way to secure the interactions among a group of entities that have a common
+goal but which may not fully trust each other. By relying on the identities of
+the participants, a permissioned ledger platform can use more traditional crash
+fault tolerant (\textbf{cft}) or byzantine fault tolerant (\textbf{bft})
+consensus protocols that do not require mining.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=1\linewidth]{imgs/executeOrderValidate.png}
+  \caption{\label{fig:executeorder} Execute-order-validate architecture of
+  Fabric (Source: IBM, 2018)}
+\end{figure}
+
+Fabric introduces the execute-order-validate Blockchain architecture as shown
+on Figure~\ref{fig:executeorder} and does not follow the standard order-execute
+design illustrated on Figure~\ref{fig:orderexecute} \cite{Androulaki2018}. 
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.8\linewidth]{imgs/orderExecuteArchitecture.png}
+  \caption{\label{fig:orderexecute} Order-execute architecture in Replicated
+  Services Like Ethereum (Source: IBM, 2018)}
+\end{figure}
+
+The order-execute architecture is conceptually simple, leading it to it being
+currently widely implemented in replicated services like Blockchain. In this
+architecture the transactions are executed sequentially on all peers  which
+limits the maximum number of simultaneous transactions that can be achieved.
+Additionally a Denial of Service (\textbf{dos}) attack can be mounted just by
+deploying a slow performing smart contract or one with an infinite loop to the
+network since the Blockchain forms a distributed computing engine.  To cope
+with this issue, public programmable Blockchains with an associated
+cryptocurrency, account for the execution cost of executing of the program.
+
+Chaincode in Fabric consists of two components - the code itself, which
+describes the logic of the program running in the execution phase, and the
+endorsement policy that describes how a specific chaincode transaction is
+validated. For example, a typical endorsement policy lets the chaincode specify
+the endorsers for a transaction in the form of a set of peers that are
+necessary for endorsement and subsequent successful
+validation~\cite{Androulaki2018}.
+
+In Fabric all nodes that participate in the network have an identity, as
+provided by a modular membership service provider (\textbf{msp}).  A
+\textbf{msp} is a component that aims to offer the abstraction of a membership
+operation architecture.  It maintains the identities of all nodes in the system
+and is responsible for issuing credentials that are used for node
+authentication and authorization. An \textbf{msp} may define their own notion
+of identity, and the rules by which those identities are governed (identity
+validation) and authenticated (signature generation and
+verification)~\cite{HyperledgerFabricDocs2017}.
+
+Nodes in a Fabric network take up one of three roles:
+
+\begin{itemize}
+  \item Clients submit transaction proposals for execution, help orchestrate
+    the execution phase, and, finally, broadcast transactions for ordering.
+
+  \item Peers execute transaction proposals and validate transactions.  All
+    peers maintain the blockchain ledger, an append-only data structure
+    recording all transactions in the form of a hash chain, as well as the
+    state, a succinct representation of the latest ledger state. Not all peers
+    execute all transactions.
+
+  \item Ordering Service Nodes (\textbf{osn}) or orderers are the nodes that
+    collectively form the ordering service. In short, the ordering service
+    establishes the total order of all transactions in Fabric, where each
+    transaction contains state updates and dependencies computed during the
+    execution phase, along with cryptographic signatures of the endorsing
+    peers.  Orderers are entirely unaware of the application state, and do not
+    participate in the execution nor in the validation of transactions. This
+    design choice renders consensus in Fabric as modular as possible and
+    simplifies replacement of consensus protocols in Fabric. 
+\end{itemize}
+
+Looking ahead, Hyperledger Fabric will continue to focus on privacy and
+confidentiality with v1.2 being recently released, v1.3 and 1.4 expected to be
+out this year with further emphasis on these aspects in a quarterly
+cadence~\cite{hyperledgerRoadmap2018}.
+
 \section{Choosing a Platform}
 % Talk about Ethereum vs Fabric vs Indy
 %TODO
