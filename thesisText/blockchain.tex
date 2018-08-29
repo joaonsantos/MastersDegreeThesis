@@ -1,44 +1,44 @@
 \chapter{Blockchain: A Practical Overview and Use Cases}
 
 \begin{quote} \emph{"The Blockchain, initially used to solve problems in
-  centralized financial systems, has inherent characteristics that, depending
-  on the implementation, make it suitable for a variety of use cases. This
-  Chapter will provide a more in-depth exploration of the Blockchain technology
-  showing some of the considerations that were taken into account, after
-  analyzing the alternative implementations previously mentioned in
-  Chapter~\ref{background}, to choose the Hyperledger Fabric Distributed Ledger
-  Platform to achieve the purpose mentioned in Chapter~\ref{introduction}.
-  Finally some pratical implementations of Blockchain based solutions created
-  to solve problems in the Healthcare field or problems managing entities are
-presented that provide context and show the current state of this technology in
-a production environment, providing an overview of both its shortcomings and
-successes thus far."} \end{quote}
+  centralized financial systems, has inherent characteristics that make it
+  suitable for a variety of use cases. This Chapter will provide a more
+  practical exploration of the Blockchain technology showing some of the
+  considerations that were taken into account, after analyzing the alternative
+  implementations previously mentioned in Chapter~\ref{background}. After
+  defining the project requirements the Hyperledger Fabric Distributed Ledger
+  Platform , with its focus on enterprise use and true data segregation, was
+  chosen as the platform to build a system that seeks to achieve the purpose
+  mentioned in Chapter~\ref{introduction}"} 
+\end{quote}
 
 \section{Trust in a Network}
 
 Blockchain implementations are an emerging structure for distributed computing
-systems that provide an accurate and unchangeable history of transactions
-written to a publicly available ledger or record, even when there is no trust
-relationship between the parties involved~\cite{Barclay2017}.
+systems that provide an accurate and unchangeable history of records written to
+a publicly available ledger, even when there is no implicit trust relationship
+between the parties involved~\cite{Barclay2017}.
 
 Banks used to keep track of their financial transactions by writing on a book
-called the ledger. The ledger would be written on when a new transaction
-occurred, storing all details of the transactions that occurred between the
-bank and other entities. Nowadays the ledger is not a book, instead being
-database storing information in a server, with the same function of recording
-all the transactions that are made.
+usually located at the central bank. This book, often called ledger, is written
+on whenever a transaction occurs. The ledger acts as a mean of storing all the
+transaction details between the bank and other entities. Nowadays banks do not
+use the ledger in a book format. Instead the ledger is referred to as the
+structure that holds all the transaction information the bank possesses. It is
+a structure that keeps the original purpose of recording all the transactions
+that are made.
 
-Imagine the following, Joe is on vacation and needs to borrow money from Jane,
-his wife. Joe calls Jane to ask for some money and Jane tells him it will send
-the money right away. Jane then proceeds to call her account manager in the
-bank to transfer money to Joe. Finally Jane calls Joe to tell him the transfer
-went through.  As seen on Figure~\ref{fig:centralizedvsdescentralized} Joe and
-Jane need to use and trust the bank as a middle man in order to complete this
-transaction. If the bank was ever to be unavailable, the database was corrupted
-or if someone with  privileged access to the central database and malicious
-intent was able to intercept the transactions from inside the bank then all
-transactions between Joe and Jane would fail creating additional costs to all
-parties involved. 
+Imagine the following situation- Joe is on vacation and needs to borrow money
+from Jane, his wife. Joe calls Jane to ask for some money and Jane tells him it
+will send the money right away. Jane then proceeds to call her account manager
+to transfer some of her money to Joe. Finally Jane calls Joe to tell him that
+she made the request to send money to him.  As seen on
+Figure~\ref{fig:centralizedvsdescentralized} Joe and Jane need to use and trust
+the account manager and the bank as a middle man in order to complete this
+transaction. If the bank was ever to be unavailable, the bank's database was
+corrupted or if someone with  privileged access was able to intercept the
+transactions from inside the bank then all transactions between Joe and Jane
+would fail creating additional costs to all parties involved. 
 
 \begin{figure}[h]
   \centering
@@ -49,22 +49,22 @@ parties involved.
 \end{figure}
 
 It was for a long time necessary, to establish trust between two entities, a
-middle-man with a neutral stake in the transaction. While the ledger is also at
-the core of the Blockchain, this technology aims to solve the dependency placed
-upon third parties using decentralization and aims to make two different
-entities trust each other through constant replication and through a process
-called consensus.  Consensus is a mechanism that establishes a set of rules
-that define if a chain of blocks is considered valid or not and depending on
-the Blockchain implementation works in a different manner. With this in mind,
-Blockchain implementations can be categorized into two distinct categories.
+middle-man with a neutral stake. While the ledger is also at the core of the
+Blockchain, this technology aims to solve the dependency placed upon third
+parties using decentralization and aims to make two different entities trust
+each other through constant replication of the ledger, a security mechanism
+called consensus.  While consensus has a system performance impact due to the
+necessary replication of data, it is a mechanism that establishes a set of
+rules that defines if a chain of blocks is considered to be valid or not.
+Different Blockchain implementations often use a variety consensus protocols to
+balance this trade-off.
 
 \section{Permissionless and Permissioned Blockchain Implementations}
 
-There are three types of systems in computing, as seen on Figure
-\ref{fig:typesofnetworks}. Each has their own advantages and disadvantages,
-each suiting a specific use case. As previously mentioned in this Chapter,
-Blockchain was created out of a desire to solve problems that are displayed in
-the centralized financial systems that society is currently based upon.
+There are three types of computer networks, as seen on Figure
+\ref{fig:typesofnetworks}. As previously mentioned in this Chapter, Blockchain
+was created out of a desire to solve problems that are displayed in the
+centralized financial systems that society is currently based upon.
 
 \begin{figure}[h]
 	\centering
@@ -88,25 +88,27 @@ and make a decision, as no single node has a complete system state knowledge.
 With this in mind, a decentralized system is seen as a subset of a distributed
 system.
 
-A Blockchain is distributed by nature but internally how the system handles the
-distributed nature creates two major implementation categories.
+A Blockchain is distributed by design but can be based on either a
+decentralized network or a distributed network creating two major
+implementation categories.
 
 Permisionless Blockchain implementations, like the Bitcoin's and Ethereum's
 Blockchain for example, have no barrier to entry. This means that anyone can,
 in theory, participate in the network, write into it as a result of mining and
-store data in the ledger. Permisionless implementations have some strengths;
-such as being completely open, transactions are transparent while offering
-anonymity or pseudo-anonymity and also take away the need for system
-administrators or central servers since the network is based on peer-to-peer,
-creating reduced costs to maintain and deploy \textbf{Ðapps}. On the other
-hand, they are slow because every node must participate in consensus, they
-operate without clear legal rules and are trust-free, meaning that no one is
-really responsible if some bugs or corruption happened to cause damages to
-systems based on this implementation.
+store data in the ledger sharing the work needed to maintain the network.
+Permisionless implementations have some strengths; such as being completely
+open, transactions are transparent while also being able to offer anonymity or
+pseudo-anonymity and also take away the need for system administrators or
+central servers since the network is based on peer-to-peer technology, creating
+reduced costs to maintain and deploy \textbf{Ðapps}. On the other hand, they
+are slow because every node must participate in consensus, they operate without
+clear legal rules and are trust-free, meaning that no one is really responsible
+if data loss or damages affect systems based on this implementation.
 
-Permisionless Blockchains were the first to appear and while some industries
-saw benefits in using the technology, some saw drawbacks to using it in
-enterprise-grade systems~\cite{Gopinath2016}.
+Permisionless Blockchain implementations were the first to appear and while
+some industries saw benefits in using the technology, some saw drawbacks to
+adopting it in enterprise-grade systems~\cite{Gopinath2016} due to this
+unregulated nature.
 
 The permissioned variant of this technology has some clear advantages for
 enterprise; it is faster because consensus is done by a set of nodes instead of
@@ -159,7 +161,7 @@ The requirements for this project are deemed to be as follows:
     he wishes to do so, in order to comply with European privacy laws.
 \end{enumerate}
 
-This section  explores some Blockchain deployments and discusses the key
+This section explores some Blockchain deployments and discusses the key
 benefits and drawbacks of these, in regards to the suitability of usage as a
 platform for developing the system.
 
@@ -234,43 +236,44 @@ solutions are the next big investment~~\cite{ethereumScalability2018}.
 
 There are a few proposed solutions by Buterin - sharding aims to avoid every
 node processing all data in order to verify and process a transaction. When
-transactions are initiated they will not be directed to all the nodes but
-would instead only be directed to those depending on the shard in question.
-Another solution is off chain computation where a layer apart from the
-Blockchain is created and where all the computation or solving of a complex
-mathematical equation takes place. This would not only take the load off the
-Ethereum Blockchain but also help decrease the cost of transaction
-verification and processing. This mechanism would ensure that the tasks that
-account for slower transaction speeds on the Ethereum’s Blockchain do not
-affect the whole network. Finally, to avoid every node having the need to
-download the entirety of the Blockchain's data, the complete picture can be
-stored on cloud and each node only has to store and load relevant
+transactions are initiated they will not be directed to all the nodes but would
+instead only be directed to those depending on the shard in question.  Another
+solution is off chain computation where a layer apart from the Blockchain is
+created and where all the computation or solving of a complex mathematical
+equation takes place. This would not only take the load off the Ethereum
+Blockchain but also help decrease the cost of transaction verification and
+processing. This mechanism would ensure that the tasks that account for slower
+transaction speeds on the Ethereum’s Blockchain do not affect the whole
+network. Finally, to avoid every node having the need to download the entirety
+of the Blockchain's data, the complete picture can be stored on cloud and each
+node only has to store and load relevant
 data~\cite{ethereumBlogScalability2018}.
 
 \subsection{A Permissioned Distributed Ledger Platform - Hyperledger Fabric}
 
-Hyperledger Fabric is a platform for distributed ledger solutions underpinned
-by a modular architecture. It provides developers with a permissioned platform
-targeted at business and enterprise that supports pluggable implementations of
-different components to accommodate the complexity and intricacies that exist
-across the economic ecosystem. It is an open source project initially commited
-by IBM  and estabilished under the Linux Foundation, being developed by over 35
-organizations and nearly 200 developers~\cite{HyperledgerFabricDocs2017}.
+Hyperledger Fabric is a platform for distributed ledger solutions featuring a
+modular architecture. It provides developers with a permissioned platform
+targeted at business and enterprise use cases that supports pluggable
+implementations of different components to accommodate the complexity and
+intricacies that exist across the economic ecosystem. It is an open source
+project initially commited by IBM  and estabilished under the Linux Foundation,
+being developed by over 44 organizations and more than 250
+members~\cite{HyperledgerFabricDocs2017,HyperledgerGrowth2018}.
 
-It supports the creation of smart contracts programs, commonly called
-"chaincode" in Fabric, that are authored in general-purpose programming
-languages such as Java, Go and Node.js rather than constrained domain-specific
-languages (\textbf{dsl}). Chaincode runs in a secured Docker container isolated
-from the peer process which consented its installation. Chaincode also
-initializes and manages ledger state through transactions as well as the world
-state.
+It supports the creation of smart contracts, commonly called "chaincode" in
+Fabric, that are authored in general-purpose programming languages such as
+Java, Go and Node.js rather than constrained domain-specific languages
+(\textbf{dsl}). Chaincode runs in a secured Docker container isolated from the
+peer process which consented its installation. Chaincode also initializes and
+manages ledger state through transactions as well as the world state.
 
 At the heart of Fabric is the permissioned distributed ledger that provides a
 way to secure the interactions among a group of entities that have a common
 goal but which may not fully trust each other. By relying on the identities of
-the participants, a permissioned ledger platform can use more traditional crash
-fault tolerant (\textbf{cft}) or byzantine fault tolerant (\textbf{bft})
-consensus protocols that do not require mining.
+the participants, a permissioned ledger platform can use a more traditional
+crash fault tolerant (\textbf{cft}) or byzantine fault tolerant (\textbf{bft})
+consensus protocols that do not require mining or an associated currency in
+order to achieve consensus.
 
 \begin{figure}[h]
   \centering
@@ -290,9 +293,9 @@ design illustrated on Figure~\ref{fig:orderexecute} \cite{Androulaki2018}.
   Services Like Ethereum (Source: IBM, 2018)}
 \end{figure}
 
-The order-execute architecture is conceptually simple, leading it to it being
-currently widely implemented in replicated services like Blockchain. In this
-architecture the transactions are executed sequentially on all peers  which
+The order-execute architecture is conceptually simple, leading it to be
+currently widely implemented in replicated services such as Blockchain. In this
+architecture the transactions are executed sequentially on all peers which
 limits the maximum number of simultaneous transactions that can be achieved.
 Additionally a Denial of Service (\textbf{dos}) attack can be mounted just by
 deploying a slow performing smart contract or one with an infinite loop to the
@@ -311,34 +314,36 @@ validation~\cite{Androulaki2018}.
 In Fabric all nodes that participate in the network have an identity, as
 provided by a modular membership service provider (\textbf{msp}).  A
 \textbf{msp} is a component that aims to offer the abstraction of a membership
-operation architecture.  It maintains the identities of all nodes in the system
-and is responsible for issuing credentials that are used for node
-authentication and authorization. An \textbf{msp} may define their own notion
-of identity, and the rules by which those identities are governed (identity
-validation) and authenticated (signature generation and
-verification)~\cite{HyperledgerFabricDocs2017}.
+operation architecture meaning that all identities are only allowed to
+participate if verified to be considered trustworthy.  The \textbf{msp}
+maintains the identities of all nodes in the system and is responsible for
+issuing credentials that are used for node authentication and authorization. An
+\textbf{msp} may define their own notion of identity, and the rules by which
+those identities are governed and authenticated using signature generation and
+verification~\cite{HyperledgerFabricDocs2017}.
 
-Nodes in a Fabric network take up one of three roles:
+Fabric also assigns different roles to peers. Nodes in Fabric network take up
+one of three roles:
 
 \begin{itemize}
   \item Clients submit transaction proposals for execution, help orchestrate
-    the execution phase, and, finally, broadcast transactions for ordering.
+    the execution phase, and broadcast transactions for ordering.
 
   \item Peers execute transaction proposals and validate transactions.  All
-    peers maintain the blockchain ledger, an append-only data structure
-    recording all transactions in the form of a hash chain, as well as the
-    state, a succinct representation of the latest ledger state. Not all peers
-    execute all transactions.
+    peers maintain the ledger, where all transactions  are recorded in the form
+    of a hash chain, as well as the state, a succinct representation of the
+    latest ledger state. Not all peers execute all transactions.
 
   \item Ordering Service Nodes (\textbf{osn}) or orderers are the nodes that
     collectively form the ordering service. In short, the ordering service
     establishes the total order of all transactions in Fabric, where each
     transaction contains state updates and dependencies computed during the
-    execution phase, along with cryptographic signatures of the endorsing
-    peers.  Orderers are entirely unaware of the application state, and do not
-    participate in the execution nor in the validation of transactions. This
-    design choice renders consensus in Fabric as modular as possible and
-    simplifies replacement of consensus protocols in Fabric. 
+    execution phase, along with cryptographic signatures of the endorsing peers
+    defined in the endorsing policy of the transaction. Orderers are entirely
+    unaware of the application state, and do not participate in the execution
+    nor in the validation of transactions. This design choice renders consensus
+    in Fabric as modular as possible and simplifies the replacement of
+    consensus protocols in Fabric. 
 \end{itemize}
 
 Looking ahead, Hyperledger Fabric will continue to focus on privacy and
@@ -348,18 +353,31 @@ cadence~\cite{hyperledgerRoadmap2018}.
 
 \section{Choosing a Platform}\label{choosePlatform}
 
-Ethereum is popular platform and has a growing learning ecosystem and
-community. It is open so anyone could access the prototype if it was deployed
-on the network and it is being used in a great deal of projects around the
-world proving its stability and suitability in a wide variety of use cases. On
-the other hand, handling patients medical data is a great responsibility as
-hospitals and clinics must obey the regulatory laws regarding privacy and usage
-of this data.
+Ethereum is a popular platform on its own right and has certainly paved the way
+for Blockchain to be used as a platform that can be extended and built upon. It
+has a growing learning ecosystem and community. It is easy to start interacting
+with the network as anyone is able to simply download a client and connect to
+it.  Thanks to the Solidity smart contract language being targeted for the
+specific purpose of authoring smart contracts it is a platform easy to develop
+for after the initial learning barrier of the \textbf{dsl}. 
+
+Ethereum is being used in a great deal of projects around the world proving its
+stability and suitability in a wide variety of use cases. On the other hand,
+handling patients medical data is a great responsibility as hospitals and
+clinics must obey the regulatory laws regarding privacy and usage of this data.
 
 It is also worth noting that while Ethereum can handle private data exchange by
 building upon it, as show by Barclay, it was not designed with this intent in
 mind, therefore these middle ground solutions can prove to be unwise to use at
 scale given Ethereum's past problems with scalability.
+
+Fabric, unlike Ethereum, was not built with the intention of being a general
+purpose use Blockchain. It provides developers with the tools needed to build
+any system they can imagine but is clearly focused on making organizations feel
+at ease by providing an identity service and a controlled environment,
+therefore avoiding the same fate as \textbf{IoT} devices where the lack of
+security regulations and ambiguity in how data collected by these devices is
+handled has stopped these to be used in official capacity.
 
 With Fabric's channels and now private data segregation at peer level it
 theoretically can fulfill all the requirements that were laid out for this
@@ -368,5 +386,5 @@ are using permissioned networks due to the concerns regarding the privacy of
 the patients while retaining the key benefits of Blockchain such as
 immutability and decentralization.
 
-Ultimately it was decided to use Hyperledger Fabric to build the prototype
-project.
+Ultimately it was decided to use Hyperledger Fabric as the platform on which to
+build the prototype project upon.
