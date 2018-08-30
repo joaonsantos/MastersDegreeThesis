@@ -10,8 +10,7 @@
   conventions and methodologies. This Chapter will provide an overview of this
   technology and some of its most prominent implementations. Finally, some
   context is given to how technology has been helping the Healthcare industry
-  to enable better management of their patients identity and how the current
-  information systems of Healthcare establishments handle this task."}
+  to enable better management of their patients identity."}
 \end{quote}
 
 \section{Blockchain Technology}
@@ -20,36 +19,37 @@ Blockchain is an abstract concept, being a collection of cryptographic and
 network technologies orchestrated. The concept can be used to refer to the
 Bitcoin's Blockchain, refer to forks of the Bitcoin's Blockchain called
 Altchains~\cite{Lewis2015} that share many characteristics but may have
-different features and purposes and even alternative implementations of the
+different features, purposes and even alternative implementations of the
 technology. Some of these result in platforms that allow execution of code in
 an autonomous manner, exactly as it was programmed, with no human intervention.
+
 A Blockchain is, generally speaking, a continuously growing list of records
 being written in the ledger, a structure where all records are written and
 stored, that is constantly being replicated across a network of peers, in
 opposition to having a single central record history, making it a good example
-of a distributed database, thus avoiding having a single central point of
-failure that can be easily targetable~\cite{Barclay2017}.
+of a distributed database~\cite{Barclay2017}.
 
-The purpose of a Blockchain is to maintain integrity in a network of
-distributed systems~\cite{Drescher2017}. To fulfill this purpose it uses
-cryptographic techniques and digital signatures to not only verify the
-authenticity of records but also as a way to manage read or write access to the
-network and as proof that a record was written in the ledger and was never
-tampered with, creating an immutable history of records, that benefits various
-use cases as discussed later in this document.
+The purpose of a Blockchain is to estabilish trust between different
+participating parties in a network of distributed systems without the need for
+a middle man~\cite{Drescher2017}. To fulfill this purpose it uses cryptographic
+techniques and digital signatures to not only verify the authenticity of
+records but also as a way to manage read or write access to the network and as
+proof that a record was written in the ledger and was never tampered with,
+creating an immutable history of records, that benefits various use cases as
+discussed later in this document.
 
 Unlike a conventional database system running in a server, where only a single
 entity keeps a copy of the underlying database, making it centralized by
 design, the ledger of the Blockchain is constantly replicated across any number
 of participating nodes in the network~\cite{Lewis2015} in a regular cadence
-defined at the genesis of the network. In some implementations, not every
-participant has the same ability to interact with the ledger and in this
-respect a Blockchain can be permissionless or permissioned. Generally speaking,
-in a permissionless Blockchain every node of the network can write in the
-ledger whereas in a permissioned Blockchain only a select group of entities
-have access to writing in the ledger, making the permissioned version, by
-default secure, if the entities themselves who manage the network are
-considered secure and trustworthy by the participants in the
+defined at the network genesis. In some implementations, not every participant
+has the same ability to interact with the ledger and in this respect a
+Blockchain can be permissionless or permissioned. Generally speaking, in a
+permissionless Blockchain every node of the network can write in the ledger
+whereas in a permissioned Blockchain only a select group of entities have
+access to writing in the ledger, making the permissioned version, by default
+secure, if the entities themselves who manage the network are considered secure
+and trustworthy by the participants in the
 network~\cite{Lewis2015,Valenta2017}.
 
 But then, how does a permissionless Blockchain maintain security if every
@@ -79,6 +79,37 @@ mathematical puzzle, making the longest chain of blocks the one with the most
 computing power behind it and therefore agreed upon by the majority of the
 network~\cite{Baars2016,Wood2017} making it the most likely to be the one that
 represents the sequence of events witnessed.
+
+There have been environmental and economic reasons to replace \textbf{pow}
+consensus algorithms as nowadays it forms a billion dollar industry with an
+estimated consumption of 288 megawatts and in 2016, 70\% of the Bitcoin's
+computational power was located in China. Unfortunately, the vast majority of
+electricity in the country is produced by burning coal, resulting in one of the
+biggest carbon footprints in the world~\cite{BitcoinMining2017}. In response to
+this there have been a few alternative algorithms that have appeared. Proof of
+Stake (\textbf{pos}) is a consensus algorithm that was first suggested on the
+Bitcointalk forum back in 2011. The first digital currency to use this method
+was Peercoin in 2012. 
+
+Rather than requiring the peers to perform a certain amount of computational
+work, a proof of stake system requires the validators to show ownership of a
+certain amount of money. Any participating peer in the network can become a
+validator by sending a special type of transaction that locks their money in a
+deposit, defined as the stake. The creator of a new block is chosen in a
+deterministic way, depending on its wealth and other factors depending on the
+specific \textbf{pos} implementation. Then validators participate in the
+process of creating and agreeing to new blocks by taking turns voting. However
+\textbf{pos} based consensus algorithms have proven to be difficult to
+implement~\cite{EthereumSlasher2014} in a way that still provides the needed
+security for a large Blockchain network. Due to this some Blockchain platforms
+are also considering implementing a mix of \textbf{pow} and \textbf{pos}
+algorithm.
+
+In the case of a permissioned Blockchain implementation interactions are made
+among a set of known, identified participants who have a common goal, but do
+not fully trust each other. By relying on the identities of peers, a
+permissioned Blockchain can use a more traditional Byzantine-fault tolerant
+(\textbf{bft}) consensus algorithm.
 
 While the Blockchain, we now know today, was conceptualized as the public
 ledger for the Bitcoin cryptocurrency in 2008 by Satoshi Nakamoto and
