@@ -34,8 +34,7 @@ a middle man~\cite{Drescher2017}. To fulfill this purpose it uses cryptographic
 techniques and digital signatures to not only verify the authenticity of
 records but also as a way to manage read or write access to the network and as
 proof that a record was written in the ledger and was never tampered with,
-creating an immutable history of records, that benefits various use cases as
-discussed later in this document.
+creating an immutable history of records.
 
 Unlike a conventional database system running in a server, where only a single
 entity keeps a copy of the underlying database, making it centralized by
@@ -82,10 +81,10 @@ represents the sequence of events witnessed.
 There have been however, environmental and economic reasons to replace
 \textbf{pow} consensus algorithms. Nowadays the cryptocurrency mining, forms a
 billion dollar industry with an estimated consumption of 288 megawatts and in
-2016, 70\% of the Bitcoin's computational power was located in China.
-Unfortunately, the vast majority of electricity in the country is produced by
-burning coal, resulting in one of the biggest carbon footprints in the
-world~\cite{BitcoinMining2017}. In response to this environmental and eventual
+2016, 70\% of the Bitcoin's computational power was located in China
+~\cite{BitcoinMining2017}.  Unfortunately, the vast majority of electricity in
+the country is produced by burning coal, resulting in one of the biggest carbon
+footprints in the world. In response to this environmental and eventual
 economic concern over the sustainability of the mining incentives, there have
 been a few alternative algorithms that have eventually appeared. Proof of Stake
 (\textbf{pos}), for example, is a consensus algorithm that was first suggested
@@ -100,7 +99,7 @@ validator by sending a special type of transaction that locks their money in a
 deposit, defined as the stake. The creator of a new block is chosen in a
 deterministic way, depending on its wealth and other factors depending on the
 specific \textbf{pos} implementation. Then validators participate in the
-process of creating and agreeing to new blocks by taking turns voting.  However
+process of creating and agreeing to new blocks by taking turns voting. However
 \textbf{pos} based consensus algorithms have proven to be difficult to
 implement~\cite{EthereumSlasher2014} in a way that still provides the needed
 security for a large Blockchain network. Due to this some Blockchain platforms
@@ -128,36 +127,59 @@ digital format and the Electronic Health Record (EHR) was created.
 and the medical professionals and medical institutions.\cite{ONCoordinator2017}
 But first we must discuss what is defined as identity in this specific case.
 
-Identity is a construct that depends on the context.  Identity can be defined
-as the characteristics determining who or what a person is.  In this paper we
+Identity is a construct that depends on the context. Identity can be defined as
+the characteristics determining who or what a person is. In this paper we
 define identity as the set of characteristics that determine who is the patient
 in the given Healthcare ecosystem they belong to, such as, the name, the age,
-the cellphone number, the gender and the birth date of the patient.  Electronic
-Health Records encapsulate this information in digital format, however, they
-are usually represented in a format according to the Information System they
-were designed to work with.
+the cellphone number, the gender and the birth date of the patient.  
 
-To enable interoperability, standards for EHRs were created and many failed to
-bring the much needed consensus that was required for interoperability between
-different Information Systems in different institutions.  \cite{Eichelberg2006}
-Health Level 7 has done much work to be recognized in many countries and is
-quickly being implemented in many countries to allow for joint efforts between
-organizations. \cite{HL7Anual2016}
+Electronic Health Records encapsulate this information in digital format,
+however, they are usually represented in a format according to the Information
+System they were designed to work with. The increasing limitations of
+paper-based records, the potential benefits of electronic health records and
+the ak- knowledged challenges of delivering these in practice have stimulated a
+considerable investment in research and development over the past decade.
+Between 1991 and 1998 the European Union provided considerable direct funding
+support to related research projects~\cite{Kalra2006}.
 
-Even with these advances in mind, the nature of many clinics and hospitals
-Information Systems makes the management of their patients identity a very
-cumbersome, costly and risky affair to handle.  Security in a connected age,
-where access to the world wide web is easily available, is lagging behind and
-presenting some problems.  There is also the question of transparent use of
-information by the organizations that store it.
+To enable interoperability, standards for EHRs were sought after and
+considerable research has been undertaken since 1996 to develop architecture
+formalisms to capture Healthcare data comprehensively, however many of them
+have had no significant adoption, failing to bring the much needed
+consensus~\cite{Eichelberg2006} that was required for interoperability between
+different Information Systems in Healthcare institutions. 
 
-Thanks to the roaring success of Bitcoin and the increasingly apparent use
-cases that the Blockchain can provide, various industries and the general
-public are becoming interested in this technological advance that is laying the
-foundation for a change in the underlying flow of our economic and social
-systems~\cite{Zago2018,	Marr2018,Long2018}. Some companies have already started
-developing Blockchain applications in the Healthcare field and established some
-key partnerships.
+Healthcare professionals increasingly require access to detailed and complete
+health records in order to manage a safe and effective delivery of their care
+service, as well as, being able to share this information with their team in an
+efficient way. Patients nowadays should also be able to access their own
+information to an extent that permits them to play an active role in their
+health management. These requirements are becoming more urgent as the focus of
+Healthcare delivery shifts progressively from specialist centres to community
+settings and to the patient’s personal environment.
+
+Health Level 7 (\textbf{hl7}) has done much work to be recognized
+internationally and is being implemented in many countries to allow for joint
+efforts between organizations. As of 2017, \textbf{hl7} has an official
+presence in 34 countries such as United Kingdom, Spain, France, Germany, Russia
+and China~\cite{HL7Anual2016}. The organization has been keen on expanding
+their standard internationally as work continues on official adoption in other
+countries such as Portugal. Adding to this, \textbf{hl7} has been providing
+several events and discussion meetings, as well as, developing its learning
+ecosystem in the form of certifications and webinars for example. In 2017,
+\textbf{hl7} has partnered with the Health Services Platform Consortium,
+composed of more than a dozen clinical professional societies, committing
+resources for creating and testing clinical data models thus beginning to lay a
+semantic foundation for achieving an interoperable foundation.
+
+There is a greater need for digital security solutions, as the amount of data
+grows in a connected age, where access to the world wide web is easily
+available and every device is part of the Internet of Things. Various
+industries and the general public are becoming interested in this technological
+advance that is laying the foundation for a change in the underlying flow of
+our economic and social systems~\cite{Zago2018,Marr2018,Long2018}. Some
+companies have already started developing Blockchain applications in the
+Healthcare field and established some key partnerships.
 
 Guardtime, has fully deployed their system in 2008, started cooperating in 2011
 and in 2016 announced a partnership with the Estonian Government, where a
@@ -182,9 +204,24 @@ value~\cite{MediChain2018}.
 
 Even tough many Blockchain-based solutions are still very early on development
 or deployment and many projects do not actually materialize, the disruption
-potential of this technology is clear. It is an area that is very strictly
-regulated and has major privacy concerns. Any solution proposed must take into
-consideration this criteria.
+potential of this technology is clear. All over the world many efforts are
+being made to regulate the high amount of data that is being generated by
+services.
+
+For example, in the European Union, the EU General Data Protection Regulation
+(\textbf{gdpr}) is officially in effect as of 25 of May, 2018. The aim of this
+regulation is to protect all EU citizens from privacy and data breaches in an
+increasingly data-driven world that is vastly different from when the preceding
+1995 directive was established. Since \textbf{gdpr} is a regulation, not a
+directive, it does not require national governments to pass any enabling
+legislation and is directly binding and applicable. A violator of this
+regulation may be fined up to €20 million or up to 4\% of the annual worldwide
+turnover of the preceding financial year in case of an enterprise, whichever is
+greater. Although the key principles of data privacy still hold true to the
+previous 1995 directive, terms of usage as well as consent to use data has
+become more clear to the user of a data-driven service. Therefore, any solution
+proposed in the Healthcare field must also take this legal landscape into
+consideration.
 
 \section{Blockchain as a Platform}
 
@@ -298,39 +335,6 @@ flexible interface for building arbitrary applications above the consensus, as
 well as, a suite of tools for deployments and their
 management~\cite{Buchman2016}.
 
-<<<<<<< HEAD
-\section{Identity in Healthcare}
-
-Originally records of a patient were stored in paper, a physical format.
-Thanks to the advent of the computers more and more records are stored on a
-digital format and the Electronic Health Record (EHR) was created.
-\cite{Marquez2017}  This benefits handling of information between the patient
-and the medical professionals and medical institutions.\cite{ONCoordinator2017}
-But first we must discuss what is defined as identity in this specific case.
-
-Identity is a construct that depends on the context.  Identity can be defined
-as the characteristics determining who or what a person is.  In this paper we
-define identity as the set of characteristics that determine who is the patient
-in the given Healthcare ecosystem they belong to, such as, the name, the age,
-the cellphone number, the gender and the birth date of the patient.  Electronic
-Health Records encapsulate this information in digital format, however, they
-are usually represented in a format according to the Information System they
-were designed to work with.
-
-To enable interoperability, standards for EHRs were created and many failed to
-bring the much needed consensus that was required for interoperability between
-different Information Systems in different institutions.  \cite{Eichelberg2006}
-Health Level 7 has done much work to be recognized in many countries and is
-quickly being implemented in many countries to allow for joint efforts between
-organizations. \cite{HL7Anual2016}
-
-Even with these advances in mind, the nature of many clinics and hospitals
-Information Systems makes the management of their patients identity a very
-cumbersome, costly and risky affair to handle.  Security in a connected age,
-where internet is easily available, is lagging behind and presenting some
-problems.  There is also the question of transparent use of information by the
-organizations that store it.
-=======
 Hyperledger Indy is an open-source distributed ledger, purpose-built for
 decentralized identity. Indy uses a modified version of Redundant Byzantine
 Fault Tolerance (\textbf{rbft}) called Plenum. Indy provides tools, libraries,
@@ -350,4 +354,3 @@ HIPAA, ePrivacy, and other legal requirements are forcing companies to adopt
 some measures in how they handle data pertaining to their clients and
 employees. Privacy and user data control standards are being demanded by
 governments all over the world.
->>>>>>> 8467b27cd0e9a8e5e0bdf966ccfd07ac9d6877e5
