@@ -1,4 +1,4 @@
-\chapter{Blockchain: A Practical Overview and Use Cases}
+\chapter{Blockchain: A Practical Overview and Use Cases}\label{blockchain}
 
 \begin{quote} \emph{"The Blockchain, initially used to solve problems in
   centralized financial systems, has inherent characteristics that make it
@@ -60,6 +60,7 @@ Different Blockchain implementations often use a variety consensus protocols to
 balance this trade-off.
 
 \section{Permissionless and Permissioned Blockchain Implementations}
+
 
 There are three types of computer networks, as seen on Figure
 \ref{fig:typesofnetworks}. As previously mentioned in this Chapter, Blockchain
@@ -129,50 +130,8 @@ industries, by allowing the network to be auditable and assets to be traceable,
 falling back to laws if a dispute between participating entities
 occurs~\cite{Barclay2017}.
 
-With these two variants in mind, Section~\ref{choosingHyperledger} provides an
-insight into the characterists deemed important to achieve the estabilished
-purposes that this project set out to achieve and Section~\ref{choosePlatform}
-explains the decision processes behind the choice of a permissioned
-implementation of the Blockchain technology being used to build a system for
-managing patients in Healthcare.
 
-\section{System Requirements and Starting Blocks}\label{choosingHyperledger}
-
-After considering the project goals of investigating the suitability of a
-Blockchain based system to manage patients in Healthcare, it was decided to
-build a prototype of a system that would represent the network, albeit on a
-smaller scale. The insights gained from developing a simple working system
-would enable benefits and risks of the approach to be identified, and
-opportunities for further research to be laid out.
-
-The requirements for this project are deemed to be as follows:
-
-\renewcommand{\labelenumi}{\Roman{enumi}.}
-\begin{enumerate}
-  \item The system must allow a patient to opt into the network securely.
-  \item The system must allow a patient to record his medical data under the
-    approval of an administrator.
-  \item The system must keep information confidential, transparent and have
-    high availability.
-  \item The system must provide the patient with the ability to share his data
-    with another entity participating in the network, for example sharing
-    information with a doctor.
-  \item The system must allow data  of patient to be erased in some manner if
-    he wishes to do so, in order to comply with European privacy laws.
-\end{enumerate}
-
-This section explores some Blockchain deployments and discusses the key
-benefits and drawbacks of these, in regards to the suitability of usage as a
-platform for developing the system.
-
-Blockchain platforms often have different goals even tough they originate from
-the realization that full centralization has major drawbacks. Ranging from open
-networks, such as Ethereum which anyone can join and use, to permissioned
-distributed ledgers, which can be run publicly or privately but are only open
-to access and participation through a membership service, such as Hyperledger
-Fabric and Hyperledger Indy.
-
-\subsection{A Decentralized Open Platform - Ethereum}
+\section{A Decentralized Open Platform - Ethereum}
 
 Ethereum is a permissionless Blockchain implementation. It is a platform that
 lets anyone build and use decentralized applications commonly named
@@ -249,7 +208,7 @@ of the Blockchain's data, the complete picture can be stored on cloud and each
 node only has to store and load relevant
 data~\cite{ethereumBlogScalability2018}.
 
-\subsection{A Permissioned Distributed Ledger Platform - Hyperledger Fabric}
+\section{A Permissioned Distributed Ledger Platform - Hyperledger Fabric}
 
 Hyperledger Fabric is a platform for distributed ledger solutions featuring a
 modular architecture. It provides developers with a permissioned platform
@@ -263,7 +222,7 @@ members~\cite{HyperledgerFabricDocs2017,HyperledgerGrowth2018}.
 It supports the creation of smart contracts, commonly called "chaincode" in
 Fabric, that are authored in general-purpose programming languages such as
 Java, Go and Node.js rather than constrained domain-specific languages
-(\textbf{dsl}). Chaincode runs in a secured Docker container isolated from the
+(\textbf{dsl}). Chaincode runs in a container isolated from the
 peer process which consented its installation. Chaincode also initializes and
 manages ledger state through transactions as well as the world state.
 
@@ -350,47 +309,3 @@ Looking ahead, Hyperledger Fabric will continue to focus on privacy and
 confidentiality with v1.2 being recently released, v1.3 and 1.4 expected to be
 out this year with further emphasis on these aspects in a regular quarterly
 cadence~\cite{hyperledgerRoadmap2018}.
-
-\section{Choosing a Platform}\label{choosePlatform}
-
-Ethereum is a popular platform on its own right and has certainly paved the way
-for Blockchain to be used as a platform that can be extended and built upon. It
-has a growing learning ecosystem and community. It is easy to start interacting
-with the network as anyone is able to simply download a client and connect to
-it.  Thanks to the Solidity smart contract language being targeted for the
-specific purpose of authoring smart contracts it is a platform easy to develop
-for after the initial learning barrier of the \textbf{dsl}. 
-
-Ethereum is being used in a great deal of projects around the world proving its
-stability and suitability in a wide variety of use cases. On the other hand,
-handling patients medical data is a great responsibility as hospitals and
-clinics must obey the regulatory laws regarding privacy and usage of this data.
-
-It is also worth noting that while Ethereum can handle private data exchange by
-building upon it, as show by Barclay, it was not designed with this intent in
-mind, therefore these middle ground solutions can prove to be unwise to use at
-scale given Ethereum's past problems with scalability.
-
-Fabric, like Ethereum, was built with the intention of being a general
-purpose use Blockchain. It provides developers with the tools needed to build
-any system they can imagine but is clearly focused on making organizations feel
-at ease by providing an identity service and a controlled environment,
-therefore avoiding the same fate as \textbf{IoT} devices where the lack of
-security regulations and ambiguity in how data collected by these devices is
-handled has stopped these to be used in any official capacity.
-
-Fabric also has good amount of development tools that are now maturing and a
-good learning environment with ample documentation about every aspect important
-for a developer looking to get started into it. Fabric is being backed by the
-Linux Foundation and IBM that lends credibility to the project.
-
-Regarding Fabric's features, it lends itself very well to fulfill the project
-requirements. With Fabric's channels and private data segregation at peer level
-it lends itself well to fulfill all the requirements that were laid out for
-this project. Adding to this, many Blockchain based projects in the Healthcare
-field are using permissioned networks due to the concerns regarding the privacy
-of the patients while retaining the key benefits of Blockchain such as
-immutability and decentralization.
-
-Ultimately it was decided to use Hyperledger Fabric as the platform on which to
-build the prototype project upon.
