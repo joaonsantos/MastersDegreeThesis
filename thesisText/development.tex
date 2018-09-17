@@ -2,7 +2,7 @@
 
 The goal of this thesis is to evaluate the suitability of Blockchain technology
 in managing the identity of patients in an Healthcare organization by
-conceptualizing and implementing a system that fulfills this role. In order
+conceptualizing and implementing a system that fulfills this role. In order to
 fulfill this goal, the development part of this thesis was primarily divided
 into four steps with each step building upon the previous ones. This Chapter
 provides an insight into how the desired functionality was achieved by the
@@ -10,14 +10,14 @@ system starting at the conceptualization and its associated challenges all the
 way to the implementation of said system. This system was built using some of
 the technologies and concepts described in the previous section.
 
-\section{First Step - Defining Requirements and Choosing a
-Platform}\label{choosingHyperledger}
+\section{First Step - Defining Requirements and Choosing a 
+	Platform}\label{choosingHyperledger}
 
 After investigating the various Blockchain platforms some criteria was needed
-to serve as reference. As such, the first step consists in defining a set of
-key points that the built system must fulfill. Defining the requirements proved
-helpful to choose the most appropriate platform for the objectives as explained
-later.
+to serve as reference. As such, the first step consisted in defining a set of
+key points that the built system had to fulfill. Defining the requirements
+proved helpful to choose the most appropriate platform for the objectives as
+explained later.
 
 \subsection{Requirement Definition}
 The requirements for this project were deemed to be as follows:
@@ -47,12 +47,12 @@ platform that best fulfill these requirements.
 
 \subsection{Choosing a Platform}\label{choosePlatform}
 
-Blockchain platforms often have different goals even tough they originate from
-the realization that full centralization has major drawbacks. Ranging from open
-networks, such as Ethereum which anyone can join and use, to permissioned
-distributed ledgers, which can be run publicly or privately but are only open
-to access and participation through a membership service, such as Hyperledger
-Fabric and Hyperledger Indy.
+Blockchain platforms often have different goals even tough they normally
+originate from the realization that full centralization has major drawbacks.
+Ranging from open networks, such as Ethereum which anyone can join and use, to
+permissioned distributed ledgers, which can be run publicly or privately but
+are only open to access and participation through a membership service, such as
+Hyperledger Fabric and Hyperledger Indy.
 
 Ethereum is a popular platform on its own right and has certainly paved the way
 for Blockchain to be used as a platform that can be extended and built upon. It
@@ -64,21 +64,24 @@ for after the initial learning barrier of the \textbf{dsl}.
 
 Ethereum is being used in a great deal of projects around the world proving its
 stability and suitability in a wide variety of use cases. On the other hand,
-handling patients medical data is a great responsibility as hospitals and
-clinics must obey the regulatory laws regarding privacy and usage of this data.
+handling patients medical data is a great responsibility due to the private and
+personal nature of this data. Also hospitals and clinics must obey the
+regulatory laws regarding privacy and usage of this data.
 
 It is also worth noting that while Ethereum can handle private data exchange by
-building upon it, as show by Barclay, it was not designed with this intent in
+building upon it, as shown by Barclay, it was not designed with this intent in
 mind, therefore these middle ground solutions can prove to be unwise to use at
-scale given Ethereum's past problems with scalability.
+scale given Ethereum's and the whole Blockchain's ecosystem past problems with
+scalability.  
 
 Fabric, like Ethereum, was built with the intention of being a general purpose
 use Blockchain. It provides developers with the tools needed to build any
 system they can imagine but is clearly focused on making organizations feel at
-ease by providing an identity service and a controlled environment, therefore
-avoiding the same fate as \textbf{IoT} devices where the lack of security
-regulations and ambiguity in how data collected by these devices is handled has
-stopped these to be used in any official capacity.
+ease by providing an identity service and a controlled environment due to using
+a membership service provider and a certificate authority, therefore avoiding
+the same fate as \textbf{IoT} devices where the lack of security regulations
+and ambiguity in how data collected by these devices is handled has stopped
+these to be used in any official capacity.
 
 Fabric also has good amount of development tools that are now maturing and a
 good learning environment with ample documentation about every aspect important
@@ -98,6 +101,9 @@ build the prototype project upon.
 
 
 \section{Working knowledge of the Platform}
+
+% Falta falar sobre os principais componentes da plataform, de state database
+% and blockchain to store , assets, chaincode execution
 
 In this section the documentation of Hyperledger Fabric was researched in more
 detail and some conclusions were reached.
