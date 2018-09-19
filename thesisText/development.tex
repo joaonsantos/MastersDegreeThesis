@@ -38,11 +38,11 @@ The requirements for this project were deemed to be as follows:
 \end{enumerate}
 
 These requirements were chosen in order to create a system that is interesting
-to an organization and still respects the data of patients and their access to
-it. 
+to an organization while still respecting the patients data and their access
+right to it. 
 
 After defining the requirements it was nececessary to choose the Blockchain
-platform that best fulfill these requirements.
+platform that best fulfills these requirements.
 
 
 \subsection{Choosing a Platform}\label{choosePlatform}
@@ -76,17 +76,24 @@ scalability.
 
 Fabric, like Ethereum, was built with the intention of being a general purpose
 use Blockchain. It provides developers with the tools needed to build any
-system they can imagine but is clearly focused on making organizations feel at
-ease by providing an identity service and a controlled environment due to using
-a membership service provider and a certificate authority, therefore avoiding
-the same fate as \textbf{IoT} devices where the lack of security regulations
-and ambiguity in how data collected by these devices is handled has stopped
-these to be used in any official capacity.
+system they can imagine. However, the latter is clearly focused on making
+organizations feel more at ease by being auditable as it offers an identity
+service and a known environment due to using a membership service provider and
+a certificate authority, therefore avoiding the same fate as \textbf{IoT}
+devices where the lack of security regulations and ambiguity in how data
+collected by these devices is handled has stopped these to be used in any
+official capacity.
 
 Fabric also has good amount of development tools that are now maturing and a
 good learning environment with ample documentation about every aspect important
 for a developer looking to get started into it. Fabric is being backed by the
-Linux Foundation and IBM that lends credibility to the project.
+Linux Foundation and IBM, lending credibility to the project and ensuring that
+this platform is supported and developed in the foreseeable future, being
+governed by a diverse technical steering committee and by a diverse set of
+maintainers from multiple organizations. In regards to performance the
+Hyperledger community is appointed a Performance and Scale working group to
+improve performance as well as implementation of a benchmarking framework
+called Hyperledger Caliper.
 
 Regarding Fabric's features, it lends itself very well to fulfill the project
 requirements. With Fabric's channels and private data segregation at peer level
@@ -106,14 +113,50 @@ build the prototype project upon.
 % and blockchain to store , assets, chaincode execution
 
 In this section the documentation of Hyperledger Fabric was researched in more
-detail and some conclusions were reached.
+detail and some conclusions are discussed.
 
-Hyperledger Fabric (HLF) does not use a centralized ledger where every record
-is available to every participant in the network.  Instead it opts to allow
-multiple ledgers in a network to achieve different goals of a greater purpose.
-This allows the creation of channels of information between trusted parties,
-for example, a channel of secure and private information between the clinical
-staff of an hospital and a patient.
+\subsection{Hyperledger Fabric Components}
+
+An Hyperledger Fabric (HLF) network is defined as the technical infrastructure
+that provides ledger and smart contract services to applications. Smart
+contracts are used to generate transactions and interact with the ledger. The
+network is comprised of several components. 
+
+The ledger is one of these components, composed by a world state and a
+Blockchain. The world state is a database that holds the current values of
+ledger states. States are, by default, expressed as key-value pairs. The world
+state is useful because it makes it easy for a program to get the current value
+of these states, instead of having to traverse the entire transaction log. The
+Blockchain holds the transaction log that records all the changes that
+determine the world state. Transactions are collected and recorded in an
+immutable sequence of blocks. Each block contains a set of ordered
+transactions. The transaction logs hold the history of changes that have
+resulted in the current world state. With this in mind it can be said that
+there is one logical ledger in a Hyperledger Fabric network, even tough in
+reality, the network maintains multiple copies of a ledger that are
+synchronized through consensus. 
+
+Another component is the set of peers participating in the network. A Peer is a
+node that hosts a copy of the multiple ledgers and smart contracts. HLF opts to
+allow multiple ledgers in a network to achieve different goals of a greater
+purpose. This allows the creation of channels of information between trusted
+parties, for example, a channel of secure and private information between the
+clinical staff of an hospital and a patient as discussed in
+Section~\ref{background}. 
+
+Through a peer connection, applications can execute chaincode that queries or
+updates a ledger. Applications always connect to peers when they need to access
+ledgers and smart contracts. Every peer in the network is assigned a digital
+certificate by an administrator from its owning organization. The mapping of a
+peer's identity in an organization is provided through the membership service
+provider. In fact peers, applications, end users (clients) and administrators
+must have an identity provided by the MSP in order to be able to interact with
+the network.
+
+Each of these actors has a digital identity encapsulated in an X.509 digital
+certificate. These determine the exact permissions over resources and access to
+information in the network.
+
 
 A HLF network is comprised by the \textit{cryptogen}, \textit{configtxgen},
 \textit{configtxlator} and \textit{peer} tools that are used to configure the
