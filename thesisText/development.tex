@@ -109,11 +109,13 @@ build the prototype project upon.
 
 \section{Working knowledge of the Platform}
 
-% Falta falar sobre os principais componentes da plataform, de state database
-% and blockchain to store , assets, chaincode execution
-
-In this section the documentation of Hyperledger Fabric was researched in more
-detail and some conclusions are discussed.
+After choosing to work with Hyperledger Fabric it became necessary to
+understand in further detail what are the components that form a network and
+the tools to manage these components. This section discusses the main
+components of a Fabric network and the tools required to create and maintain a
+Fabric network. These components often interact with one another and provide
+the technical infrastructure that comprises this technology. This knowledge
+proved essential in building the solution proposed by this Thesis.
 
 \subsection{Hyperledger Fabric Components}
 
@@ -127,40 +129,46 @@ Blockchain. The world state is a database that holds the current values of
 ledger states. States are, by default, expressed as key-value pairs. The world
 state is useful because it makes it easy for a program to get the current value
 of these states, instead of having to traverse the entire transaction log. The
-Blockchain holds the transaction log that records all the changes that
-determine the world state. Transactions are collected and recorded in an
-immutable sequence of blocks. Each block contains a set of ordered
-transactions. The transaction logs hold the history of changes that have
-resulted in the current world state. With this in mind it can be said that
-there is one logical ledger in a Hyperledger Fabric network, even tough in
-reality, the network maintains multiple copies of a ledger that are
-synchronized through consensus. 
+Blockchain holds the transaction logs that record the history of changes that
+have resulted in the current world state. Transactions are collected and
+recorded in an immutable sequence of blocks. Each block contains a set of
+ordered transactions. There is one logical ledger in a Hyperledger Fabric
+network, even tough in reality, the network maintains multiple copies of a
+ledger that are synchronized through consensus. 
 
 Another component is the set of peers participating in the network. A Peer is a
 node that hosts a copy of the multiple ledgers and smart contracts. HLF opts to
 allow multiple ledgers in a network to achieve different goals of a greater
 purpose. This allows the creation of channels of information between trusted
 parties, for example, a channel of secure and private information between the
-clinical staff of an hospital and a patient as discussed in
-Section~\ref{background}. 
+clinical staff of an hospital and a patient as discussed on
+Chapter~\ref{background}. 
 
-Through a peer connection, applications can execute chaincode that queries or
-updates a ledger. Applications always connect to peers when they need to access
-ledgers and smart contracts. Every peer in the network is assigned a digital
-certificate by an administrator from its owning organization. The mapping of a
-peer's identity in an organization is provided through the membership service
-provider. In fact peers, applications, end users (clients) and administrators
-must have an identity provided by the MSP in order to be able to interact with
-the network.
+Through a peer connection, applications execute chaincode that queries or
+updates a ledger. Peers have at least one of the three different roles assigned
+to them, as seen on Section~\ref{distributedLedgerPlatform}. Applications
+always connect to peers when they need to access ledgers and smart contracts.
+Every peer in the network is assigned a digital certificate by an administrator
+from its owning organization. The mapping of a peer's identity in an
+organization is provided through the membership service provider. 
 
-Each of these actors has a digital identity encapsulated in an X.509 digital
-certificate. These determine the exact permissions over resources and access to
-information in the network.
+In fact peers, applications, end users (clients), administrators, channels and
+organizations must have an identity provided by the MSP in order to be able to
+interact with the network. Each of these actors has a digital identity
+encapsulated in an X.509 digital certificate standard. These determine the
+exact permissions these have over resources and access to information in the
+network. The MSP issues these certificates through the built-in CA component,
+the Fabric Certificate Authority (CA). The Fabric CA is a private root CA
+provider that consists in a CA server and a CA client. The MSP also supports
+Certificate Revocation Lists (CRL).
+
+\subsection{Administrating a HLF Networks}
 
 
-A HLF network is comprised by the \textit{cryptogen}, \textit{configtxgen},
-\textit{configtxlator} and \textit{peer} tools that are used to configure the
-network.
+As discussed, a HLF network must have an administrator. HLF provides the
+\textit{cryptogen}, \textit{configtxgen}, \textit{configtxlator} and
+\textit{peer} tools that are used to configure the network to suit different
+needs and use cases.
 
 The \textit{cryptogen} tool generates cryptographic data consuming the file
 \textit{crypto-config.yaml}.  HLF uses an abstraction layer for certification
@@ -180,29 +188,33 @@ participating peers in the HLF network.
 These tools are used to create and maintain the topology of the network and are
 invoked when a change to the network is made, for example, when permissions to
 certain records are changed or a new user is enrolled in the network and are
-very much intertwined with the Certificate Authority (CA) server system to
-maintain the security that is needed in a sensitive subject that deals with
-private information.
+very much intertwined with the Fabric Certificate Authority (CA) discussed in
+subsection .
 
 \section{Building the System}
 
-The third step was conceptualizing a system built upon the knowledge aquired in
-previous step and create a simple working case to draw further conclusions.
+After considering the project goals of investigating the suitability of a
+Blockchain based system to manage patients in Healthcare, the third step was to
+build a prototype of a system that would represent the network, albeit on a
+smaller scale. The insights gained from developing a simple working system
+would enable benefits and risks of the approach to be identified, and
+opportunities for further research to be laid out.
 
 \subsection{Designing the System}
 
-HLF allows information to be written and read in a distributed manner with
-security and privacy at the forefront. Using smart contracts, a record is
-created to represent the concept of identity in this network.
+In order to build a system it is a good practice to conceptualize the
+architecture first. After some consideration the concept was determined to be
+as follows:
 
 The information that defines the patients identity is a key requirement to
 build a system that recognizes patients across the Healthcare environment, as
-discussed in Section~\ref{background}.  To this end, the identity of a patient
-is recorded on the ledger of the HLF network as a structure via a smart
-contract deployed to the network that interacts directly with the ledger.  This
-structure contains the necessary fields to identify the patient such as its
-name and birth date, for example, as well as some other information necessary
-to manage this data. 
+discussed in Chapter~\ref{background}. An asset can be created that represents
+the concept of the patient's identity in this network. To this end, the
+identity of a patient is recorded on the ledger of the HLF network as a
+structure via a smart contract deployed to the network that interacts directly
+with the ledger.  This structure contains the necessary fields to identify the
+patient such as its name and birth date, for example, as well as some other
+information necessary to manage this data. 
 
 To aid in interoperability with other systems, as seen in Figure
 \ref{fig:interoperability}, the Fast Healthcare Interoperability Resources
@@ -217,13 +229,10 @@ the FHIR standard}.
 \caption{\label{fig:interoperability}An Example of Interoperability with the
 Blockchain Network} \end{figure}
 
-\subsection{Creating the System} After considering the project goals of
-investigating the suitability of a Blockchain based system to manage patients
-in Healthcare, it was decided to build a prototype of a system that would
-represent the network, albeit on a smaller scale. The insights gained from
-developing a simple working system would enable benefits and risks of the
-approach to be identified, and opportunities for further research to be laid
-out.
+% Falar sobre channels, organizations, peers, permissões. Falar sobre 
+% precupações dúvidas, dificuldades, objectivos.
+
+\subsection{Creating the System}
 
 To create an interactive system that can manage the patients identity in an
 Healthcare environment an application was built that the user interacts with.
@@ -236,6 +245,8 @@ smart contract will handle the assets part of the system.  A smart contract to
 represent and manipulate identity was built and interfaces with the network to
 write and read records to the appropriate ledger. The overview of the
 architecture for this system is represented on Figure \ref{fig:appOverview}.
+The smart contract also initializes and manages the ledger state through
+transactions as well as the world state.
 
 \begin{figure}[ht] \centering
   \includegraphics[width=1\linewidth]{imgs/hyperledgerAppOverview.png}

@@ -103,8 +103,8 @@ pseudo-anonymity and also take away the need for system administrators or
 central servers since the network is based on peer-to-peer technology, creating
 reduced costs to maintain and deploy \textbf{Ðapps}. On the other hand, they
 are slow because every node must participate in consensus, they operate without
-clear legal rules and are trust-free, meaning that there is no responsible entity
-if data loss or damages affect systems based on this implementation.
+clear legal rules and are trust-free, meaning that there is no responsible
+entity if data loss or damages affect systems based on this implementation.
 
 Permisionless Blockchain implementations were the first to appear and while
 some industries saw benefits in using the technology, some saw drawbacks to
@@ -209,6 +209,7 @@ node only has to store and load relevant
 data~\cite{ethereumBlogScalability2018}.
 
 \section{A Permissioned Distributed Ledger Platform - Hyperledger Fabric}
+\label{distributedLedgerPlatform}
 
 Hyperledger Fabric is a platform for distributed ledger solutions featuring a
 modular architecture. It provides developers with a permissioned platform
@@ -222,9 +223,17 @@ members~\cite{HyperledgerFabricDocs2017,HyperledgerGrowth2018}.
 It supports the creation of smart contracts, commonly called "chaincode" in
 Fabric, that are authored in general-purpose programming languages such as
 Java, Go and Node.js rather than constrained domain-specific languages
-(\textbf{dsl}). Chaincode runs in a container isolated from the
-peer process which consented its installation. Chaincode also initializes and
-manages ledger state through transactions as well as the world state.
+(\textbf{dsl}). 
+
+Chaincode in Fabric consists of two components - the code itself, which
+describes the logic of the program running in the execution phase, and the
+endorsement policy that describes how a specific chaincode transaction is
+validated. For example, a typical endorsement policy lets the chaincode specify
+the endorsers for a transaction in the form of a set of peers that are
+necessary for endorsement and subsequent successful
+validation~\cite{Androulaki2018}. Chaincode runs in a container isolated from
+the peer process which consented its installation providing aditional control
+over information dissemination.
 
 At the heart of Fabric is the permissioned distributed ledger that provides a
 way to secure the interactions among a group of entities that have a common
@@ -261,14 +270,6 @@ deploying a slow performing smart contract or one with an infinite loop to the
 network since the Blockchain forms a distributed computing engine.  To cope
 with this issue, public programmable Blockchains with an associated
 cryptocurrency, account for the execution cost of executing of the program.
-
-Chaincode in Fabric consists of two components - the code itself, which
-describes the logic of the program running in the execution phase, and the
-endorsement policy that describes how a specific chaincode transaction is
-validated. For example, a typical endorsement policy lets the chaincode specify
-the endorsers for a transaction in the form of a set of peers that are
-necessary for endorsement and subsequent successful
-validation~\cite{Androulaki2018}.
 
 In Fabric all nodes that participate in the network have an identity, as
 provided by a modular membership service provider (\textbf{msp}).  A
