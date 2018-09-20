@@ -209,12 +209,7 @@ as follows:
 The information that defines the patients identity is a key requirement to
 build a system that recognizes patients across the Healthcare environment, as
 discussed in Chapter~\ref{background}. An asset can be created that represents
-the concept of the patient's identity in this network. To this end, the
-identity of a patient is recorded on the ledger of the HLF network as a
-structure via a smart contract deployed to the network that interacts directly
-with the ledger.  This structure contains the necessary fields to identify the
-patient such as its name and birth date, for example, as well as some other
-information necessary to manage this data. 
+the concept of the patient's identity in this network.
 
 To aid in interoperability with other systems, as seen in Figure
 \ref{fig:interoperability}, the Fast Healthcare Interoperability Resources
@@ -232,6 +227,30 @@ Blockchain Network} \end{figure}
 % Falar sobre channels, organizations, peers, permissões. Falar sobre 
 % precupações dúvidas, dificuldades, objectivos.
 
+The most simple case of an interaction in an Healthcare service is the
+interaction between a patient and a doctor. In HLF this situation translates to
+two organizations and two peers. Each peer belongs to an organization. One
+organization represents the patients while the other represents the hospital
+where the doctor works. 
+
+To establish a communication between the two participating peers a channel can
+be created ensuring information exchanged between the two on the channel is
+private and does not exist on the rest of the network.  If a third organization
+with another peer representing another health clinic joined the network then
+another channel could be created between the patient's organization and this
+new organization. If the patient were to insert his data into the channel then
+the clinic would be able to view it everytime they wished. 
+
+Starting in version 1.1 of Fabric the MSP allows Attribute Based Access Control
+meaning access flow to the data can depend on the value of a certain attribute
+of the certificate. Also it is possible to encrypt data and insert it into the
+channel and then require a key to decrypt the data. In this case the patient
+could give a key to the doctor to be able to access only his data. In the
+current version of Fabric, version 1.2, private data collections was
+introduced, meaning that some data can be marked as private on a channel while
+other data can be public.
+
+
 \subsection{Creating the System}
 
 To create an interactive system that can manage the patients identity in an
@@ -239,6 +258,12 @@ Healthcare environment an application was built that the user interacts with.
 This application interfaces with smart contracts through the Hyperledger Fabric
 Software Development Kit and the chaincode was built using the Hyperledger
 Fabric Shim for node.js.
+
+The identity of a patient was recorded on the ledger of the HLF network as a
+structure via chaincode deployed to the network that interacts directly with
+the ledger.  This structure contains the necessary fields to identify the
+patient such as its name and birth date, for example, as well as some other
+information necessary to manage this data. 
 
 The application is accessed by the user and calls upon the smart contract.  The
 smart contract will handle the assets part of the system.  A smart contract to
