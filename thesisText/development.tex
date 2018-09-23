@@ -5,10 +5,10 @@ in managing the identity of patients in an Healthcare organization by
 conceptualizing and implementing a system that fulfills this role. In order to
 fulfill this goal, the development part of this thesis was primarily divided
 into four steps with each step building upon the previous ones. This Chapter
-provides an insight into how the desired functionality was achieved by the
-system starting at the conceptualization and its associated challenges all the
-way to the implementation of said system. This system was built using some of
-the technologies and concepts described in the previous section.
+provides an insight into the workflow used to build the system. The workflow
+spans the conceptualization and its associated challenges and ends in the
+implementation of said system. This system was built using some of the
+technologies and concepts described in the previous section.
 
 \section{First Step - Defining Requirements and Choosing a 
 	Platform}\label{choosingHyperledger}
@@ -47,9 +47,10 @@ platform that best fulfills these requirements.
 
 \subsection{Choosing a Platform}\label{choosePlatform}
 
-Blockchain platforms often have different goals even tough they normally
-originate from the realization that full centralization has major drawbacks.
-Ranging from open networks, such as Ethereum which anyone can join and use, to
+Even tough Blockchain platforms normally originate from the realization that
+full centralization has major drawbacks they often have different goals
+translating in architecture differences and different development focus.  These
+range from open networks, such as Ethereum which anyone can join and use, to
 permissioned distributed ledgers, which can be run publicly or privately but
 are only open to access and participation through a membership service, such as
 Hyperledger Fabric and Hyperledger Indy.
@@ -59,8 +60,11 @@ for Blockchain to be used as a platform that can be extended and built upon. It
 has a growing learning ecosystem and community. It is easy to start interacting
 with the network as anyone is able to simply download a client and connect to
 it.  Thanks to the Solidity smart contract language being targeted for the
-specific purpose of authoring smart contracts it is a platform easy to develop
-for after the initial learning barrier of the \textbf{dsl}. 
+specific purpose of authoring smart contracts it only allows for a
+deterministic program to be written avoiding potential pitfalls in the
+production network. Also after the initial learning barrier of being a
+\textbf{dsl} it becomes a platform easy to develop for since it provides a well
+thought out and well organized documentation. 
 
 Ethereum is being used in a great deal of projects around the world proving its
 stability and suitability in a wide variety of use cases. On the other hand,
@@ -81,27 +85,29 @@ organizations feel more at ease by being auditable as it offers an identity
 service and a known environment due to using a membership service provider and
 a certificate authority, therefore avoiding the same fate as \textbf{IoT}
 devices where the lack of security regulations and ambiguity in how data
-collected by these devices is handled has stopped these to be used in any
-official capacity.
+collected by these devices is handled has limited these to be used sparingly in
+the Healthcare environment.
 
 Fabric also has good amount of development tools that are now maturing and a
 good learning environment with ample documentation about every aspect important
 for a developer looking to get started into it. Fabric is being backed by the
 Linux Foundation and IBM, lending credibility to the project and ensuring that
-this platform is supported and developed in the foreseeable future, being
-governed by a diverse technical steering committee and by a diverse set of
-maintainers from multiple organizations. In regards to performance the
-Hyperledger community is appointed a Performance and Scale working group to
-improve performance as well as implementation of a benchmarking framework
-called Hyperledger Caliper.
+this platform is supported and developed into the foreseeable future, as it is
+being governed by a diverse technical steering committee and by a diverse set
+of maintainers from multiple organizations. In regards to performance the focus
+in this area is clear as the Hyperledger community has appointed a Performance
+and Scale working group to improve performance as well being tasked to
+implement benchmarking framework for Hyperledger projects called Hyperledger
+Caliper.
 
 Regarding Fabric's features, it lends itself very well to fulfill the project
-requirements. With Fabric's channels and private data segregation at peer level
-it lends itself well to fulfill all the requirements that were laid out for
-this project. Adding to this, many Blockchain based projects in the Healthcare
-field are using permissioned networks due to the concerns regarding the privacy
-of the patients while retaining the key benefits of Blockchain such as
-immutability and decentralization.
+requirements. Fabric's channels and private data segregation at peer level make
+a clear statement that privacy is important in this platform which is in line
+with the requirements that were laid out for this project. Adding to this, many
+upcoming Blockchain based projects in the Healthcare field are using
+permissioned networks due to these same concerns regarding the privacy of the
+patients while retaining the key benefits of Blockchain such as immutability
+and decentralization.
 
 Ultimately it was decided to use Hyperledger Fabric as the platform on which to
 build the prototype project upon.
@@ -122,27 +128,27 @@ proved essential in building the solution proposed by this Thesis.
 An Hyperledger Fabric (HLF) network is defined as the technical infrastructure
 that provides ledger and smart contract services to applications. Smart
 contracts are used to generate transactions and interact with the ledger. The
-network is comprised of several components. 
+network is comprised of several components as presented shortly.
 
-The ledger is one of these components, composed by a world state and a
-Blockchain. The world state is a database that holds the current values of
-ledger states. States are, by default, expressed as key-value pairs. The world
-state is useful because it makes it easy for a program to get the current value
-of these states, instead of having to traverse the entire transaction log. The
-Blockchain holds the transaction logs that record the history of changes that
-have resulted in the current world state. Transactions are collected and
-recorded in an immutable sequence of blocks. Each block contains a set of
-ordered transactions. There is one logical ledger in a Hyperledger Fabric
-network, even tough in reality, the network maintains multiple copies of a
-ledger that are synchronized through consensus. 
+The ledger is a central component of a HLF network. The ledger composed by a
+world state and a Blockchain. The world state is a database that holds the
+current values of ledger states. States are, by default, expressed as key-value
+pairs. The world state is useful because it makes it easy for a program to get
+the current value of these states, instead of having to traverse the entire
+transaction log. The Blockchain holds the transaction logs that record the
+history of changes that have resulted in the current world state. Transactions
+are collected and recorded in an immutable sequence of blocks, in which each
+block contains a set of ordered transactions by the orderer service.
 
 Another component is the set of peers participating in the network. A Peer is a
-node that hosts a copy of the multiple ledgers and smart contracts. HLF opts to
-allow multiple ledgers in a network to achieve different goals of a greater
-purpose. This allows the creation of channels of information between trusted
-parties, for example, a channel of secure and private information between the
-clinical staff of an hospital and a patient as discussed on
-Chapter~\ref{background}. 
+node that hosts a copy of the multiple ledgers and smart contracts. There is
+one logical ledger in a Hyperledger Fabric network, even tough in reality, the
+network maintains multiple copies of a ledger that are synchronized through
+consensus. HLF opts to allow multiple ledgers in a network to achieve different
+goals of a greater purpose. This allows the creation of channels of information
+between trusted parties, for example, a channel of secure and private
+information between the clinical staff of an hospital and a patient as
+discussed on Chapter~\ref{background}, in which every channel has a ledger.
 
 Through a peer connection, applications execute chaincode that queries or
 updates a ledger. Peers have at least one of the three different roles assigned
@@ -155,12 +161,12 @@ organization is provided through the membership service provider.
 In fact peers, applications, end users (clients), administrators, channels and
 organizations must have an identity provided by the MSP in order to be able to
 interact with the network. Each of these actors has a digital identity
-encapsulated in an X.509 digital certificate standard. These determine the
-exact permissions these have over resources and access to information in the
-network. The MSP issues these certificates through the built-in CA component,
-the Fabric Certificate Authority (CA). The Fabric CA is a private root CA
-provider that consists in a CA server and a CA client. The MSP also supports
-Certificate Revocation Lists (CRL).
+encapsulated in an X.509 digital certificate standard which must be unique to
+every entity. These determine the exact permissions these have over resources
+and access to information in the network. The MSP issues these certificates
+through the built-in CA component, the Fabric Certificate Authority (CA). The
+Fabric CA is a private root CA provider that consists in a CA server and a CA
+client. The MSP also supports Certificate Revocation Lists (CRL).
 
 \subsection{Administrating a HLF Networks}
 
@@ -171,10 +177,7 @@ As discussed, a HLF network must have an administrator. HLF provides the
 needs and use cases.
 
 The \textit{cryptogen} tool generates cryptographic data consuming the file
-\textit{crypto-config.yaml}.  HLF uses an abstraction layer for certification
-and authority called Membership Service Provider (MSP) that defines the rules
-by which entities are governed and authenticated and it must be unique for
-every participating entity.
+\textit{crypto-config.yaml}.
 
 The \textit{configtxgen} tool generates the genesis block for the orderer
 services and the initial transactions.  This tool consumes the file
@@ -195,37 +198,48 @@ subsection .
 
 After considering the project goals of investigating the suitability of a
 Blockchain based system to manage patients in Healthcare, the third step was to
-build a prototype of a system that would represent the network, albeit on a
-smaller scale. The insights gained from developing a simple working system
-would enable benefits and risks of the approach to be identified, and
-opportunities for further research to be laid out.
+build a prototype of a system that would provide a simulation of the production
+network, albeit on a smaller scale. The insights gained from developing a
+simple working system would enable benefits and risks of the approach to be
+identified, and opportunities for further research to be laid out.
 
-\subsection{Designing the System}
+\subsection{Conceptualization and Design}
 
-In order to build a system it is a good practice to conceptualize the
-architecture first. After some consideration the concept was determined to be
-as follows:
+In order to build a solution, the research done before hand was taken into
+account and allowed a global overview of how architecturally a system could be
+built with the components available. After some consideration some approaches
+were reached and are now presented.
 
-The information that defines the patients identity is a key requirement to
-build a system that recognizes patients across the Healthcare environment, as
-discussed in Chapter~\ref{background}. An asset can be created that represents
-the concept of the patient's identity in this network.
+After some thought it was determined that the information that defines the
+patient's identity is a key requirement to build a system that recognizes
+patients across the Healthcare environment, as discussed in
+Chapter~\ref{background}. An asset could be created through chaincode that
+represents the concept of the patient's identity in this network. An asset is
+stored in a Fabric network as a key-value pair. The key for this kind of asset
+could be a string. The string could be composed by the string 'Patient\_'
+followed by a patient identification number assigned when the data is entered
+into the Blockchain. Since optimization is not a key concern to build a simple
+prototype in this thesis context, the patient's identification number was
+defined to simply be the order of the data entry starting at number one. This
+ensures that the key is unique and it is easily computable. In the end it was
+decided that the key is formed by the string 'Patient\_' followed by the
+mentioned patient identification number. This key is used to query and access
+information of a patient.
 
 To aid in interoperability with other systems, as seen in Figure
 \ref{fig:interoperability}, the Fast Healthcare Interoperability Resources
-(FHIR) standard by the Health Level 7 organization was used as basis for the
-representation of a patient.  Each field of the structure that represents the
-patients identity, defined in the smart contract, is linked to a field of the
+(FHIR) standard by the Health Level 7 organization could be used as basis for
+the fields in the structure used to represent the patient's identity in the
+Healthcare domain.  Each field of the patient's identity structure, defined in
+a smart contract, would be linked to a field of the
 \href{http://www.hl7.org/fhir/patient.html}{patient structure as presented in
 the FHIR standard}.
 
 \begin{figure}[ht] \centering
-\includegraphics[width=0.7\linewidth]{imgs/interoperability.png}
-\caption{\label{fig:interoperability}An Example of Interoperability with the
-Blockchain Network} \end{figure}
-
-% Falar sobre channels, organizations, peers, permissões. Falar sobre 
-% precupações dúvidas, dificuldades, objectivos.
+  \includegraphics[width=0.7\linewidth]{imgs/interoperability.png}
+  \caption{\label{fig:interoperability}An Example of Interoperability with the
+  Blockchain Network} 
+\end{figure}
 
 The most simple case of an interaction in an Healthcare service is the
 interaction between a patient and a doctor. In HLF this situation translates to
@@ -246,60 +260,102 @@ meaning access flow to the data can depend on the value of a certain attribute
 of the certificate. Also it is possible to encrypt data and insert it into the
 channel and then require a key to decrypt the data. In this case the patient
 could give a key to the doctor to be able to access only his data. In the
-current version of Fabric, version 1.2, private data collections was
+current version of Fabric, version 1.2, private data collections were
 introduced, meaning that some data can be marked as private on a channel while
 other data can be public.
 
+To conclude it was tought that to properly evaluate this solution a series of
+experiments would be conducted. First some data would be present on the channel
+when the user interacts that represents his identity in a certain clinic. The
+patient would query the Blockchain for his data and receive his data if
+everything worked accordingly. The second experiment was making the patient
+share his data with the doctor in the channel. The last experiment consisted in
+the patient trying to query data of another patient that was inserted at the
+genesis of the network and seeing if the data was encrypted or was easily
+readable. The outcomes of these experiments can shape the development of the
+solution as it could take these results into consideration and highlight
+possible problems.
 
-\subsection{Creating the System}
+
+\subsection{Implementation}
 
 To create an interactive system that can manage the patients identity in an
 Healthcare environment an application was built that the user interacts with.
-This application interfaces with smart contracts through the Hyperledger Fabric
-Software Development Kit and the chaincode was built using the Hyperledger
-Fabric Shim for node.js.
+Applications can be developed in any language as long as there is a Software
+Development Kit (SDK) supporting the language. 
 
-The identity of a patient was recorded on the ledger of the HLF network as a
-structure via chaincode deployed to the network that interacts directly with
-the ledger.  This structure contains the necessary fields to identify the
-patient such as its name and birth date, for example, as well as some other
-information necessary to manage this data. 
+At the time of writing there is the Go language SDK and Node.js SDK available
+with Go being the first programming language to get support and Java also being
+added recently. 
 
-The application is accessed by the user and calls upon the smart contract.  The
-smart contract will handle the assets part of the system.  A smart contract to
-represent and manipulate identity was built and interfaces with the network to
-write and read records to the appropriate ledger. The overview of the
-architecture for this system is represented on Figure \ref{fig:appOverview}.
-The smart contract also initializes and manages the ledger state through
-transactions as well as the world state.
+After some research the Node.js SDK seemed to be on par with the Go one, in
+regards to API and features. However, documentation was more sparse and harder
+to find for the Node.js SDK. 
+
+On the other hand Javascript seemed more approachable in contrast to Go, in
+order to implement the system due to the author's familiarity with the Node.js
+environment and with the Javascript programming language. Also, the application
+and the smart contract could both be built in this language which was
+considered an advantage as it simplifies dependency management. 
+
+Ultimately, this application interfaces with smart contracts through the
+Hyperledger Fabric Software Development Kit and the chaincode was built using
+the Hyperledger Fabric Shim for Node.js and programmed in Javascript.
+
+To avoid the need for multiple machines being used to form the network, a
+Docker Compose file was used that defines, and orchestrates the main components
+of the network through the Docker Engine. Each component consists in one or
+more containers. Also, there is one  container defined to be used as a CLI to
+interface with the network using the peer tool if needed for administrative
+purposes. Docker was used as the containerization technology because it is
+officially supported by Hyperledger and is currently the most popular
+containerization tool.
+
+To build the desired network configuration for the prototype, the configuration
+file for the \textit{cryptogen} tool was edited to allow the network to have
+two organizations, each of them with a peer associated. The configuration file
+for the configtxgen tool was also edited to allow a channel of information
+between the two organizations to be created. Each peer would serve as the
+anchor peer~\footnote{Used to initiate communication between peers from
+different organizations. The anchor peer serves as the entry point for another
+organization’s peer on the same channel to communicate with each of the peers
+in the anchor peer’s organization.} in each of the organizations.
+
+An application was also built that allows for user enrollment to create a new
+identity in the network. The application is run by a user and uses the
+available SDK to call upon the smart contract to complete its available
+operations. When a new user of the application enters the network, a function
+in the smart contract initializes the creation of the patient's data and writes
+the patient's Healthcare information to the ledger as a new asset and also
+manages the ledger state through transactions as well as the world state.  The
+overview of the architecture for this system is represented on Figure
+\ref{fig:appOverview}. Due to the security mechanisms these transactions are
+signed and endorsed by the administrator of the network and verified by the CA
+servers.
 
 \begin{figure}[ht] \centering
   \includegraphics[width=1\linewidth]{imgs/hyperledgerAppOverview.png}
   \caption{\label{fig:appOverview}An Overview of the System Architecture
   (Source:
   \href{http://hyperledger-fabric.readthedocs.io/en/latest/write_first_app.html}{HLF
-  Fabric Documentation})} \end{figure}
+  Fabric Documentation})} 
+\end{figure}
 
-The application allows for user enrollment to create a new identity in the
-network.  When a new user of the application enters the network; the function,
-in the smart contract, that initializes the creation of the user and writes the
-user to the ledger as a new participating identity is called. Due to the
-security mechanisms this specific transaction is automatically signed by the
-administrator of the network and is verified by the CA servers.
+The assets loaded contain the necessary fields to identify a patient in an
+Healthcare context, such as its name and birth date, for example, as well as
+some other information necessary to manage this data as discussed previously.
 
-The smart contract also provides the application with several operations to
-manage the identity object as seen on Figure \ref{fig:smartContractOverview}.
-These operations form an Application Programming Interface (API) that return a
-payload in JSON format with identity information from the network.  This API
-allows a query to be made to the network that returns the patients information,
-changing incorrect or outdated information or disabling the identity structure
-of someone who is not participating in the network actively anymore in order
-for that information to be read-only from that point on, for example, with more
-available.  Depending on the operation only certain users can access the
-information or manipulate the already existing one.  This system architecture
-leads to a modular as well as extensible approach regarding the availability of
-new operations that become available as soon as new versions of the smart
-contract are deployed.  
+
+These operations form an Application Programming Interface (API) as seen in
+Figure \ref{fig:smartContractOverview} that returns a payload in JSON format
+with information from the network. This API allows a query to be made to the
+network that returns the patients information, changing incorrect or outdated
+information or disabling the identity structure of someone who is not
+participating in the network actively anymore in order for that information to
+be read-only from that point on, for example, with more available. This system
+architecture leads to a modular as well as extensible approach regarding the
+availability of new operations that become available as soon as new versions of
+the smart contract are deployed.  
 
 \begin{figure}[ht] 
   \centering
@@ -309,3 +365,150 @@ contract are deployed.
   \href{http://hyperledger-fabric.readthedocs.io/en/latest/write_first_app.html}{HLF
   Fabric Documentation})} 
 \end{figure}
+
+The network was brought up using the Docker Compose technology and an
+administrator was enrolled into the network. This step is required because
+every action must be verified through a chain of trust and the administrator is
+the root CA in the network.
+
+The next step was registering the patient and the doctor. Both the patient and
+the doctor ran the register function of the application and were asked for a
+password. After successfully registering they were show their assigned patient
+number and the password was stored in the certification as well as the patient
+number assigned to them. At this point they became active participants in the
+network. In this case the assets that represent their identity were not created
+because they had exceptionally been created before hand by the administrator to
+simplify the process. The normal flow would be the respective asset creation on
+registration.
+
+\section{Testing and Adjusting the System}
+
+With the network in place and the peers set up and registered the experiments
+proposed have now their requirements fulfilled.
+
+\subsection{Experiments}
+% Falta falar das experiencias
+The patient used the function provided by the application to query the network
+for his information. He searched for his patient number and was shown his
+information successfully. This shows that the information was recorded with
+success when the chaincode was deployed. The simple way to query personal
+information with an assigned patient number also proved successful and shows
+that this system can be used to store patient's identity data and retrieve it.
+
+Then the patient had to share his information with the doctor. To do this it
+was necessary to assume that the patient had given his patient number to the
+doctor so that he could use the application built to query for that patient
+number. The doctor queried the network for the patient's information and was
+able to access it successfully. This proves that this platform allows
+surprisingly, to very easily share information between a patient and a doctor
+using a smart contract in a simple way.
+
+Finally the patient tried to access another patient's data. It was necessary to
+assume that he was given the patient number by the respective patient. When he
+queried the network for that patient's data it became clear what already had
+arose suspicions in the previous experiments. He was actually able to access
+that data without a problem. This would be okay if the number was willingly
+given to him. However if the number was obtained unwillingly it could prove a
+problem. This meant that the solution currently, did not meet the requirement
+of the information being confidential that was defined previously, even tough
+it is transparent and has high availability since the information was spread
+through multiple peers and could be on multiple channels. It became clear that
+some additional step to protect data was needed.
+
+\subsection{Encrypting Data}
+
+To make information confidential some form of obfuscation or encryption could
+be used. Fabric also features Attribute Based Access Control meaning that the
+chaincode logic could be altered to check if some attribute was present on the
+doctor's certificate that indicated that he had access to certain patients
+information. This could work for application users however if users used some
+tool like Hyperledger Explorer they could see the data since the data is stored
+as a plain text.
+
+After investigating the different possibilities and making some tests it was
+decided to use encryption. The flow of the operations would be simple. When the
+patient's data was registered he would receive a notification of a data key and
+the data would be encrypted using for example a traditional sha encryption
+algorithm. The data would be encrypted using asymmetric cryptography and a pair
+of keys would be generated, a public key and a private key. The data key that
+the patient received would be the public key that could be shown to anyone. If
+the patient wanted to share his information with with someone he would give him
+the key and that would allow him to decrypt the encrypted patient's data.
+
+With this system in place the last requirement was fulfilled and the system is
+now considered to be reasonable for the purposes of this Thesis. At this point
+it is reasonable to evaluate this solution as an identity management platform
+in the Healthcare context.
+
+\section{Evaluation and a Review of Thesis Goals}
+
+This solution was evaluated against the international standard for information
+security known as the CIA triad model, in order to draw further conclusions and
+evaluate how secure the built system is in regards to its information which is
+a critical concern in this field. The three pillars that form this standard are
+the preservation of the confidentiality, ensuring information integrity and
+information availability.
+
+\subsection{Confidentiality}
+
+Confidentiality of the information stored in the network was considered a key
+requirement when the requirements were presented. The Hyperledger Fabric was a
+prime candidate for building the solution upon due to its focus on privacy and
+a more enterprise approach to Blockchain development. While it offers many
+features such as channels that truly do segregate information in a way that
+many equivalent platforms cannot do at the moment it is also true that by
+default data will be stored in plain text. 
+
+To solve this problem it was necessary to implement data encryption on top of
+the network using chaincode. This way even if someone was able to access the
+underlying database or if someone used a tool like Hyperledger Explorer to
+explore the network all it would see is encrypted data that would require a key
+to encrypt. With these considerations in mind it, even tough there are a number
+of aspects that define confidentiality it can be said that the built system
+provides a confidential data storage.
+
+\subsection{Integrity}
+
+One of the key aspects of a Blockchain system is the immutability of data. This
+means that once information is written it cannot be changed or erased. The
+transaction logs assure that the specific version of that asset is recorded
+permanently in the network. In order to comply with privacy regulations some
+data can become only visible as an hash but it still remains there. Therefore
+the integrity of data on this Blockchain platform and solution is also
+preserved.
+
+\subsection{Availability}
+
+Even tough Fabric is a permissioned Distributed Ledger Platform and as such it
+is administrated by an administrator it is also distributed and therefore
+avoids having a single point of attack. By default it is more available than a
+simple informational system that is centralized. In this aspect it can be said
+the more the network scales, the more robust it becomes and therefore more
+availability it provides as information redundancy also increases.
+
+\subsection{Thesis Goals}
+
+The goal of this thesis was to evaluate if a system could be built based on
+Blockchain technology to manage the patients identity in the Healthcare
+environment. Using Hyperledger Fabric a system was built that successfuly can
+create, manage and delete patients data. Information can be shared in a secure
+manner and interoperability eases organization into adopting this system. This
+system provides benefits to the medical staff as well as the patients due to
+transparency in how data is handled and secured.
+
+However the costs of deploying this system in a production ready environment
+would be higher compared to a more traditional approach. Since this system is
+build upon a Permissioned Platform, machines to host the central services need
+to be acquired and an administrator of the platform is necessary for the
+necessary maintenance. As the network grows it would become more resilient and
+additional servers could be used to expand the core availability of Blockchain
+components.
+
+There is also the question of scalability. Even tough a Permissioned Blockchain
+is always faster in relation to a Permissionless variant it still is far from
+matching the SIBS system form example. If this system was intended for global
+use then additional approaches would need to be taken.
+
+With this said the pace of development has been relatively fast with new
+releases on a quarterly basis that focus on the issues of scalability and
+privacy, two important features pertaining to the system this Thesis proposed.
