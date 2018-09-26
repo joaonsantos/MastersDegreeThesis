@@ -61,10 +61,11 @@ has a growing learning ecosystem and community. It is easy to start interacting
 with the network as anyone is able to simply download a client and connect to
 it.  Thanks to the Solidity smart contract language being targeted for the
 specific purpose of authoring smart contracts it only allows for a
-deterministic program to be written avoiding potential pitfalls in the
-production network. Also after the initial learning barrier of being a
-\textbf{dsl} it becomes a platform easy to develop for since it provides a well
-thought out and well organized documentation. 
+deterministic program to be written avoiding potential conflicts in the
+execution of these, for example, in the production network. Also after the
+initial learning barrier of it being a \textbf{dsl} it becomes a platform easy
+to develop for since it provides a well thought out and well organized
+documentation with a easy to use library of operations.
 
 Ethereum is being used in a great deal of projects around the world proving its
 stability and suitability in a wide variety of use cases. On the other hand,
@@ -82,11 +83,12 @@ Fabric, like Ethereum, was built with the intention of being a general purpose
 use Blockchain. It provides developers with the tools needed to build any
 system they can imagine. However, the latter is clearly focused on making
 organizations feel more at ease by being auditable as it offers an identity
-service and a known environment due to using a membership service provider and
-a certificate authority, therefore avoiding the same fate as \textbf{IoT}
-devices where the lack of security regulations and ambiguity in how data
-collected by these devices is handled has limited these to be used sparingly in
-the Healthcare environment.
+service and a known environment due to using a membership service provider,
+using a private certificate authority that emits certificates specific for the
+Fabric network. These concerns allow this platform to avoid the same fate as
+\textbf{IoT} devices have had in the Healthcare field~\cite{Tana2017}. The lack
+of security regulations and ambiguity in how data collected by these devices is
+handled has limited these to be used in a limited way in the this context.
 
 Fabric also has good amount of development tools that are now maturing and a
 good learning environment with ample documentation about every aspect important
@@ -98,19 +100,27 @@ of maintainers from multiple organizations. In regards to performance the focus
 in this area is clear as the Hyperledger community has appointed a Performance
 and Scale working group to improve performance as well being tasked to
 implement benchmarking framework for Hyperledger projects called Hyperledger
-Caliper.
+Caliper~\cite{performanceScale2017}.
 
 Regarding Fabric's features, it lends itself very well to fulfill the project
 requirements. Fabric's channels and private data segregation at peer level make
 a clear statement that privacy is important in this platform which is in line
-with the requirements that were laid out for this project. Adding to this, many
-upcoming Blockchain based projects in the Healthcare field are using
-permissioned networks due to these same concerns regarding the privacy of the
-patients while retaining the key benefits of Blockchain such as immutability
-and decentralization.
+with the requirements that were laid out for this project. It is also worth
+noting that many upcoming Blockchain based projects in the Healthcare field are
+using permissioned networks due to these same concerns regarding the privacy of
+the patients while retaining the key benefits of Blockchain such as
+immutability and decentralization. The fact that Fabric has no associated
+currency also means there is no required mining incentives to maintain the
+network, even tough it does require some additional infrastructure acquisitions
+to set up the network, leading to a higher initial investment in a solution
+based on this platform.
 
-Ultimately it was decided to use Hyperledger Fabric as the platform on which to
-build the prototype project upon.
+Both are very interesting platforms, but ultimately it was decided to use
+Hyperledger Fabric as the platform on which to build upon. This decision was
+taken in part because Fabric was purpose built for a very regulated environment
+and . Also, this technology is relatively recent and there is still a great
+lack of knowledge available to the general public, making it a more interesting
+choice from an theoretical standpoint.
 
 
 \section{Working knowledge of the Platform}
@@ -120,8 +130,7 @@ understand in further detail what are the components that form a network and
 the tools to manage these components. This section discusses the main
 components of a Fabric network and the tools required to create and maintain a
 Fabric network. These components often interact with one another and provide
-the technical infrastructure that comprises this technology. This knowledge
-proved essential in building the solution proposed by this Thesis.
+the technical infrastructure that comprises this technology.
 
 \subsection{Hyperledger Fabric Components}
 
@@ -130,15 +139,15 @@ that provides ledger and smart contract services to applications. Smart
 contracts are used to generate transactions and interact with the ledger. The
 network is comprised of several components as presented shortly.
 
-The ledger is a central component of a HLF network. The ledger composed by a
+The ledger is a central component of a HLF network. The ledger is composed by a
 world state and a Blockchain. The world state is a database that holds the
 current values of ledger states. States are, by default, expressed as key-value
-pairs. The world state is useful because it makes it easy for a program to get
-the current value of these states, instead of having to traverse the entire
-transaction log. The Blockchain holds the transaction logs that record the
-history of changes that have resulted in the current world state. Transactions
-are collected and recorded in an immutable sequence of blocks, in which each
-block contains a set of ordered transactions by the orderer service.
+pairs. The world state is useful because it makes it easy for a smart contract
+to get the current value of these states, instead of having to traverse the
+entire transaction log. The Blockchain holds the transaction logs that record
+the history of changes that have resulted in the current world state.
+Transactions are collected and recorded in an immutable sequence of blocks, in
+which each block contains a set of ordered transactions by the orderer service.
 
 Another component is the set of peers participating in the network. A Peer is a
 node that hosts a copy of the multiple ledgers and smart contracts. There is
@@ -203,12 +212,12 @@ network, albeit on a smaller scale. The insights gained from developing a
 simple working system would enable benefits and risks of the approach to be
 identified, and opportunities for further research to be laid out.
 
-\subsection{Conceptualization and Design}
-
 In order to build a solution, the research done before hand was taken into
 account and allowed a global overview of how architecturally a system could be
 built with the components available. After some consideration some approaches
 were reached and are now presented.
+
+\subsection{Conceptualization and Design}
 
 After some thought it was determined that the information that defines the
 patient's identity is a key requirement to build a system that recognizes
@@ -221,7 +230,7 @@ followed by a patient identification number assigned when the data is entered
 into the Blockchain. Since optimization is not a key concern to build a simple
 prototype in this thesis context, the patient's identification number was
 defined to simply be the order of the data entry starting at number one. This
-ensures that the key is unique and it is easily computable. In the end it was
+ensures that the key is unique and it is easily computable. In short, it was
 decided that the key is formed by the string 'Patient\_' followed by the
 mentioned patient identification number. This key is used to query and access
 information of a patient.
@@ -236,10 +245,9 @@ a smart contract, would be linked to a field of the
 the FHIR standard}.
 
 \begin{figure}[ht] \centering
-  \includegraphics[width=0.7\linewidth]{imgs/interoperability.png}
-  \caption{\label{fig:interoperability}An Example of Interoperability with the
-  Blockchain Network} 
-\end{figure}
+\includegraphics[width=0.7\linewidth]{imgs/interoperability.png}
+\caption{\label{fig:interoperability}An Example of Interoperability with the
+Blockchain Network} \end{figure}
 
 The most simple case of an interaction in an Healthcare service is the
 interaction between a patient and a doctor. In HLF this situation translates to
@@ -323,9 +331,9 @@ in the anchor peer’s organization.} in each of the organizations.
 
 An application was also built that allows for user enrollment to create a new
 identity in the network. The application is run by a user and uses the
-available SDK to call upon the smart contract to complete its available
-operations. When a new user of the application enters the network, a function
-in the smart contract initializes the creation of the patient's data and writes
+available SDK to call upon the operations that the smart contract makes
+available. When a new user of the application enters the network, a function in
+the smart contract initializes the creation of the patient's data and writes
 the patient's Healthcare information to the ledger as a new asset and also
 manages the ledger state through transactions as well as the world state.  The
 overview of the architecture for this system is represented on Figure
@@ -387,7 +395,7 @@ With the network in place and the peers set up and registered the experiments
 proposed have now their requirements fulfilled.
 
 \subsection{Experiments}
-% Falta falar das experiencias
+
 The patient used the function provided by the application to query the network
 for his information. He searched for his patient number and was shown his
 information successfully. This shows that the information was recorded with
@@ -413,7 +421,7 @@ problem. This meant that the solution currently, did not meet the requirement
 of the information being confidential that was defined previously, even tough
 it is transparent and has high availability since the information was spread
 through multiple peers and could be on multiple channels. It became clear that
-some additional step to protect data was needed.
+some additional data security measures was needed.
 
 \subsection{Encrypting Data}
 
@@ -428,15 +436,15 @@ as a plain text.
 After investigating the different possibilities and making some tests it was
 decided to use encryption. The flow of the operations would be simple. When the
 patient's data was registered he would receive a notification of a data key and
-the data would be encrypted using for example a traditional sha encryption
-algorithm. The data would be encrypted using asymmetric cryptography and a pair
-of keys would be generated, a public key and a private key. The data key that
-the patient received would be the public key that could be shown to anyone. If
-the patient wanted to share his information with with someone he would give him
-the key and that would allow him to decrypt the encrypted patient's data.
+the data would be encrypted using for example a traditional SHA-256 encryption
+algorithm. The data would be encrypted using symmetric key encryption with the
+generated key being stored on the X.509 securely.  If the patient wanted to
+share his information with with someone he would give him the key and that
+would allow him to decrypt the encrypted patient's data.  To complete this
+system the key should expire after a certain amount of time and refresh itself.
 
 With this system in place the last requirement was fulfilled and the system is
-now considered to be reasonable for the purposes of this Thesis. At this point
+now considered to be reasonable for the purposes of this thesis. At this point
 it is reasonable to evaluate this solution as an identity management platform
 in the Healthcare context.
 
