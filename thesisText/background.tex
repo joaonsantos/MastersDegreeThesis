@@ -1,17 +1,44 @@
 \chapter{Background}\label{background}
 
 
-\begin{quote} \emph{"This project aims to build a Blockchain based system to
-  manage the identity of patients and investigating the suitability of creating
-  such a system in the Healthcare environment.  While Blockchain is not a new
-  concept at this point, it is an evolving technology that is being used to
-  solve old problems with new approaches while at the same time creating new
-  application fields and challenging old conventions and methodologies. Some
-  context is given to how technology has been helping the Healthcare industry
-  to enable better management of their patients identity."}
+\begin{quote} 
+  \emph{Healthcare uses Electronic Health Records to store patient
+  information in a digital format but interoperability has been a major issue.
+  Health Level 7 \textbf{FHIR} standard has been increasing adoption worldwide.
+  Electronic Health Records are increasingly becoming targets for malicious
+  entities and concerns have arisen, in regards to privacy and security in a
+  more digital age and in a period where privacy regulations have been recently
+  reviewed across Europe. Blockchain technology can be used as an additional
+  layer of security in the Healthcare information systems. In this Chapter,
+  Blockchain is presented as a collection of cryptographic and network
+  technologies orchestrated to work together in a decentralized fashion,
+  purpose built for achieving trust between unknown parties without the need
+  for a middle man. Blockchain implementations are either permissioned or
+  permissionless. Since Blockchain is a distributed system it uses consensus
+  algorithms to achieve security and immutability. While Proof of Work
+  (\textbf{POW}) is the most widespread consensus algorithm in use,
+  environmental concerns have led to the appearance of new algorithms.
+  Blockchain implementations such as Ethereum, allow execution of logic in the
+  form of smart contracts. Hyperledger Fabric is part of the Hyperledger
+  project and was built with organizational needs in mind, and allows
+  organizations to fall back to established regulations, if needed.}
 \end{quote}
 
+
+In this Chapter the technological foundations that have paved the way for
+Blockchain technology as we know today are explored. The benefits of this
+technology and how those benefits are achieved are also discussed as well as
+its environmental, social and economic impact. It is also presented how
+technology has been helping the Healthcare industry to enable better management
+of their patients identity and how the Blockchain can bring improvements to
+this field.
+
 \section{Starting Concepts}
+
+While Blockchain is not a new concept at this point, it is an evolving
+technology that is being used to solve old problems with new approaches while
+at the same time creating new application fields and challenging old
+conventions and methodologies.
 
 Blockchain is an abstract concept, being a collection of cryptographic and
 network technologies orchestrated to work together. It can be used to refer to
@@ -40,15 +67,16 @@ Unlike a conventional database system running in a server, where only a single
 entity keeps a copy of the underlying database, making it centralized by
 design, the ledger of the Blockchain is constantly replicated across any number
 of participating nodes in the network~\cite{Lewis2015} in a regular cadence
-defined at the network genesis. In some implementations, not every participant
-has the same ability to interact with the ledger and in this respect a
-Blockchain can be permissionless or permissioned. Generally speaking, in a
-permissionless Blockchain every node of the network can write to the ledger
+defined at network creation. In some implementations, not every participant has
+the same ability to interact with the ledger and in this respect a Blockchain
+can be \textbf{permissionless} or \textbf{permissioned}. Generally speaking, in
+a permissionless Blockchain every node of the network can write to the ledger
 whereas in a permissioned Blockchain only a select group of entities have
-access to writing in the ledger, making the permissioned version, by default
-secure, if the entities themselves who manage the network are considered secure
-and trustworthy by the participants in the
-network~\cite{Lewis2015,Valenta2017}.
+access to writing in the ledger. The permissioned alternative is secure by
+default if the entities who manage the network are considered secure and
+trustworthy participants in the network, for example through a chain of trust
+similar to textbf{DNS} domain name digital certification
+schema~\cite{Lewis2015,Valenta2017}.
 
 But then, how does a permissionless Blockchain maintain security if every
 participant in the network has access to writing on it, including potentially
@@ -72,22 +100,22 @@ agrees upon the sequence of events.  For example, in the Bitcoin's Blockchain
 case, consensus is reached by the longest chain rule where the longest chain of
 blocks not only serves as proof of the sequence of events witnessed, but as
 proof that it came from the largest pool of computing power, as it uses a proof
-of work (\textbf{pow}) algorithm that relies on brute force to solve a complex
+of work (\textbf{POW}) algorithm that relies on brute force to solve a complex
 mathematical puzzle, making the longest chain of blocks the one with the most
 computing power behind it and therefore agreed upon by the majority of the
 network~\cite{Baars2016,Wood2017} making it the most likely to be the one that
 represents the sequence of events witnessed.
 
 There have been however, environmental and economic reasons to replace
-\textbf{pow} consensus algorithms. Nowadays the cryptocurrency mining, forms a
+\textbf{POW} consensus algorithms. Nowadays the cryptocurrency mining, forms a
 billion dollar industry with an estimated consumption of 288 megawatts and in
 2016, 70\% of the Bitcoin's computational power was located in China
 ~\cite{BitcoinMining2017}.  Unfortunately, the vast majority of electricity in
 the country is produced by burning coal, resulting in one of the biggest carbon
 footprints in the world. In response to this environmental and eventual
 economic concern over the sustainability of the mining incentives, there have
-been a few alternative algorithms that have eventually appeared. Proof of Stake
-(\textbf{pos}), for example, is a consensus algorithm that was first suggested
+been a few alternative algorithms that have eventually appeared. Proof of stake
+(\textbf{POS}), for example, is a consensus algorithm that was first suggested
 on the Bitcointalk forum back in 2011. It is currently in use in various
 currencies as their consensus algorithm and the first digital currency to use
 this method was Peercoin in 2012. 
@@ -98,19 +126,19 @@ certain amount of money. Any participating peer in the network can become a
 validator by sending a special type of transaction that locks their money in a
 deposit, defined as the stake. The creator of a new block is chosen in a
 deterministic way, depending on its wealth and other factors depending on the
-specific \textbf{pos} implementation. Then validators participate in the
-process of creating and agreeing to new blocks by taking turns voting. However
-\textbf{pos} based consensus algorithms have proven to be difficult to
+specific \textbf{POS} implementation. Then validators participate in the
+process of creating and agreeing to new blocks. However \textbf{POS} based
+consensus algorithms have proven to be difficult to
 implement~\cite{EthereumSlasher2014} in a way that still provides the needed
 security for a large Blockchain network. Due to this some Blockchain platforms
-are also considering implementing a mix of \textbf{pow} and \textbf{pos}
+are also considering implementing a mix of \textbf{POW} and \textbf{POS}
 algorithm.
 
 In the case of a permissioned Blockchain implementation, interactions are made
 among a set of known, identified participants who have a common goal, but do
 not fully trust each other. By relying on the identities of peers, a
 permissioned Blockchain can use a more traditional Byzantine-fault tolerant
-(\textbf{bft}) consensus algorithm.
+(\textbf{BFT}) consensus algorithm~\cite{Sousa2018}.
 
 While the Blockchain, we now know today, was conceptualized as the public
 ledger for the Bitcoin cryptocurrency in 2008 by Satoshi Nakamoto and
@@ -118,35 +146,36 @@ implemented in 2009, many are now using it as a foundation across a variety of
 application areas such as traceability, asset management and
 Healthcare~\cite{MIT2016}.
 
-\section{Developments in Healthcare}\label{blockchainHealthcare}
+\section{Developments in Healthcare}
+\label{blockchainHealthcare}
 
 Originally records of a patient were stored in paper, a physical format.
 Thanks to the advent of the computers more and more records are stored on a
-digital format and the Electronic Health Record (EHR) was created.
-\cite{Marquez2017}  The digitalization of this data benefits handling of
-information between the patient and the medical professionals and medical
+digital format and the Electronic Health Record (\textbf{EHR}) was
+created~\cite{Marquez2017}. The digitalization of this data benefits handling
+of information between the patient and the medical professionals and medical
 institutions\cite{ONCoordinator2017}.  The purpose of this paper is proposing a
 solution to managing the identity of patients in the Healthcare field, but
 first it must be discussed what is defined as identity.
 
 Identity is a construct that depends on the context. Identity can be defined as
-the characteristics determining who or what a person is. In this paper we
-define identity as the set of characteristics that determine who the patient is,
-in the given Healthcare ecosystem they belong to, such as the name, the age,
-the cellphone number, the gender and the birth date of the patient.  
+the characteristics determining who or what someone is. In this paper we define
+identity as the set of characteristics that determine who the patient is, in
+the given Healthcare ecosystem they belong to, such as the name, the age, the
+cellphone number, the gender and the birth date of the patient.  
 
 Electronic Health Records encapsulate this information in digital format,
 however they are usually represented in a format according to the Information
 System they were designed to work with. The increasing limitations of
 paper-based records, the potential benefits of Electronic Health Records and
 the acknowledged challenges of delivering these in practice have stimulated a
-considerable investment in research and development of this solution.
-Between 1991 and 1998 the European Union provided considerable direct funding
-support to related research projects~\cite{Kalra2006}.
+considerable investment in research and development of this solution.  Between
+1991 and 1998 the European Union provided considerable direct funding support
+to related research projects~\cite{Kalra2006}.
 
-To enable interoperability, standards for EHRs were sought after and
+To enable interoperability, standards for \textbf{EHRs} were sought after and
 considerable research has been undertaken since 1996 to develop architecture
-formalisms to capture Healthcare data comprehensively, however many of them
+formalisms to capture Healthcare data comprehensively, however, many of them
 have had no significant adoption, failing to bring the much needed
 consensus~\cite{Eichelberg2006} that was required for enabling interoperability
 between different Information Systems in Healthcare institutions. 
@@ -160,16 +189,16 @@ health management. These requirements are becoming more urgent as the focus of
 Healthcare delivery shifts progressively from specialist centres to community
 settings and to the patient’s personal environment.
 
-Health Level 7 (\textbf{hl7}) has done much work to be recognized
+Health Level 7 (\textbf{HL7}) has done much work to be recognized
 internationally and is being implemented in many countries to allow for joint
-efforts between organizations. As of 2017, \textbf{hl7} has an official
+efforts between organizations. As of 2017, \textbf{HL7} has an official
 presence in 34 countries such as United Kingdom, Spain, France, Germany, Russia
 and China~\cite{HL7Anual2016}. The organization has been keen on expanding
 their standard internationally as work continues on official adoption in other
-countries such as Portugal. Adding to this, \textbf{hl7} has been providing
+countries such as Portugal. Adding to this, \textbf{HL7} has been providing
 several events and discussion meetings, as well as, developing its learning
-ecosystem in the form of certifications and webinars for example. In 2017,
-\textbf{hl7} has partnered with the Health Services Platform Consortium,
+ecosystem in the form of certifications and web streams, for example. In 2017,
+\textbf{HL7} has partnered with the Health Services Platform Consortium,
 composed of more than a dozen clinical professional societies, committing
 resources for creating and testing clinical data models thus beginning to lay a
 semantic foundation for achieving an interoperable foundation.
@@ -186,20 +215,20 @@ established some key partnerships.
 
 Guardtime, has fully deployed their system in 2008, started cooperating in 2011
 and in 2016 announced a partnership with the Estonian Government, where a
-million patient records are now secured by the strategy and, until today, still
+million patient records are now secured by the mentioned system. The system
 proves the resilience of the Blockchain technology, as well as, other advances
-in cryptography.  Now other companies like Verizon are becoming interested in
-this technology for their own
+in cryptography. Large companies like Verizon are becoming interested in this
+technology for their own
 purposes~\cite{GuardTime2018,EstonianGovernmentGuardTime2016}.
 
 Another company, Gem, is collaborating with Phillips Healthcare to explore
-options in this area, and is opting to solve the interoperability problem with
-an additional layer of abstraction they call GemOS.  Factom, another
-Blockchain-based service, has also announced a partnership with a major US
-medical services provider
+options in this area\cite{philips2016}, and is opting to solve the
+interoperability problem with an additional layer of abstraction they call
+GemOS~\cite{gemOS2018}. Factom, another Blockchain-based service, has also
+announced a partnership with a major US medical services provider
 HealthNautica~\cite{BlockchainCompHealth2017,FactomPartnership2017}.
 
-The use of the Blockchain technology in the health field is expanding. Just
+The use of Blockchain technology in the health field is expanding. Just
 recently a new platform appeared, called Medichain that allows patients to
 store their own data in a secure way and give anonymized access to this data to
 specialists. Giving data allows for users to gain tokens that represent
@@ -212,19 +241,22 @@ being made to regulate the high amount of data that is being generated by
 services.
 
 For example, in the European Union, the EU General Data Protection Regulation
-(\textbf{gdpr}) is officially in effect as of 25 of May, 2018. The aim of this
+(\textbf{GDPR}) is officially in effect as of May 25, 2018. The aim of this
 regulation is to protect all EU citizens from privacy and data breaches in an
 increasingly data-driven world that is vastly different from when the preceding
-1995 directive was established. Since \textbf{gdpr} is a regulation, not a
+1995 directive was established. Since \textbf{GDPR} is a regulation, not a
 directive, it does not require national governments to pass any enabling
 legislation and is directly binding and applicable. A violator of this
-regulation may be fined up to €20 million or up to 4\% of the annual worldwide
-turnover of the preceding financial year in case of an enterprise, whichever is
-greater. Although the key principles of data privacy still hold true to the
-previous 1995 directive, terms of usage as well as consent to use data has
-become more clear to the user of a data-driven service. Therefore, any solution
-proposed in the Healthcare field must also take this legal landscape into
-consideration.
+regulation may be fined up to 20 million \textbf{€} or up to 4\% of the annual
+worldwide turnover of the preceding financial year in case of an enterprise,
+whichever is greater. Although the key principles of data privacy still hold
+true to the previous 1995 directive, terms of usage as well as consent to use
+data has become more clear to the user of a data-driven service. Therefore, any
+solution proposed in the Healthcare field must also take this legal landscape
+into consideration which may be a problem. One of the key features of
+Blockchain is immutability which means that data once written it is impossible
+to delete or tamper with. This provides many benefits but to comply with this
+regulation some adjustments are needed, which will be discussed shortly.
 
 \section{Blockchain as a Platform}
 
@@ -233,9 +265,9 @@ in cryptocurrencies is shown to be rising~\cite{BitAwareness2017}. While
 Blockchain is used as a means to increase the resiliency of the Bitcoin
 cryptocurrency from malicious parties, a token is used to represent the coin. 
 
-Just like a Dollar it has no value by itself, it has value only because we
-agree to trade goods and services in exchange for a higher amount of the
-currency under our control and we believe others will do the same
+Just like an American Dollar (\textbf{USD}) it has no value by itself, it only
+has value because we agree to trade goods and services in exchange for a higher
+amount of the currency under our control and we believe others will do the same
 \cite{aliessi2016}. Through the years Blockchain has evolved to be capable of
 being an independent development platform using the token as a means to reward
 those who maintain the consensus by spending electricity and computation power
@@ -250,8 +282,12 @@ programs designed for it~\cite{Wood2015}.
 Ethereum is an open-source platform based on the Blockchain technology that
 enables developers to build and deploy \textbf{Ðapps}. Ethereum is being
 developed by the Ethereum Foundation and was first discussed by Buterin in
-2013.  Ethereum intends to provide a Blockchain with a built-in programming
-language that is used to create smart contracts~\cite{Wood2017}.
+2013. Ethereum intends to provide a Blockchain with a built-in programming
+language that is used to create smart contracts~\cite{Wood2017}. Many
+Blockchain implementations nowadays use this concept. For example, Hyperledger
+Fabric also uses smart contracts. Fabric is an implementation of a Distributed
+Ledger Platform (\textbf{DLP}) as explained in
+Section\ref{enterpriseBlockchain}.
 
 A Blockchain that supports Bitcoin style transactions enables asset transfers
 between parties that do not trust each other. A Blockchain that supports smart
@@ -263,7 +299,7 @@ that executes the terms of a contract"~\cite{Christidis2016}.
 Smart contracts can translate contractual clauses into a piece of code,
 embedding it into property hardware, or software that can self-enforce them ,
 in order to minimize the need for trusted intermediaries between transacting
-parties, and the occurence of malicious or accidental exceptions. In a
+parties, and the occurrence of malicious or accidental exceptions. In a
 Blockchain, smart contracts are scripts that describe the logic of any system
 that developers can imagine and are stored on the Blockchain where they execute
 as “autonomous agents” and where they can be instantiated and invoked as needed
@@ -292,13 +328,13 @@ previously exist. This devalues the currency relative to other monetary units,
 and diminishes user trust as well as the circulation and retention of the
 currency.} might have occurred and the transaction is rejected~\cite{Wood2017}.
 
-\section{Blockchain for Enterprise}
+\section{Blockchain for Enterprise}\label{enterpriseBlockchain}
 
-Hyperledger Fabric (\textbf{hlf}) is part of the Hyperledger project started in
+Hyperledger Fabric (\textbf{HLF}) is part of the Hyperledger project started in
 December 2015 by the Linux Foundation, and is an open-source developer-focused
 community of communities focused on the development of enterprise-grade,
 open-source Blockchain-based solutions.  Fabric is an implementation of a
-Distributed Ledger Platform (\textbf{dlp}) under the Hyperledger
+Distributed Ledger Platform (\textbf{DLP}) under the Hyperledger
 umbrella~\cite{Cachin2016}.
 
 Hyperledger Fabric’s initial commit was contributed by IBM and written in the
@@ -308,9 +344,9 @@ lack of true private transactions and confidential contracts.
 
 These goals are achieved thanks to assigning peers in the network three
 distinct roles and by offering the ability to create channels each with its own
-private ledger.  A peer can have the role of endorser, committer or consenter
-or sometimes multiple roles.  Hyperledger Fabric is intended as a foundation
-for developing applications in a modular fashion, opting for a plug-and-play
+private ledger.  A peer has have the role of endorser, committer or consenter
+or multiple roles.  Hyperledger Fabric is intended as a foundation for
+developing applications in a modular fashion, opting for a plug-and-play
 approach to its various components as well as its consensus
 mechanism~\cite{HyperledgerFabricDocs2017}.
 
@@ -322,13 +358,13 @@ environment where sensitive information must be handled with care and disclosed
 on a case by case basis.  Thanks to its modular approach consensus protocols
 are no longer hard-coded and trust models can be repurposed.
 
-Hyperledger Burrow (\textbf{hlb}) is also part of the Hyperledger project and
+Hyperledger Burrow (\textbf{HLB}) is also part of the Hyperledger project and
 its development started in 2014 by Monax and sponsored by Intel. It is a
 permissionable smart contract machine written in Go and offers a modular
 Blockchain client with a permissioned smart contract interpreter built, in
-part, to the specification of the Ethereum Virtual Machine (\textbf{evm}) with
+part, to the specification of the Ethereum Virtual Machine (\textbf{EVM}) with
 the client having, essentially, three main components, the consensus engine,
-the permissioned \textbf{evm} and the Remote Procedure Call (\textbf{rpc})
+the permissioned \textbf{EVM} and the Remote Procedure Call (\textbf{RPC})
 gateway~\cite{Kuhlman2017,HyperledgerBurrow2017}.
 
 Hyperledger Burrow has its own Consensus Engine, the Byzantine fault-tolerant
@@ -340,20 +376,23 @@ management~\cite{Buchman2016}.
 
 Hyperledger Indy is an open-source distributed ledger, purpose-built for
 decentralized identity. Indy uses a modified version of Redundant Byzantine
-Fault Tolerance (\textbf{rbft}) called Plenum. Indy provides tools, libraries,
+Fault Tolerance (\textbf{RBFT}) called Plenum. Indy provides tools, libraries,
 and reusable components for creating and using independent digital identities
 distributed ledgers. Indy provides a software ecosystem where the users are in
 charge of decisions about their own privacy and disclosure of such information.
 Indy can be used to define connection contracts, revocation and curated
-reputation, for example.
+reputation, for example. Hyperledger Indy was not used in this Thesis because
+when this Thesis started it was just in incubation phase. Documentation was
+lacking and the platform was not feature complete. With this said, Hyperledger
+Indy could be used in Future Work as explained on the respective section.
 
 The first network built on Indy was deployed on July 31, 2017, running version
-1.0 of Indy. The Indy SDK released in August of the same year. The SDK supports
-common programming languages like Python, Java, Go, Node.js and Rust for
-interacting with the Indy ledger, running as Sovrin. iOS support for Indy is
-mature, and Android support is planned. Institutions currently have several
-incentives to adopt a solution similar to Indy, one being regulation. GDPR,
-HIPAA, ePrivacy, and other legal requirements are forcing companies to adopt
-some measures in how they handle data pertaining to their clients and
-employees. Privacy and user data control standards are being demanded by
-governments all over the world.
+1.0 of Indy. The Indy \textbf{SDK} released in August of the same year. The
+\textbf{SDK} supports common programming languages like Python, Java, Go,
+Node.js and Rust for interacting with the Indy ledger, running as Sovrin. iOS
+support for Indy is mature, and Android support is planned. Institutions
+currently have several incentives to adopt a solution similar to Indy, one
+being regulation. \textbf{GDPR}, \textbf{HIPAA}, \textbf{ePrivacy}, and other
+legal requirements are forcing companies to adopt some measures in how they
+handle data pertaining to their clients and employees. Privacy and user data
+control standards are being demanded by governments all over the world.

@@ -1,26 +1,40 @@
 \chapter{Introduction}\label{introduction}
 
-\begin{quote} \emph{"This paper provides an insight into the design and
-  implementation of a Blockchain based system for managing the identity of
-  patients in a Healthcare context and its subsequent evaluation. The system
-  should allow a patient to be able to manage his data and control its access.
-It can be used to handle the patient’s medical identity, for example, in
-hospitals or clinics  alongside the current Information Systems available in
-nowadays regular medical environments."} \end{quote}
+\begin{quote} 
+  \emph{The aim of this work is to build a Blockchain based system to manage
+  the identity of patients and find out the suitability of creating such a
+  system in the Healthcare environment.  Traditional databases alone can become
+  vulnerable and a target to groups of malicious actors. Also the data that
+  forms the identity of a pattient is often fragmented across multiple
+  Healthcare organizations, in such a way that, to a get an oveview of the
+  patients history and diagnosis you would need to merge together all the
+  pieces of information stored in these data systems. Blockchain has a set of
+  features could improve upon these aspects if used together with existing
+  systems. This thesis provides an insight into the design and implementation
+  of a Blockchain based system for managing the identity of patients in a
+  Healthcare context and its subsequent evaluation.  The system should allow a
+  patient to be able to manage his data and control its access.  It can be used
+  to handle the patient’s medical identity, for example, in hospitals or
+  clinics alongside the current Information Systems available in nowadays
+  regular medical environments. The creation of this system and its subsequent
+  evaluation will provide interesting conclusions to medical staff as well as
+  patients, regarding its potential implementation and deployment in the
+  field.} 
+\end{quote}
 
 Health is intrinsically linked with technology as new technologies enable safer
 and better treatments. It is also worth noting that computing devices and
 networks are now easily available and widespread to the general population in
 more develop countries. Healthcare organizations now store patients data on a
-digital format. The Electronic Health Record (\textbf{ehr}) is an abstract
+digital format. The Electronic Health Record (\textbf{EHR}) is an abstract
 concept representing the patients digitally stored clinical data and their
 identity in a medical context.
 
-Electronic Health Records (\textbf{ehr}) for many years have lacked a standard,
+Electronic Health Records (\textbf{EHR}) for many years have lacked a standard,
 even tough, more recently there has been some progress regarding this matter.
 Standards are an important step to implement because they allow
 interoperability between different organizations. The Health Level 7
-(\textbf{hl7}) standard, being developed by Health Level Seven organization, is
+(\textbf{HL7}) standard, being developed by Health Level Seven organization, is
 growing in use and is represented internationally. Health Level Seven Portugal
 is starting its operations and is building a community to support the use of
 this standard in Portugal~\cite{HealthLevel7}.
@@ -32,23 +46,23 @@ resiliency~\cite{Evans2016}.
 
 A Blockchain runs on a network of computers and has a list of records that are
 replicated across the participating peers. Blockchain, as we know today, was
-conceptualized as the public ledger~\footnote{A ledger is defined as an object in
-which items are regularly recorded, originally business activities and money
-received or paid, but in reality, it can be used to store any type of record.} for the Bitcoin cryptocurrency in 2008 by Satoshi Nakamoto,
-a pen name of, a still unknown to this day, individual or organization of
-individuals. The network was implemented in 2009 and many are now finding it
-has a much broader potential across many fields, with some implementations even
-resembling a programming platform to execute code in an autonomous
+conceptualized as the public ledger~\footnote{A ledger is defined as an object
+in which items are regularly recorded, originally business activities and money
+received or paid, but in reality, it can be used to store any type of record.}
+for the Bitcoin cryptocurrency in 2008 by Satoshi Nakamoto, a pen name of, a
+still unknown to this day, individual or organization of individuals. The
+network was implemented in 2009 and many are now finding it has a much broader
+potential across many fields, with some implementations even resembling a
+programming platform to execute code in an autonomous
 manner~\cite{Nakamoto2008}.
 
 Traditional databases and architectures can become vulnerable and a target to
 groups of malicious actors that possess the technical expertise to deny
-services with Distributed Denial of Service (\textbf{ddos}) attacks~\footnote{A
-Distributed Denial of Service (\textbf{ddos}) attack is an attempt to make an
-online service unavailable by overwhelming it with traffic from multiple
-sources.} or cause a data breach~\footnote{A data breach is the intentional or
-unintentional release of secure or private/confidential information to an
-untrusted environment.}. 
+services with Distributed Denial of Service (\textbf{DDOS}) attacks~\footnote{A
+Distributed Denial of Service attack is an attempt to make an online service
+unavailable by overwhelming it with traffic from multiple sources.} or cause a
+data breach~\footnote{A data breach is the intentional or unintentional release
+of secure or private/confidential information to an untrusted environment.}. 
 
 Making matters worse other problems spring to mind. The data that forms the
 identity of a patient is often fragmented across multiple Healthcare
@@ -65,12 +79,14 @@ with the Healthcare ecosystem. However, maintaining this huge amount of data
 secure is a costly and risky matter for every party involved. Security and
 privacy should be a top concern regarding this sensitive data. 
 
-In this article different Blockchain implementations are explored to get an
+In this document different Blockchain implementations are explored to get an
 overview of their capabilities and purposes. Also, some use cases of Blockchain
 based systems used in the Healthcare field are presented. More precisely, in
-Section~\ref{background}, a brief introduction to Blockchain is made followed
-by an introduction to its most prominent implementations. Then a number of
-real-world use cases of this technology in the healthcare field are explored.
-In Section~\ref{HLFHealthcare} technical details of the system will be
-presented. Finally, in Section~\ref{conclusion}, some conclusions are observed
+Chapter~\ref{background}, a brief introduction to Blockchain is made followed
+by an introduction to its most prominent implementations. The technology is
+further explored in Chapter~\ref{blockchain} and a number of real-world use
+cases of this technology in the Healthcare field are explored.  In
+Chapter~\ref{development} a prototype system to evaluate the usability of this
+technology in the Healthcare field is design, implemented and built as well as
+evaluated. Finally, in Chapter~\ref{Conclusion}, some conclusions are observed
 regarding the change enabled by these advances.

@@ -1,32 +1,46 @@
 \chapter{Blockchain: A Practical Overview and Use Cases}\label{blockchain}
 
-\begin{quote} \emph{"The Blockchain, initially used to solve problems in
-  centralized financial systems, has inherent characteristics that make it
-  suitable for a variety of use cases. This Chapter will provide a more
-  practical exploration of the Blockchain technology showing some of the
-  considerations that were taken into account, after analyzing the alternative
-  implementations previously mentioned in Chapter~\ref{background}. After
-  defining the project requirements the Hyperledger Fabric Distributed Ledger
-  Platform , with its focus on enterprise use and true data segregation, was
-  chosen as the platform to build a system that seeks to achieve the purpose
-  mentioned in Chapter~\ref{introduction}."}
+\begin{quote} 
+  \emph{It was for a long time necessary, to establish trust between two
+  entites, a middle-man with a netral stake. The blockchain aims to solve this
+  depency using decentralization and a mechanism called consensus. A Blockchain
+  is a distributed system which means that processing is shared across multiple
+  nodes. Permissioned Blockchains are more suited towards enterprise and
+  organizations while still benefiting from the immutability of the Blockchain
+  architecture. Ethereum is a permissionless implementation whereas Fabric is
+  Permissioned. Ethereum uses a currency to maintain the network while Fabric
+  uses \textbf{BFT} consensus which does not need a currency. Both feature
+  smart contracts even tough they feature different execution architectures.
+  Ultimately, the Hyperledger Fabric Distributed Ledger Platform , with its
+  focus on enterprise use and true data segregation, was chosen as the platform
+  to build a system that seeks to achieve the purpose mentioned in
+  Chapter~\ref{introduction}.}
 \end{quote}
+
+The Blockchain, initially used to solve problems in centralized financial
+systems, has inherent characteristics that make it suitable for a variety of
+use cases. This Chapter will provide a more practical exploration of the
+Blockchain technology showing some of the considerations that were taken into
+account, after analyzing some implementations of this technology, mentioned in
+Chapter~\ref{background}.
 
 \section{Trust in a Network}
 
 Blockchain implementations are an emerging structure for distributed computing
-systems that provide an accurate and unchangeable history of records written to
-a publicly available ledger, even when there is no implicit trust relationship
-between the parties involved~\cite{Barclay2017}.
+systems that provide an immutable history of records written to a ledger, even
+when there is no implicit trust relationship between the parties
+involved~\cite{Barclay2017}.
 
 Banks used to keep track of their financial transactions by writing on a book
-usually located at the central bank. This book, often called ledger, is written
-on whenever a transaction occurs. The ledger acts as a mean of storing all the
-transaction details between the bank and other entities. Nowadays banks do not
-use the ledger in a book format. Instead the ledger is referred to as the
-structure that holds all the transaction information the bank possesses. It is
-a structure that keeps the original purpose of recording all the transactions
-that are made.
+usually located at the central bank. This book was often called ledger.
+Whenever a transaction occurred someone wrote on the book. In short, the ledger
+acts as a mean of storing all the transaction details between the bank and
+other entities. 
+
+Nowadays banks do not use the ledger in a book format. Instead the ledger is
+referred to as the structure that holds all transaction information the bank
+possesses. It is a structure that keeps the original purpose of recording all
+the transactions that are made.
 
 Imagine the following situation- Joe is on vacation and needs to borrow money
 from Jane, his wife. Joe calls Jane to ask for some money and Jane tells him it
@@ -55,14 +69,14 @@ parties using decentralization and aims to make two different entities trust
 each other through constant replication of the ledger, a security mechanism
 called consensus.  While consensus has a system performance impact due to the
 necessary replication of data, it is a mechanism that establishes a set of
-rules that defines if a chain of blocks is considered to be valid or not.
+rules that defines if a sequence of transactions is considered valid.
 Different Blockchain implementations often use a variety consensus protocols to
 balance this trade-off.
 
 \section{Permissionless and Permissioned Blockchain Implementations}
 
 
-There are three types of computer networks, as seen on Figure
+There are three types of computer systems, as seen on Figure
 \ref{fig:typesofnetworks}. As previously mentioned in this Chapter, Blockchain
 was created out of a desire to solve problems that are displayed in the
 centralized financial systems that society is currently based upon.
@@ -71,7 +85,7 @@ centralized financial systems that society is currently based upon.
 	\centering
 	\includegraphics[width=1\linewidth]{imgs/typesofnetworks.png}
   \caption{\label{fig:typesofnetworks} A comparison between different types of
-  networks. (Source: Eric Grange, 2016)}
+  systems. (Source: Eric Grange, 2016)}
 \end{figure}
 
 Put simply, a centralized system is one that is governed by a hierarchical
@@ -89,47 +103,49 @@ and make a decision, as no single node has a complete system state knowledge.
 With this in mind, a decentralized system is seen as a subset of a distributed
 system.
 
-A Blockchain is distributed by design but can be based on either a
-decentralized network or a distributed network creating two major
-implementation categories.
-
-Permisionless Blockchain implementations, like the Bitcoin's and Ethereum's
-Blockchain for example, have no barrier to entry. This means that anyone can,
-in theory, participate in the network, write into it as a result of mining and
-store data in the ledger sharing the work needed to maintain the network.
-Permisionless implementations have some strengths; such as being completely
-open, transactions are transparent while also being able to offer anonymity or
-pseudo-anonymity and also take away the need for system administrators or
-central servers since the network is based on peer-to-peer technology, creating
-reduced costs to maintain and deploy \textbf{Ðapps}. On the other hand, they
-are slow because every node must participate in consensus, they operate without
-clear legal rules and are trust-free, meaning that there is no responsible
-entity if data loss or damages affect systems based on this implementation.
+A Blockchain is a distributed by design. However there are two major
+implementation categories as discussed briefly on Chapter~\ref{background}.
 
 Permisionless Blockchain implementations were the first to appear and while
 some industries saw benefits in using the technology, some saw drawbacks to
 adopting it in enterprise-grade systems~\cite{Gopinath2016} due to this
-unregulated nature.
+unregulated nature. They do have some advantages however compared to
+traditional systems.
 
-The permissioned variant of this technology has some clear advantages for
-enterprise; it is faster because consensus is done by a set of nodes instead of
-the entire network, can fall back on the legal system because it features an
-identity service and is immediately trustworthy if the entities that manage the
-network are considered themselves trustworthy because it is auditable and there
-is a legal responsible entity or entities that manage the network. However,
-costs when compared to the permissionless variant are higher due to having the
-need for a system administrator and servers to manage the network, featuring a
+\textbf{Permisionless} Blockchain implementations, like the Bitcoin's and
+Ethereum's Blockchain for example, have no barrier to entry. This means that
+anyone can, in theory, participate in the network, write into it as a result of
+mining and store data in the ledger sharing the work needed to maintain the
+network.  Permisionless implementations have some strengths. These are
+completely open and transactions are transparent while also being able to offer
+anonymity or pseudo-anonymity. They also take away the need for system
+administrators or central servers since the network is based exclusively on
+peer-to-peer technology and decisions are made by every participant, creating
+reduced costs to maintain and deploy \textbf{Ðapps}. On the other hand, these
+implementations are slower than traditional systems because every node must
+participate in consensus creating an overhead before a transaction is
+considered verified. Due to this there is also a time cost associated because
+of the need to wait until verification of the transaction. They operate without
+clear legal rules and are trust-free, meaning that there is no responsible
+entity if data loss or damages affect systems based on this implementation.
+
+\textbf{Permissioned} Blockchain implementations have some clear advantages for
+enterprise. They are faster because consensus is done by a set of nodes instead
+of the entire network, can fall back on the legal system because it features an
+identity service. This means the platform is auditable and that there is a
+legal responsible entity or entities that manage the network. However, costs
+when compared to the permissionless variant are higher due to having the need
+for a system administrator and servers to manage the network, featuring a
 private membership meaning that they are closed to the general public and
 managed by a set of entities and are a compromise between the original vision
 of a completely decentralized network and enterprise needs and concerns. 
 
 Enterprises benefit greatly from the immutability of the Blockchain
-architecture, in that all records cannot be changed. By adding authorised
+architecture, in that all records cannot be changed. By adding authorized
 identity services onto Blockchain, they can meet the regulatory needs of their
 industries, by allowing the network to be auditable and assets to be traceable,
-falling back to laws if a dispute between participating entities
+falling back to laws or regulations if a dispute between participating entities
 occurs~\cite{Barclay2017}.
-
 
 \section{A Decentralized Open Platform - Ethereum}
 
@@ -147,66 +163,68 @@ arbitrary algorithmic complexity in a turing complete language. Smart Contract
 application code targets the Ethereum Virtual Machine, which is then deployed
 to the Blockchain via a local Ethereum node~\cite{Wood2017,Barclay2017}.
 
-At the heart of Ethereum is the Ethereum Virtual Machine (\textbf{evm}) as seen
+At the heart of Ethereum is the Ethereum Virtual Machine (\textbf{EVM}) as seen
 on Figure~\ref{fig:evm} and, like any Blockchain, Ethereum also includes a
 peer-to-peer network protocol. The Ethereum Blockchain database is maintained
 and updated by many nodes connected to the network. Each and every node of the
-network runs the EVM and executes the same instructions in order to maintain
-consensus across the entire Blockchain. Decentralized consensus gives Ethereum
-a high degree of fault tolerance, ensures zero downtime, and makes data stored
-on the Blockchain forever unchangeable and
+network runs the \textbf{EVM} and executes the same instructions in order to
+maintain consensus across the entire Blockchain. Decentralized consensus gives
+Ethereum a high degree of fault tolerance, ensures zero downtime, and makes
+data stored on the Blockchain forever unchangeable and
 censorship-resistant~\cite{EthereumDocs2018}.
 
 \begin{figure}[h]
   \centering
   \includegraphics[width=1\linewidth]{imgs/ethereumVirtualMachine.png}
-  \caption{\label{fig:evm} A diagram of where \textbf{evm} fits into the
+  \caption{\label{fig:evm} A diagram of where \textbf{EVM} fits into the
   Ethereum Platform (Original: Vaibhav Saini, 2018)}
 \end{figure}
 
 Users must pay a small transaction fee to the network each time they execute a
 transaction. This protects the Ethereum Blockchain from frivolous or malicious
-computational tasks, like \textbf{ddos} attacks or infinite loops. The sender
-of a transaction must pay for each step of the “program” they activated,
-including computation and memory storage. These fees are paid in amounts of
-Ethereum’s native value-token, ether, and then these transaction fees are
-collected by the nodes that validate the network commonly called miners - which
-are nodes in the network that receive, propagate, verify, and execute
-transactions. Ethereum currently uses a proof of work (\textbf{pow}) based
-consensus algorithm but plans to change to a proof of stake (\textbf{pos})
-algorithm due to environmental and financial concerns as well as reduced
-centralization risks~\cite{EthereumDocs2018,EthereumPOSFAQ2018}.
+computational tasks, like Distributed Denial of Service (\textbf{DDOS}) attacks
+or an infinite loop in smart contract logic. The sender of a transaction must
+pay for each step of the “program” they activated, including computation and
+memory storage. These fees are paid in amounts of Ethereum’s native
+value-token, ether, and then these transaction fees are collected by the nodes
+that validate the network commonly called miners - which are nodes in the
+network that receive, propagate, verify, and execute transactions. Ethereum
+currently uses a proof of work (\textbf{POW}) based consensus algorithm but
+plans to change to a proof of stake (\textbf{POS}) algorithm due to
+environmental and financial concerns as well as reduced centralization
+risks~\cite{EthereumDocs2018,EthereumPOSFAQ2018}.
 
 Ethereum has a live production network called “mainnet” available for any
 developer to deploy applications to, as well as three test networks. "Ropsten”
-is based on a \textbf{pow} algorithm while "Rinkeby" and "Kovan" are based on a
+is based on a \textbf{POW} algorithm while "Rinkeby" and "Kovan" are based on a
 Proof of Authority~\footnote{In Proof of Authority based networks, transactions
 and blocks are validated by approved accounts, known as validators. Validators
 run software allowing them to put transactions in blocks. The process is
 automated and does not require validators to be constantly monitoring their
 computers. It does, however, require maintaining the authority node
-uncompromised.} (\textbf{poa}) and all of them are publicly available and free
+uncompromised.} (\textbf{POA}) and all of them are publicly available and free
 to use~\cite{Barclay2017,EthereumTestNetworks2018}.
 
-Ethereum has had some unforeseen problems along the way, namely the DAO heist
-where a hacker took advantage of a bug in a smart contract to steal a great sum
-of money. With Ethereum frequently reaching full transaction capacity, scaling
-solutions are the next big investment~~\cite{ethereumScalability2018}.
+Ethereum has had some unforeseen problems along the way, namely the
+\textbf{DAO} heist where a hacker took advantage of a bug in a smart contract
+to steal a great sum of money. With Ethereum frequently reaching full
+transaction capacity, scaling solutions are the next big
+investment~\cite{ethereumScalability2018}.
 
-There are a few proposed solutions by Buterin - sharding aims to avoid every
-node processing all data in order to verify and process a transaction. When
-transactions are initiated they will not be directed to all the nodes but would
-instead only be directed to those depending on the shard in question.  Another
-solution is off chain computation where a layer apart from the Blockchain is
-created and where all the computation or solving of a complex mathematical
-equation takes place. This would not only take the load off the Ethereum
-Blockchain but also help decrease the cost of transaction verification and
-processing. This mechanism would ensure that the tasks that account for slower
-transaction speeds on the Ethereum’s Blockchain do not affect the whole
-network. Finally, to avoid every node having the need to download the entirety
-of the Blockchain's data, the complete picture can be stored on cloud and each
-node only has to store and load relevant
-data~\cite{ethereumBlogScalability2018}.
+There are a few proposed solutions by Buterin. For example, \textbf{sharding}
+is a solution that aims to avoid every node processing all data in order to
+verify and process a transaction. When transactions are initiated they will not
+be directed to all the nodes but would instead only be directed to those
+depending on the shard in question.  Another solution is off chain computation
+where a layer apart from the Blockchain is created and where all the
+computation or solving of a complex mathematical equation takes place. This
+would not only take the load off the Ethereum Blockchain but also help decrease
+the cost of transaction verification and processing. This mechanism would
+ensure that the tasks that account for slower transaction speeds on the
+Ethereum’s Blockchain do not affect the whole network. Finally, to avoid every
+node having the need to download the entirety of the Blockchain's data, the
+complete picture can be stored on cloud and each node only has to store and
+load relevant data~\cite{ethereumBlogScalability2018}.
 
 \section{A Permissioned Distributed Ledger Platform - Hyperledger Fabric}
 \label{distributedLedgerPlatform}
@@ -223,7 +241,7 @@ members~\cite{HyperledgerFabricDocs2017,HyperledgerGrowth2018}.
 It supports the creation of smart contracts, commonly called "chaincode" in
 Fabric, that are authored in general-purpose programming languages such as
 Java, Go and Node.js rather than constrained domain-specific languages
-(\textbf{dsl}). 
+(\textbf{DSL}). 
 
 Chaincode in Fabric consists of two components - the code itself, which
 describes the logic of the program running in the execution phase, and the
@@ -239,7 +257,7 @@ At the heart of Fabric is the permissioned distributed ledger that provides a
 way to secure the interactions among a group of entities that have a common
 goal but which may not fully trust each other. By relying on the identities of
 the participants, a permissioned ledger platform can use a more traditional
-crash fault tolerant (\textbf{cft}) or byzantine fault tolerant (\textbf{bft})
+crash fault tolerant (\textbf{CFT}) or byzantine fault tolerant (\textbf{BFT})
 consensus protocols that do not require mining or an associated currency in
 order to achieve consensus.
 
@@ -252,7 +270,20 @@ order to achieve consensus.
 
 Fabric introduces the execute-order-validate Blockchain architecture as shown
 on Figure~\ref{fig:executeorder} and does not follow the standard order-execute
-design illustrated on Figure~\ref{fig:orderexecute} \cite{Androulaki2018}. 
+design illustrated on Figure~\ref{fig:orderexecute} \cite{Androulaki2018}. In
+this architecture, when a client sends transactions to the peers specified by
+endorsement policy. Each transaction is then executed and its output is
+recorded. After execution, transactions enter the ordering phase. An ordered
+sequence of transactions grouped into blocks are produced using the consensus
+mechanism. Then, these blocks are broadcast to all peers. Fabric orders the
+transaction outputs computed during the execution phase. Each peer then
+validates state changes according to the endorsement policy and the consistency
+of the execution in the validation phase. All peers validate the transactions
+in the same order and validation is deterministic. In this sense, Fabric
+introduces a novel hybrid replication paradigm in the Byzantine
+model~\cite{Androulaki2018}. This model combines passive replication, which is
+the pre-consensus computation of state updates, with active replication, the
+post-consensus validation of execution results and state changes.
 
 \begin{figure}[h]
   \centering
@@ -261,29 +292,30 @@ design illustrated on Figure~\ref{fig:orderexecute} \cite{Androulaki2018}.
   Services Like Ethereum (Source: IBM, 2018)}
 \end{figure}
 
-The order-execute architecture is conceptually simple, leading it to be
-currently widely implemented in replicated services such as Blockchain. In this
-architecture the transactions are executed sequentially on all peers which
-limits the maximum number of simultaneous transactions that can be achieved.
-Additionally a Denial of Service (\textbf{dos}) attack can be mounted just by
-deploying a slow performing smart contract or one with an infinite loop to the
-network since the Blockchain forms a distributed computing engine.  To cope
-with this issue, public programmable Blockchains with an associated
-cryptocurrency, account for the execution cost of executing of the program.
+On the other hand, the order-execute architecture is conceptually simple,
+leading it to be currently widely implemented in replicated services such as
+Blockchain. In this architecture the transactions are executed sequentially on
+all peers which limits the maximum number of simultaneous transactions that can
+be achieved.  Additionally a Denial of Service (\textbf{DOS}) attack can be
+mounted just by deploying a slow performing smart contract or one with an
+infinite loop to the network since the Blockchain forms a distributed computing
+engine.  To cope with this issue, public programmable Blockchains with an
+associated cryptocurrency, account for the execution cost of executing of the
+program.
 
 In Fabric all nodes that participate in the network have an identity, as
-provided by a modular membership service provider (\textbf{msp}).  A
-\textbf{msp} is a component that aims to offer the abstraction of a membership
+provided by a modular Membership Service Provider (\textbf{MSP}).  A
+\textbf{MSP} is a component that aims to offer the abstraction of a membership
 operation architecture meaning that all identities are only allowed to
-participate if verified to be considered trustworthy.  The \textbf{msp}
+participate if verified to be considered trustworthy.  The \textbf{MSP}
 maintains the identities of all nodes in the system and is responsible for
 issuing credentials that are used for node authentication and authorization. An
-\textbf{msp} may define their own notion of identity, and the rules by which
+\textbf{MSP} may define their own notion of identity, and the rules by which
 those identities are governed and authenticated using signature generation and
 verification~\cite{HyperledgerFabricDocs2017}.
 
-Fabric also assigns different roles to peers. Nodes in Fabric network take up
-one of three roles:
+Fabric also assigns different roles to peers. Nodes in Fabric network can have
+one or more, of these three roles:
 
 \begin{itemize}
   \item Clients submit transaction proposals for execution, help orchestrate
@@ -294,7 +326,7 @@ one of three roles:
     of a hash chain, as well as the state, a succinct representation of the
     latest ledger state. Not all peers execute all transactions.
 
-  \item Ordering Service Nodes (\textbf{osn}) or orderers are the nodes that
+  \item Ordering Service Nodes (\textbf{OSN}) or orderers are the nodes that
     collectively form the ordering service. In short, the ordering service
     establishes the total order of all transactions in Fabric, where each
     transaction contains state updates and dependencies computed during the

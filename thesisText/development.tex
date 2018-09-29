@@ -1,4 +1,4 @@
-\chapter{Designing and Building the System} \label{HLFHealthcare}  
+\chapter{Designing and Building the System} \label{development}  
 
 The goal of this thesis is to evaluate the suitability of Blockchain technology
 in managing the identity of patients in an Healthcare organization by
@@ -20,7 +20,7 @@ proved helpful to choose the most appropriate platform for the objectives as
 explained later.
 
 \subsection{Requirement Definition}
-The requirements for this project were deemed to be as follows:
+The requirements for this work were deemed to be as follows:
 
 \renewcommand{\labelenumi}{\Roman{enumi}.}
 \begin{enumerate}
@@ -70,8 +70,8 @@ documentation with a easy to use library of operations.
 Ethereum is being used in a great deal of projects around the world proving its
 stability and suitability in a wide variety of use cases. On the other hand,
 handling patients medical data is a great responsibility due to the private and
-personal nature of this data. Also hospitals and clinics must obey the
-regulatory laws regarding privacy and usage of this data.
+personal nature of this data. Also hospitals and Healthcare clinics must obey
+the regulatory laws regarding privacy and usage of this data.
 
 It is also worth noting that while Ethereum can handle private data exchange by
 building upon it, as shown by Barclay, it was not designed with this intent in
@@ -87,8 +87,9 @@ service and a known environment due to using a membership service provider,
 using a private certificate authority that emits certificates specific for the
 Fabric network. These concerns allow this platform to avoid the same fate as
 \textbf{IoT} devices have had in the Healthcare field~\cite{Tana2017}. The lack
-of security regulations and ambiguity in how data collected by these devices is
-handled has limited these to be used in a limited way in the this context.
+of security regulations and ambiguity in how data was being collected by these
+devices has limited their usage and prevented the widespread usage of these
+devices in the Healthcare field.
 
 Fabric also has good amount of development tools that are now maturing and a
 good learning environment with ample documentation about every aspect important
@@ -118,7 +119,8 @@ based on this platform.
 Both are very interesting platforms, but ultimately it was decided to use
 Hyperledger Fabric as the platform on which to build upon. This decision was
 taken in part because Fabric was purpose built for a very regulated environment
-and . Also, this technology is relatively recent and there is still a great
+and is focused on privacy and scalability which are required in the Healthcare
+field. Also, this technology is relatively recent and there is still a great
 lack of knowledge available to the general public, making it a more interesting
 choice from an theoretical standpoint.
 
