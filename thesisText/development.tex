@@ -160,14 +160,23 @@ contracts are used to generate transactions and interact with the ledger. The
 network is comprised of several components as presented shortly.
 
 The ledger is a central component of a HLF network. The ledger is composed by a
-world state and a Blockchain. The world state is a database that holds the
-current values of ledger states. States are, by default, expressed as key-value
-pairs. The world state is useful because it makes it easy for a smart contract
-to get the current value of these states, instead of having to traverse the
-entire transaction log. The Blockchain holds the transaction logs that record
-the history of changes that have resulted in the current world state.
-Transactions are collected and recorded in an immutable sequence of blocks, in
-which each block contains a set of ordered transactions by the orderer service.
+world state and a Blockchain as seen of Figure~\ref{fig:ledgerFabric}. The
+world state is a database that holds the current values of ledger states.
+States are, by default, expressed as key-value pairs. The world state is useful
+because it makes it easy for a smart contract to get the current value of these
+states, instead of having to traverse the entire transaction log. The
+Blockchain holds the transaction logs that record the history of changes that
+have resulted in the current world state.  Transactions are collected and
+recorded in an immutable sequence of blocks, in which each block contains a set
+of ordered transactions by the orderer service.
+
+\begin{figure}[ht] 
+	\centering
+	\includegraphics[width=1\linewidth]{imgs/ledgerFabric.png}
+  \caption{\label{fig:ledgerFabric}Fabric's Ledger Overview (Source:
+  \href{https://hyperledger-fabric.readthedocs.io/en/release-1.2/ledger/ledger.html}{HLF
+  Fabric Documentation})}
+\end{figure}
 
 Another component is the set of peers participating in the network. A Peer is a
 node that hosts a copy of the multiple ledgers and smart contracts. There is
@@ -195,10 +204,19 @@ every entity. These determine the exact permissions these have over resources
 and access to information in the network. The MSP issues these certificates
 through the built-in CA component, the Fabric Certificate Authority (CA). The
 Fabric CA is a private root CA provider that consists in a CA server and a CA
-client. The MSP also supports Certificate Revocation Lists (CRL).
+client. The MSP also supports Certificate Revocation Lists as seen of
+Figure~\ref{fig:membershipFabric}.
+
+\begin{figure}[ht] 
+  \centering
+  \includegraphics[width=0.9\linewidth]{imgs/membershipFabric.png}
+  \caption{\label{fig:membershipFabric}Fabric's Membership Service Provider
+  Components Overview (Source:
+  \href{https://hyperledger-fabric.readthedocs.io/en/release-1.2/ledger/ledger.html}{HLF
+  Fabric Documentation})}
+\end{figure}
 
 \subsection{Administrating a HLF Networks}
-
 
 As discussed, a HLF network must have an administrator. HLF provides the
 \textit{cryptogen}, \textit{configtxgen}, \textit{configtxlator} and
@@ -265,9 +283,10 @@ a smart contract, would be linked to a field of the
 the FHIR standard}.
 
 \begin{figure}[ht] \centering
-\includegraphics[width=0.7\linewidth]{imgs/interoperability.png}
-\caption{\label{fig:interoperability}An Example of Interoperability with the
-Blockchain Network} \end{figure}
+  \includegraphics[width=0.7\linewidth]{imgs/interoperability.png}
+  \caption{\label{fig:interoperability}An Example of Interoperability with the
+  Blockchain Network} 
+\end{figure}
 
 The most simple case of an interaction in an Healthcare service is the
 interaction between a patient and a doctor. In HLF this situation translates to
@@ -332,11 +351,11 @@ the Hyperledger Fabric Shim for Node.js and programmed in Javascript.
 To avoid the need for multiple machines being used to form the network, a
 Docker Compose file was used that defines, and orchestrates the main components
 of the network through the Docker Engine. Each component consists in one or
-more containers. Also, there is one  container defined to be used as a CLI to
-interface with the network using the peer tool if needed for administrative
-purposes. Docker was used as the containerization technology because it is
-officially supported by Hyperledger and is currently the most popular
-containerization tool.
+more containers. Also, there is one  container defined to be used as a command
+line interface to interact with the network using the peer tool if needed for
+administrative purposes. Docker was used as the containerization technology
+because it is officially supported by Hyperledger and is currently the most
+popular containerization tool.
 
 To build the desired network configuration for the prototype, the configuration
 file for the \textit{cryptogen} tool was edited to allow the network to have
@@ -373,15 +392,15 @@ Healthcare context, such as its name and birth date, for example, as well as
 some other information necessary to manage this data as discussed previously.
 
 These operations form an Application Programming Interface (API) as seen in
-Figure~\ref{fig:smartContractOverview} that returns a payload in JSON format
-with information from the network. This API allows a query to be made to the
-network that returns the patients information, changing incorrect or outdated
-information or disabling the identity structure of someone who is not
-participating in the network actively anymore in order for that information to
-be read-only from that point on, for example, with more available. This system
-architecture leads to a modular as well as extensible approach regarding the
-availability of new operations that become available as soon as new versions of
-the smart contract are deployed.  
+Figure~\ref{fig:smartContractOverview} that returns a payload in JavaScript
+Object Notation (JSON) format with information from the network. This API
+allows a query to be made to the network that returns the patients information,
+changing incorrect or outdated information or disabling the identity structure
+of someone who is not participating in the network actively anymore in order
+for that information to be read-only from that point on, for example, with more
+available. This system architecture leads to a modular as well as extensible
+approach regarding the availability of new operations that become available as
+soon as new versions of the smart contract are deployed.  
 
 \begin{figure}[ht] 
   \centering
@@ -469,11 +488,11 @@ in the Healthcare context.
 \section{Evaluation and a Review of Thesis Goals}
 
 This solution was evaluated against the international standard for information
-security known as the CIA triad model, in order to draw further conclusions and
-evaluate how secure the built system is in regards to its information which is
-a critical concern in this field. The three pillars that form this standard are
-the preservation of the confidentiality, ensuring information integrity and
-information availability.
+security known as the Confidentiality, Integrity, and Availability (CIA) triad
+model, in order to draw further conclusions and evaluate how secure the built
+system is in regards to its information which is a critical concern in this
+field. The three pillars that form this standard are the preservation of the
+confidentiality, ensuring information integrity and information availability.
 
 \subsection{Confidentiality}
 

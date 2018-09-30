@@ -73,6 +73,7 @@
 % Hyperref adjustments
 \RequirePackage{hyperref}
 \hypersetup{
+	breaklinks=true,
 	colorlinks=true,
 	pdfstartview=FitV,
 	pdfpagelabels=true,

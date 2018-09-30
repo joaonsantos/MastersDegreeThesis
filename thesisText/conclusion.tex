@@ -1,24 +1,38 @@
 \chapter{Conclusions and Future Work}
 \label{Conclusion}
 
+\emph{In this chapter a step back is taken and some reflections about the
+conclusions observed during the course of this work are noted. A simple working
+system was successfully built, meeting requirements set in order to keep a good
+compromise between the benefits the Blockchain technology provides and the
+regulatory reality that organizations must adhere to. It was proven that this
+technology can be applied in this field, providing several advantages in
+relation to more traditional systems, such as transparency, immutability and
+decentralization. As this platform matures and new features are added future
+work could be built upon the new features added or new Hyperledger projects
+such as Hyperledger Indy. Finally this concept could be expanded further and
+Blockchain could serve as a secure access key store that enables secure
+transmission of access keys to external secure servers that store high amounts
+of data, a task that Blockchain would not be suited for.}
+
 In this thesis a system was built that is capable of managing patients identity
 using Blockchain technology. As this is a relatively new technology some
-research was done and some conclusions of this work were laid out. 
+research was done and some conclusions were reached.
 
 In this work it was shown an overview of the Blockchain technology and its
 origins. The evolution of this technology as first introduced by Nakamoto and
 used in Bitcoin to solve the need for a middle man and enable trust between
-unknown parties to a develpment platform and wide array of applications it
+unknown parties to a development platform and wide array of applications it
 currently is used was then shown. It was shown that there are two different
 implementations of the Blockchain each with its own purpose, with these being
 the permissionless and permissioned implementations.
 
 In order to gain some working knowledge a prototype system was deemed necessary
 to be built that leverages this technology in the Healthcare field. The
-platform chosen was the Hyperledger Fabric DLT. After some difficulties a
-system was successfully designed and built and some conclusions were taken into
-account. The platform was evaluated against the CIA triad, the international
-standard for information security.
+platform chosen was the Hyperledger Fabric Distributed Ledger Platform. After
+some difficulties a system was successfully designed and built and some
+conclusions were taken into account. The platform was evaluated against the CIA
+triad, the international standard for information security.
 
 \section{Conclusions}
 
@@ -31,21 +45,38 @@ decentralized structure.
 Ethereum introduced the Blockchain as a development platform, by enabling the
 execution of logic in the network, in the form of smart contracts that execute
 autonomously exactly as they were designed. Various other Blockchain platform
-embraced this ideia and many projects created their own Blockchain development
+embraced this idea and many projects created their own Blockchain development
 platform.
 
 The Linux Foundation and IBM saw potential in this technology space and created
-a Blockchain platform that was aimed at the enterprise and the reality of
-regulations and the need for auditability while still maintaining the key
-characteristcs of Blockchain such as immutability of data.
+the Hyperledger developer-focused community. The focus of this community was
+creating Blockchain based platforms that were aimed at the enterprise and the
+reality of regulations and the need for auditability while still maintaining
+the key characteristics of Blockchain such as immutability of data. Hyperledger
+Fabric was one of the first projects that were built and is a general purpose
+Distributed Ledger Platform.
 
 Using Hyperledger Fabric a system was built that leverages the features of this
 platform to manage the identity of patients in a Healthcare environment. This
-system was designed and implemented successfuly. The system was evaluated
-against the CIA triad model and was able to meet the desired requirements. It
-was shown that it is possible to create a system for the purpose mentioned with
-this technology and that it provides several advantages in relation to more
-traditional systems.
+system was designed and implemented successfully. The system was evaluated
+against the CIA triad model and was able to meet the desired requirements.
+
+It was shown that it is possible to create a system for the purpose mentioned
+with this technology and that it provides several advantages in relation to
+more traditional systems such as data transparency to the patient, immutability
+of data and decentralization. The patient benefits from transparency because he
+will be able to see his data everytime he wishes to do so, creating a greater
+degree of trust with the Healthcare organizations than what is possible
+nowadays. Immutability is important to maintain this trust because if he
+discovers his data was altered in any way, then the record of that tampering
+would be forever recorded and could be traced back to the malicious actor due
+to this platform supporting auditability with the Membership Service Provider
+that issues client identity certificates through the built-in CA service.
+Decentralization provides additional resiliency as it avoids having a single
+point of failure that could be targeted. Security must be a key focus of the
+Healthcare industry for the next few years because expertise will increase in
+the digital space providing more opportunities for malicious parties and data
+privacy of patients must be treated with the utmost care.
 
 This proves that this technology has many applications in this field, and that
 it can be used more often as the platform becomes more mature and complete.
@@ -58,14 +89,18 @@ evaluate their suitability in Healthcare. Hyperledger Indy was a platform that
 was not available when this thesis was initially discussed but due to its focus
 on identity some investigation on this platform could be made and potentially
 map similarities to Fabric in ways that could show their similarities and
-differences and show which one is more suited for this task.
+differences to show which one is more suited for this task or the different use
+cases they excel in.
 
 Also the prototype project could be expanded with a graphical interface leading
 to a more intuitive usage of this system and additional platforms to be
 targeted. Additional optimization could be made regarding channels, encryption
-methods, data segreggation and scalability. Hyperledger Burrow could be used to
-improve compatibility between Ethereum and Hyperledger Fabric and target two
-platforms with similar smart contract code. Finally this concepted could be
-expanded further and Blockchain could serve as a secure access key store that
-enable secure transmission of access keys to external protected servers that
-store a big amount of data that the Blockchain would not be suited for.
+methods, data segregation and scalability. Fabric roles could be explored to
+distinguish between a doctor and a nurse in the same Healthcare organization.
+This way access to information would be made through Role Based Access Control.
+Hyperledger Burrow could be used to improve compatibility between Ethereum and
+Hyperledger Fabric and target two platforms with similar smart contract code.
+Finally this concept could be expanded further and Blockchain could serve as a
+secure access key store that enable secure transmission of access keys to
+external protected servers that store a big amount of data that the Blockchain
+would not be suited for.
