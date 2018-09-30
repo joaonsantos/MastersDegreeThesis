@@ -1,4 +1,23 @@
-\chapter{Designing and Building the System} \label{development}  
+\chapter{Designing and Building the System} \label{development}
+
+\emph{In this Chapter requirements for a system built upon Blockchain
+technology were set. The requirements where chosen in order to create a system
+that is interesting to an organization while still respecting the patients data
+and their access right to it. With the requirements set, Ethereum and
+Hyperledger Fabric advantages and disadvantages were weighted for this use
+case. Ultimately, the Hyperledger Fabric Distributed Ledger Platform , with its
+focus on enterprise use and true data segregation, was chosen as the platform
+to build a system that seeks to achieve the purpose mentioned in
+Chapter~\ref{introduction}. A working knowledge of the Fabric platform was
+acquired. A Fabric network is comprised by the ledger, the peers, the
+applications and the Membership Service Provider and CA provider. To test this
+system a network was created to test the interaction possibilities between a
+patient and a doctor, translating into two organizations and two peers. Some
+tests were executed and the system was evaluated against the Confidentiality,
+Integrity and Availability triad model. Symmetric key encryption was required
+to be implemented in order to fulfill the confidentiality requirement set.
+After these changes a system was implemented that successfully met the
+requirements and further conclusions were able to be taken.}
 
 The goal of this thesis is to evaluate the suitability of Blockchain technology
 in managing the identity of patients in an Healthcare organization by
@@ -10,8 +29,8 @@ spans the conceptualization and its associated challenges and ends in the
 implementation of said system. This system was built using some of the
 technologies and concepts described in the previous section.
 
-\section{First Step - Defining Requirements and Choosing a 
-	Platform}\label{choosingHyperledger}
+\section{First Step - Defining Requirements and Choosing a
+Platform}\label{choosingHyperledger}
 
 After investigating the various Blockchain platforms some criteria was needed
 to serve as reference. As such, the first step consisted in defining a set of
@@ -19,7 +38,7 @@ key points that the built system had to fulfill. Defining the requirements
 proved helpful to choose the most appropriate platform for the objectives as
 explained later.
 
-\subsection{Requirement Definition}
+\subsection{Requirement Definition} 
 The requirements for this work were deemed to be as follows:
 
 \renewcommand{\labelenumi}{\Roman{enumi}.}
@@ -34,7 +53,8 @@ The requirements for this work were deemed to be as follows:
     with another entity participating in the network, for example sharing
     information with a doctor.
   \item The system must allow the deletion of a patient's data in some manner,
-    if he wishes to do so, in order to comply with European privacy laws.
+    if he wishes to do so, in order to comply with European privacy laws,
+    discussed in Section~\ref{blockchainHealthcare}.
 \end{enumerate}
 
 These requirements were chosen in order to create a system that is interesting
@@ -43,7 +63,6 @@ right to it.
 
 After defining the requirements it was nececessary to choose the Blockchain
 platform that best fulfills these requirements.
-
 
 \subsection{Choosing a Platform}\label{choosePlatform}
 
@@ -63,9 +82,9 @@ it.  Thanks to the Solidity smart contract language being targeted for the
 specific purpose of authoring smart contracts it only allows for a
 deterministic program to be written avoiding potential conflicts in the
 execution of these, for example, in the production network. Also after the
-initial learning barrier of it being a \textbf{dsl} it becomes a platform easy
-to develop for since it provides a well thought out and well organized
-documentation with a easy to use library of operations.
+initial learning barrier of it being a Domain Specific Launguage it becomes a
+platform easy to develop for since it provides a well thought out and well
+organized documentation with a easy to use library of operations.
 
 Ethereum is being used in a great deal of projects around the world proving its
 stability and suitability in a wide variety of use cases. On the other hand,
@@ -85,11 +104,11 @@ system they can imagine. However, the latter is clearly focused on making
 organizations feel more at ease by being auditable as it offers an identity
 service and a known environment due to using a membership service provider,
 using a private certificate authority that emits certificates specific for the
-Fabric network. These concerns allow this platform to avoid the same fate as
-\textbf{IoT} devices have had in the Healthcare field~\cite{Tana2017}. The lack
-of security regulations and ambiguity in how data was being collected by these
-devices has limited their usage and prevented the widespread usage of these
-devices in the Healthcare field.
+Fabric network. These concerns allow this platform to avoid the same fate
+Internet of Things devices have had in the Healthcare field~\cite{Tana2017}.
+The lack of security regulations and ambiguity in how data was being collected
+by these devices has limited their usage and prevented the widespread usage of
+these devices in the Healthcare field.
 
 Fabric also has good amount of development tools that are now maturing and a
 good learning environment with ample documentation about every aspect important
@@ -123,7 +142,6 @@ and is focused on privacy and scalability which are required in the Healthcare
 field. Also, this technology is relatively recent and there is still a great
 lack of knowledge available to the general public, making it a more interesting
 choice from an theoretical standpoint.
-
 
 \section{Working knowledge of the Platform}
 
@@ -286,7 +304,6 @@ readable. The outcomes of these experiments can shape the development of the
 solution as it could take these results into consideration and highlight
 possible problems.
 
-
 \subsection{Implementation}
 
 To create an interactive system that can manage the patients identity in an
@@ -355,9 +372,8 @@ The assets loaded contain the necessary fields to identify a patient in an
 Healthcare context, such as its name and birth date, for example, as well as
 some other information necessary to manage this data as discussed previously.
 
-
 These operations form an Application Programming Interface (API) as seen in
-Figure \ref{fig:smartContractOverview} that returns a payload in JSON format
+Figure~\ref{fig:smartContractOverview} that returns a payload in JSON format
 with information from the network. This API allows a query to be made to the
 network that returns the patients information, changing incorrect or outdated
 information or disabling the identity structure of someone who is not
@@ -516,8 +532,10 @@ components.
 
 There is also the question of scalability. Even tough a Permissioned Blockchain
 is always faster in relation to a Permissionless variant it still is far from
-matching the SIBS system form example. If this system was intended for global
-use then additional approaches would need to be taken.
+matching the scalability and performance of the Electronic Payment Management
+System created by SIBS for banking transactions, for example. If this system
+was intended for global use then additional approaches would need to be taken
+regarding this matter.
 
 With this said the pace of development has been relatively fast with new
 releases on a quarterly basis that focus on the issues of scalability and
