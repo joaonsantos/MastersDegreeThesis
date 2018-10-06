@@ -1,58 +1,41 @@
 \chapter{Background}\label{background}
 
 \begin{quote} 
-  \emph{Healthcare uses Electronic Health Records to store patient information
-  in a digital format but interoperability has been a major issue.  Health
-  Level 7 standard has been increasing adoption worldwide.  Electronic Health
-  Records are increasingly becoming targets for malicious entities and concerns
-  have arisen, in regards to privacy and security in a more digital age and in
-  a period where privacy regulations have been recently reviewed across Europe.
-  Blockchain technology can be used as an additional layer of security in the
-  Healthcare information systems. In this Chapter, Blockchain is presented as a
-  collection of cryptographic and network technologies orchestrated to work
-  together in a decentralized fashion, purpose built for achieving trust
-  between unknown parties without the need for a middle man. Blockchain
-  implementations are either permissioned or permissionless. Since Blockchain
-  is a distributed system it uses consensus algorithms to achieve security and
-  immutability. While Proof-of-Work is the most widespread consensus algorithm
-  in use, environmental concerns and scalability issues have led to the
-  appearance of new algorithms.  Blockchain implementations such as Ethereum
-  and Hyperledger Fabric, allow execution of logic in the form of smart
-  contracts. Hyperledger Fabric is part of the Hyperledger project and was
-  built with organizational needs in mind, and allows organizations to fall
-  back to established regulations, if needed.}
+  \emph{In this Chapter, Blockchain is presented as a collection of
+  cryptographic and network technologies orchestrated to work together in a
+  decentralized fashion, purpose built for achieving trust between unknown
+  parties without the need for a middle man. Blockchain implementations are
+  categorized and consensus is introduced. Consensus algorithms in use today
+  are creating environmental concerns and scalability issues are leading to the
+  appearance of new consensus algorithms.  Some Blockchain implementations
+  allow execution of logic in the form of smart contracts. Finally a Blockchain
+  built with organizational needs in mind is presented.}
 \end{quote}
 
-
-In this Chapter the technological foundations that have paved the way for
-Blockchain technology as we know today are explored. The benefits of this
-technology and how those benefits are achieved are also discussed as well as
-its environmental, social and economic impact. It is also presented how
-technology has been helping the Healthcare industry to enable better management
-of their patients identity and how the Blockchain can bring improvements to
-this field.
-
-\section{Brief Introduction to Blockchain Technology}
 
 While Blockchain is not a new concept at this point, it is an evolving
 technology that is being used to solve old problems with new approaches while
 at the same time creating new application fields and challenging old
-conventions and methodologies.
+conventions and methodologies.  Blockchain technology is having an
+environmental, social and economic impact, as discussed further in this
+Chapter.
 
-Blockchain is an abstract concept, being a collection of cryptographic and
-network technologies orchestrated to work together. It can be used to refer to
-the Bitcoin's Blockchain or refer to forks\footnote{In this context, a fork is
-a condition whereby the state of the Blockchain diverges into one or more valid
-paths forward, where a part of the network has a different perspective than a
-different part of the network. The fork can be either with regards to a
-network's transaction history or a new rule in deciding what makes a
-transaction valid. Since a fork can create a chain with different rules a new
-Blockchain variation can be created.} of the Bitcoin's Blockchain called
-Altchains~\cite{Lewis2015} that share many characteristics but may have
-different features, purposes or even alternative implementations of the
-technology. Some forks improved upon the original premise to result in
-platforms that allow execution of code in an autonomous manner, exactly as it
-was programmed, with no human intervention.
+\section{Brief Introduction to Blockchain Technology}
+
+Blockchain is an abstract concept and can is defined as a collection of
+cryptographic and network technologies orchestrated to work together. The
+concept can be used to refer to the Bitcoin's Blockchain or refer to
+forks~\footnote{In this context, a fork is a condition whereby the state of the
+Blockchain diverges into one or more valid paths forward, where a part of the
+network has a different perspective than a different part of the network. The
+fork can be either with regards to a network's transaction history or a new
+rule in deciding what makes a transaction valid. Since a fork can create a
+chain with different rules a new Blockchain variation can be created.} of the
+Bitcoin's Blockchain called Altchains~\cite{Lewis2015} that share some
+characteristics but may have different features, purposes or even alternative
+implementations of the technology. Some forks even improved upon the original
+premise of the concept, resulting in platforms that allow execution of code in
+an autonomous manner, exactly as it was programmed, with no human intervention.
 
 A Blockchain is, generally speaking, a continuously growing list of records
 being written in the ledger, a structure where all records are written and
@@ -74,40 +57,40 @@ by design, the ledger of the Blockchain is constantly replicated across any
 number of participating nodes in the network~\cite{Lewis2015} in a regular
 cadence defined at network creation. In some implementations, not every
 participant has the same ability to interact with the ledger and in this
-respect a Blockchain can be \textbf{permissionless} or \textbf{permissioned}.
-Generally speaking, in a permissionless Blockchain every node of the network
-can write to the ledger whereas in a permissioned Blockchain only a select
-group of entities have writing access in the ledger. The permissioned
-alternative is secure by default if the entities who manage the network are
-considered secure and trustworthy participants in the network, for example
-through a chain of trust similar to Domain Name Systems digital certification
+respect a Blockchain can be permissionless or permissioned.  Generally
+speaking, in a permissionless Blockchain every node of the network can write to
+the ledger whereas in a permissioned Blockchain only a select group of entities
+have writing access in the ledger. The permissioned alternative is secure by
+default if the entities who manage the network are considered secure and
+trustworthy participants in the network, for example through a chain of trust
+similar to Domain Name Systems digital certification
 schema~\cite{Lewis2015,Valenta2017}.
 
 But then, how does a permissionless Blockchain maintain security if every
 participant in the network has access to writing on it, including potentially
 malicious parties? Given that participating nodes in a public network can
 belong to different and often competing parties, there is no implied trust
-between them, so the Blockchain needs a mechanism to ensure the integrity of
-the ledger and prevent malicious meddling from interested parties and avoiding
-the need for a central authority~\cite{Barclay2017}.  One example of this is
-the Bitcoin Blockchain that uses a peer-to-peer network to avoid the
-requirement of a third party being involved in a financial transaction such as
-a financial institution or a middle man, which must be trusted with the details
-of a transaction to see it through~\cite{Nakamoto2008}.
+between them. Blockchain provides a mechanism to ensure the integrity of the
+ledger and prevent malicious meddling from interested parties and avoiding the
+need for a central authority~\cite{Barclay2017}. For example, the Bitcoin
+Blockchain uses a peer-to-peer network and manages to avoid the requirement of
+a third party being involved in a financial transaction such as a financial
+institution or a middle man, in order to see it through~\cite{Nakamoto2008}.
 
-Consensus is a mechanism employed by the Blockchain to solve this problem.
-Even though consensus mechanisms can behave vastly different, depending on its
-implementation and purpose, they are at the core a solution to create
-immutability and ensure resiliency and transparency by ensuring the majority of
-the network agrees upon the sequence of events.  For example, in the Bitcoin's
-Blockchain case, consensus is reached by the longest chain rule where the
-longest chain of blocks not only serves as proof of the sequence of events
-witnessed, but as proof that it came from the largest pool of computing power,
-as it uses a proof of work algorithm that relies on brute force to solve a
-complex mathematical puzzle, making the longest chain of blocks the one with
-the most computing power behind it and therefore agreed upon by the majority of
-the network~\cite{Baars2016,Wood2017} making it the most likely to be the one
-that represents the sequence of events witnessed.
+The mechanism employed by the Blockchain to solve this problem is called
+consensus.  Even though consensus mechanisms can behave vastly different,
+depending on its implementation and purpose, they are at the core, a solution
+to create immutability and ensure resiliency and transparency by ensuring the
+majority of the network agrees upon the sequence of events. For example, in the
+Bitcoin's Blockchain case, consensus is reached by the longest chain rule where
+the longest chain of blocks not only serves as proof of the sequence of events
+witnessed, but as proof that it came from the largest pool of computing power.
+This is due to the fact that the Bitcoin's Blockchain uses a proof of work
+algorithm that relies on brute force to solve a complex mathematical puzzle,
+making the longest chain of blocks the one with the most computing power behind
+it and therefore agreed upon by the majority of the
+network~\cite{Baars2016,Wood2017}, making that chain the most likely to be the
+one that represents the sequence of events witnessed.
 
 There have been however, environmental and economic reasons to replace
 Proof-of-Work consensus algorithms. Nowadays the cryptocurrency mining, forms a
@@ -162,13 +145,14 @@ institutions\cite{ONCoordinator2017}.
 But what is defined as identity? Identity is a construct that depends on the
 context. Identity is often defined as the characteristics determining who or
 what something is. In this thesis context, identity is defined as the set of
-characteristics that determine who the patient is, in the given Healthcare
+characteristics that determine who a patient is, in the given Healthcare
 ecosystem they belong to, such as the name, the age, the cellphone number, the
 gender and the birth date of the patient.  
 
-Electronic Health Records encapsulate this information in digital format,
-however they are usually represented in a format according to the Information
-System they were designed to work with. The increasing limitations of
+Electronic Health Records encapsulate this information in digital format.
+Unfortunately, they are usually represented in a format according to the
+Information System they were designed to work with, meaning that they are not
+created according to any established standard. The increasing limitations of
 paper-based records, the potential benefits of Electronic Health Records and
 the acknowledged challenges of delivering these in practice have stimulated a
 considerable investment in research and development of this solution.  Between
@@ -186,24 +170,26 @@ Healthcare professionals increasingly require access to detailed and complete
 health records in order to manage a safe and effective delivery of their care
 service, as well as, being able to share this information with their team in an
 efficient way. Patients nowadays should also be able to access their own
-information to an extent that permits them to play an active role in their
-health management. These requirements are becoming more urgent as the focus of
-Healthcare delivery shifts progressively from specialist centres to community
-settings and to the patient’s personal environment.
+information to an extent that allows them to play an active role in the
+management of their health related data. These requirements are becoming
+increasingly urgent as the focus of Healthcare delivery shifts progressively
+from specialist centres to community settings and to the patient’s personal
+environment.
 
-Health Level 7 has done much work to be recognized internationally and is being
-implemented in many countries to allow for joint efforts between organizations.
-As of 2017, HL7 has an official presence in 34 countries such as United
-Kingdom, Spain, France, Germany, Russia and China~\cite{HL7Anual2016}. The
-organization has been keen on expanding their standard internationally as work
-continues on official adoption in other countries such as Portugal. Adding to
-this, HL7 has been providing several events and discussion meetings, as well
-as, developing its learning ecosystem in the form of certifications and web
-streams, for example. In 2017, HL7 has partnered with the Health Services
-Platform Consortium, composed of more than a dozen clinical professional
-societies, committing resources for creating and testing clinical data models
-thus beginning to lay a semantic foundation for achieving an interoperable
-foundation.
+Health Level 7 organization has done much work to be recognized internationally
+and their standard for Healthcare data interoperability is being implemented in
+many countries to allow for joint efforts between medical and clinical
+institutions.  As of 2017, HL7 has an official presence in 34 countries such as
+United Kingdom, Spain, France, Germany, Russia and China~\cite{HL7Anual2016}.
+The organization has been keen on expanding their standard internationally as
+work continues on official adoption in other countries. Adding to this, HL7 has
+been providing several events and discussion meetings, as well as, developing
+its learning ecosystem in the form of certifications and web streams, for
+example. In 2017, HL7 has partnered with the
+\href{https://www.hspconsortium.org/}{Health Services Platform Consortium},
+composed of more than a dozen clinical professional societies, committing
+resources for creating and testing clinical data models and thus beginning to
+lay a semantic foundation for achieving interoperability.
 
 There is a greater need for digital security solutions, as the amount of data
 grows in a connected age, where access to the world wide web is easily
@@ -236,40 +222,45 @@ The use of Blockchain technology in the health field is expanding. Just
 recently a new platform appeared, called Medichain that allows patients to
 store their own data in a secure way and give anonymized access to this data to
 specialists. Giving data allows for users to gain tokens that represent
-value~\cite{MediChain2018}.
+value~\cite{MediChain2018}, effectively allowing patients to knowingly monetize
+their Healthcare data.
 
-Even tough many Blockchain-based solutions are still very early on development
+Even tough many Blockchain based solutions are still very early on development
 or deployment and many projects do not actually materialize, the disruption
 potential of this technology is clear. All over the world many efforts are
 being made to regulate the high amount of data that is being generated by
-services.
+digital services.
 
-For example, in the European Union, the EU General Data Protection Regulation
-(GDPR) is officially in effect as of May 25, 2018. The aim of this regulation
-is to protect all EU citizens from privacy and data breaches in an increasingly
-data-driven world that is vastly different from when the preceding 1995
-directive was established and defines a set of points that organizations and
-enterprises must comply regarding the handling of personal data. Since GDPR is
-a regulation, not a directive, it does not require national governments to pass
-any enabling legislation and is directly binding and applicable. A violator of
-this regulation may be fined up to \textbf{20 million € or up to 4\% of the
-annual worldwide turnover} of the preceding financial year in case of an
-enterprise, whichever is greater. Although the key principles of data privacy
-still hold true to the previous 1995 directive, terms of usage as well as
-consent to use data has become more clear to the user of a data-driven service.
-Therefore, any solution proposed in the Healthcare field must also take this
-legal landscape into consideration which may be a problem. One of the key
-features of Blockchain is immutability which means that data once written it is
-impossible to delete or tamper with. This provides many benefits but to comply
-with this regulation some adjustments are needed, which will be discussed
-shortly.
+For example, in the European Union (EU), the EU General Data Protection
+Regulation (GDPR) is officially in effect as of May 25, 2018. The aim of this
+regulation is to protect all EU citizens from privacy and data breaches in an
+increasingly data-driven world that is vastly different from when the preceding
+1995 directive was established. GDPR defines a set of points that organizations
+and enterprises must comply regarding the handling of personal data. Since GDPR
+is a regulation, not a directive, it does not require national governments to
+pass any enabling legislation and is directly binding and applicable. A
+violator of this regulation may be fined up to \textbf{20 million € or up to
+4\% of the annual worldwide turnover} of the preceding financial year in case
+of an enterprise, whichever is greater. Although the key principles of data
+privacy still hold true to the previous 1995 directive, terms of usage as well
+as consent to use data has become more clear to the user of a data-driven
+service.  Therefore, any solution proposed in the Healthcare field must also
+take this legal landscape into consideration which may be a problem. One of the
+key features of Blockchain is immutability which means that data once written
+it is impossible to delete or tamper with. This causes a practical clash
+between this technology and the regulation, even tough they both are aligned in
+ideological concepts as both seek to return control of data usage and handling
+to their rightful owners. With this in mind it becomes clear that to comply
+with this regulation some additional steps need to be taken by this technology
+or eventual amendments need to be added to the regulation.
 
-\section{Blockchain as a Platform}
+\section{Blockchain as a Platform} \label{blockchainasaPlatform}
 
 Due to Bitcoin getting extensive media coverage, the average public awareness
 in cryptocurrencies is shown to be rising~\cite{BitAwareness2017}. While
 Blockchain is used as a means to increase the resiliency of the Bitcoin
-cryptocurrency from malicious parties, a token is used to represent the coin. 
+cryptocurrency network from malicious parties, a token is used to represent the
+coin. 
 
 Just like a Euro it has no value by itself, it only has value because we agree
 to trade goods and services in exchange for a higher amount of the currency
@@ -340,7 +331,7 @@ previously exist. This devalues the currency relative to other monetary units,
 and diminishes user trust as well as the circulation and retention of the
 currency.} might have occurred and the transaction is rejected~\cite{Wood2017}.
 
-\section{Blockchain for Enterprise}\label{enterpriseBlockchain}
+\section{Blockchain for Enterprise} \label{enterpriseBlockchain}
 
 Hyperledger Fabric (HLF) is part of the Hyperledger project started in December
 2015 by the Linux Foundation. It is an open-source developer-focused community
@@ -392,10 +383,10 @@ components for creating and using independent digital identities distributed
 ledgers. Indy provides a software ecosystem where the users are in charge of
 decisions about their own privacy and disclosure of such information.  Indy can
 be used to define connection contracts, revocation and curated reputation, for
-example. Hyperledger Indy was not used in this thesis because when this thesis
-started it was just in incubation phase. Documentation was lacking and the
-platform was not feature complete. With this said, Hyperledger Indy could be
-used in Future Work as explained on the respective section.
+example. Hyperledger Indy was not used in this thesis as it was at the time in
+incubation phase. Documentation was lacking and the platform was not feature
+complete. With this said, Hyperledger Indy is mentioned could be used as future
+work, as explained on Section~\ref{futureWork}.
 
 The first network built on Indy was deployed on July 31, 2017, running version
 1.0 of Indy. The Indy Software Development Kit (SDK) was released in August of

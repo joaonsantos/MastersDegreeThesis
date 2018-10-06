@@ -1,4 +1,5 @@
-\chapter{Introduction}\label{introduction}
+\chapter{Introduction}
+\label{introduction}
 
 \begin{quote} 
   \emph{The aim of this work is to build a Blockchain based system to manage
@@ -7,42 +8,33 @@
   vulnerable and a target to groups of malicious actors. Also the data that
   forms the identity of a patient is often fragmented across multiple
   Healthcare organizations, in such a way that, to a get an overview of the
-  patients history and diagnosis you would need to merge together all the
-  pieces of information stored in these data systems. Blockchain has a set of
-  features that could improve upon these aspects if used together with existing
-  systems. This thesis provides an insight into the design and implementation
-  of a Blockchain based system for managing the identity of patients in a
-  Healthcare context and its subsequent evaluation.  The system should allow a
-  patient to be able to manage his data and control its access.  It can be used
-  to handle the patient’s medical identity, for example, in hospitals or
-  Healthcare clinics alongside the current information systems available in
-  nowadays regular medical environments. The creation of this system and its
-  subsequent evaluation will provide interesting conclusions to medical staff
-  as well as patients, regarding its potential implementation and deployment in
-  the field.} 
+  patients history and diagnosis you would need to merge data from different
+  sources. Making matters worse, standards for exchanging medical and clinical
+  data have been lacking. Blockchain is evaluated as a platform to improve upon
+  these aspects.} 
 \end{quote}
 
 Health is intrinsically linked with technology as new technologies enable safer
 and better treatments. It is also worth noting that computing devices and
-networks are now easily available and widespread to the general population in
-more develop countries. Healthcare organizations now store patients data on a
-digital format. The Electronic Health Record (EHR) is an abstract concept
-representing the patients digitally stored clinical data and their identity in
-a medical context.
+networks are now easily available and widespread in more develop countries.
+Healthcare organizations now store patients data on a digital format. The
+Electronic Health Record (EHR) is an abstract concept representing the patients
+digitally stored clinical data and their identity in a medical and clinical
+context.
 
 Electronic Health Records  have lacked a standard for many years. Fortunately
-there has been some progress regarding this matter recently as discussed
-shortly.  Standards are an important aspect to take into account when designing
-an information system because they allow interoperability between different
-organizations with no additional work. The Health Level 7 (HL7) standard is
-being built primarily by Health Level Seven organization. Over the last few
-years it has seen a significant growth in usage and is an international
-standard with partnerships worldwide. HL7 Portugal is starting its operations
-and is building a community to support the use of this standard in
-Portugal~\cite{HealthLevel7}.
+there has been some progress regarding this matter recently, as discussed in a
+short while.  Standards are an important aspect to take into account when
+designing an information system because they allow interoperability between
+different organizations with no additional work. The Health Level 7 (HL7) Fast
+Healthcare Interoperability Resources (FHIR) standard is being built primarily
+by the Health Level Seven organization. Over the last few years it has seen a
+significant growth in usage and is an international standard with partnerships
+worldwide. HL7 Portugal is now starting its operations and is building a
+community to support the use of this standard in Portugal~\cite{HealthLevel7}.
 
 Blockchain is often known as the technology behind the Bitcoin cryptocurrency.
-Bitcoin depends on two complementary technologies, digital tokens and
+Bitcoin depends on two complementary technologies, digital tokens and a
 Blockchain, that when orchestrated together facilitate trust, immutability and
 resiliency~\cite{Evans2016}.
 
@@ -58,18 +50,19 @@ potential across many fields, with some implementations even resembling a
 programming platform to execute code in an autonomous
 manner~\cite{Nakamoto2008}.
 
-Traditional databases and architectures can become vulnerable and a target to
-groups of malicious actors that possess the technical expertise to deny
-services with Distributed Denial of Service (DDOS) attacks~\footnote{A
+Traditional Healthcare databases and architectures are increasingly vulnerable
+and a target to groups of malicious actors that possess the technical expertise
+to deny services with Distributed Denial of Service (DDOS) attacks~\footnote{A
 Distributed Denial of Service attack is an attempt to make an online service
 unavailable by overwhelming it with traffic from multiple sources.} or cause a
-data breach~\footnote{A data breach is the intentional or unintentional release
-of secure or private/confidential information to an untrusted environment.}. 
+data breach~\cite{mcCoy2018}~\footnote{A data breach is the intentional or
+unintentional release of secure or private/confidential information to an
+untrusted environment.}. 
 
-Making matters worse other problems spring to mind. The data that forms the
+Making matters worse other problems spring to mind. The data that comprises the
 identity of a patient is often fragmented across multiple Healthcare
 organizations, in such a way that, to get a true overview of the patients
-history and diagnosis you would need to merge together all the pieces of
+history and diagnosis there would be a need to merge all the pieces of
 information stored in data systems that are hosted in architecturally different
 and sometimes competing Healthcare information systems. Transparency is also a
 concern, as a patient does not currently possess the means to track how his
@@ -79,17 +72,25 @@ As more information becomes available, new insights can be extracted by
 Healthcare professionals that lead to an overall improvement of the patients
 interaction with the Healthcare ecosystem. However, maintaining a high amount
 of data secure is a costly and risky matter for every party involved. Security
-and privacy should be a top concern regarding this sensitive data. 
+and privacy are a top concern regarding sensitive data. 
+
+This thesis provides an insight into the design and implementation of a
+Blockchain based system for managing the identity of patients in an Healthcare
+setting and its subsequent evaluation. The creation of this system and its
+subsequent evaluation could provide interesting conclusions to medical staff as
+well as patients, regarding its potential implementation and deployment in the
+field.
 
 In this document different Blockchain implementations are explored to get an
-overview of their feature set and focus in order to evaluate the suitability of
-this technology in the Healthcare field. More precisely, in
+overview of their feature set and focus. Considering a set of defined
+requirements a platform is chosen, in order to evaluate the suitability of this
+technology in the Healthcare field. More precisely, in
 Chapter~\ref{background}, a brief introduction to Blockchain and its most
-prominent implementations. The technology is further explored in
+prominent implementations is presented. The technology is further explored in
 Chapter~\ref{blockchain} and a number of real world use cases of this
 technology in the Healthcare field are explored.  In Chapter~\ref{development}
 a Blockchain platform is chosen in order to build a prototype system to
-evaluate the usability of this technology in the Healthcare field. The system
-is designed, implemented, built and evaluated. Finally, in
+evaluate the usability of this technology in the Healthcare field. Insight is
+given into the system design, implementation and evaluation. Finally, in
 Chapter~\ref{Conclusion} some conclusions are presented and potential future
 work is discussed.

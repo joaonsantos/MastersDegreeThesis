@@ -1,52 +1,35 @@
 \chapter{Blockchain: A Practical Overview and Use Cases}\label{blockchain}
 
 \begin{quote} 
-  \emph{It was for a long time necessary, to establish trust between two
-  entities, a middle-man with a neutral stake. The Blockchain aims to solve
-  this dependency using decentralization and a mechanism called consensus. A
-  Blockchain is a distributed system which means that processing is shared
-  across multiple nodes. There are two major categories of Blockchain
-  implementations. A permissionless Blockchain implementation, like the
-  Bitcoin's and Ethereum's Blockchain, for example, has no barrier to entry.
-  Permissioned Blockchains are more strict and require enrollment in the
-  network. With this in mind, it is clear that permissioned implementations are
-  more suited towards enterprise and organizations as they provide a middle
-  ground between full decentralization and organizational needs, while still
-  benefiting from the key characteristics of the Blockchain
-  architecture.Ethereum is a permissionless implementation whereas Fabric is
-  Permissioned. Ethereum uses a currency to maintain the network while Fabric
-  uses a Byzantine Fault Tolerant consensus algorithm which does not need a
-  currency associated. Both feature smart contracts even tough they feature
-  different execution architectures. Hyperledger Fabric also allows
-  organizations to fall back to regulations and laws if needed, which is an
-  important feature for settling disputes and complying with the government set
-  laws and directives.}
+  \emph{The Blockchain, initially used to solve problems in centralized
+  financial systems, has inherent characteristics that make it suitable for a
+  variety of use cases. A Blockchain is a distributed system which means that
+  processing is shared across multiple nodes. There are two major categories of
+  Blockchain implementations. In this Chapter, the Blockchain technology and
+  more specifically the Ethereum and Hyperledger Fabric platform
+  characteristics are explored in detail.}
 \end{quote}
 
-The Blockchain, initially used to solve problems in centralized financial
-systems, has inherent characteristics that make it suitable for a variety of
-use cases. This Chapter will provide a more practical exploration of the
-Blockchain technology showing some of the considerations that were taken into
-account, after analyzing some implementations of this technology, mentioned in
-Chapter~\ref{background}.
+As discussed in Chapter~\ref{background}, Blockchain implementations are an
+emerging structure for distributed computing systems that provide an immutable
+history of records written to a ledger, even when there is no implicit trust
+relationship between the parties involved~\cite{Barclay2017}. The origin of
+this technology can be traced back to the realization that full centralization
+should be avoided in critical services.
 
 \section{Trust in a Network}
 
-Blockchain implementations are an emerging structure for distributed computing
-systems that provide an immutable history of records written to a ledger, even
-when there is no implicit trust relationship between the parties
-involved~\cite{Barclay2017}.
-
 Banks used to keep track of their financial transactions by writing on a book
 usually located at the central bank. This book was often called ledger.
-Whenever a transaction occurred someone wrote on the book. In short, the ledger
-acts as a mean of storing all the transaction details between the bank and
+Whenever a transaction occurred someone wrote the record of the transaction on
+the book, permanently adding information to the book. In short, the ledger acts
+as a permanent mean of storing all the transaction details between the bank and
 other entities. 
 
-Nowadays banks do not use the ledger in a book format. Instead the ledger is
-referred to as the structure that holds all transaction information the bank
+Nowadays banks do not use the ledger in a book format. Instead, nowadays the
+ledger is the structure that holds all transaction information the bank
 possesses. It is a structure that keeps the original purpose of recording all
-the transactions that are made.
+the transactions that are made, for example a database.
 
 Imagine the following situation, Joe is on vacation and needs to borrow money
 from Jane, his wife. Joe calls Jane to ask for some money and Jane tells him it
@@ -64,8 +47,7 @@ costs to all parties involved.
   \centering
   \includegraphics[width=1\linewidth]{imgs/blockchainvscentralizedNetwork.png}
   \caption{\label{fig:centralizedvsdescentralized} A comparison between a
-  Centralized Banking System and a Distributed Ledger. (Source: Finance \&
-  Development, 2016)}
+  Centralized Banking System and a Distributed Ledger. (Source:~\href{https://www.imf.org/external/pubs/ft/fandd/}{Finance \& Development}, 2016)}
 \end{figure}
 
 For a long time it was necessary, to establish trust between two entities, a
@@ -158,19 +140,21 @@ Ethereum is a permissionless Blockchain implementation. It is a platform that
 lets anyone build and use decentralized applications commonly named Ðapps. It
 is an open-source project developed primarily by the Ethereum Foundation and
 was designed to be adaptable and flexible, in contrast to Bitcoin's Blockchain
-that only records financial transactions~\cite{EthereumDocs2018}.
+that only records financial transactions~\cite{EthereumDocs2018}, as discussed
+in Section~\ref{blockchainasaPlatform}.
 
 It features a friendly programming language called Solidity that is influenced
-by C++, Python and Javascript that is designed to allow an easy way for
+by C++, Python and Javascript. It is designed to allow an easy way for
 developers to create new applications on the Ethereum platform with code of
 arbitrary algorithmic complexity in a turing complete language. Smart Contract
-application code targets the Ethereum Virtual Machine, which is then deployed
-to the Blockchain via a local Ethereum node~\cite{Wood2017,Barclay2017}.
+application code targets the Ethereum Virtual Machine (EVM), presented shortly,
+and is then deployed to the Blockchain via a local Ethereum
+node~\cite{Wood2017,Barclay2017}.
 
-At the heart of Ethereum is the Ethereum Virtual Machine (EVM) as seen on
-Figure~\ref{fig:evm} and, like any Blockchain, Ethereum also includes a
-peer-to-peer network protocol. The Ethereum Blockchain database is maintained
-and updated by many nodes connected to the network. Each and every node of the
+At the heart of Ethereum is the Ethereum Virtual Machine, as seen on
+Figure~\ref{fig:evm}. Ethereum also includes a peer-to-peer network protocol,
+as does any Blockchain. The Ethereum Blockchain database is maintained and
+updated by many nodes connected to the network. Each and every node of the
 network runs the EVM and executes the same instructions in order to maintain
 consensus across the entire Blockchain. Decentralized consensus gives Ethereum
 a high degree of fault tolerance, ensures zero downtime, and makes data stored
@@ -194,7 +178,7 @@ then these transaction fees are collected by the nodes that validate the
 network commonly called miners - which are nodes in the network that receive,
 propagate, verify, and execute transactions. Ethereum currently uses a
 Proof-of-Work based consensus algorithm but plans to change to a Proof-of-Stake
-algorithm due to environmental and financial concerns as well as reduced
+based algorithm due to environmental and financial concerns as well as reduced
 centralization risks~\cite{EthereumDocs2018,EthereumPOSFAQ2018}.
 
 Ethereum has a live production network called “mainnet” available for any
@@ -233,13 +217,14 @@ load relevant data~\cite{ethereumBlogScalability2018}.
 \section{A Permissioned Distributed Ledger Platform - Hyperledger Fabric}
 \label{distributedLedgerPlatform}
 
-Hyperledger Fabric is a platform for distributed ledger solutions featuring a
-modular architecture. It provides developers with a permissioned platform
-targeted at business and enterprise use cases that supports pluggable
-implementations of different components to accommodate the complexity and
-intricacies that exist across the economic ecosystem. It is an open source
-project initially commited by IBM  and estabilished under the Linux Foundation,
-being developed by over 44 organizations and more than 250
+As discussed in Section~\ref{enterpriseBlockchain}, Hyperledger Fabric is a
+platform for distributed ledger solutions featuring a modular architecture. It
+provides developers with a permissioned platform targeted at business and
+enterprise use cases that supports pluggable implementations of different
+components to accommodate the complexity and intricacies that exist across the
+economic ecosystem. It is an open source project initially commited by IBM  and
+estabilished under the Linux Foundation, being developed by over 44
+organizations and more than 250
 members~\cite{HyperledgerFabricDocs2017,HyperledgerGrowth2018}.
 
 It supports the creation of smart contracts, \textbf{commonly called chaincode
