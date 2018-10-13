@@ -1,33 +1,17 @@
 \chapter{Designing and Building the System} \label{development}
 
-\emph{In this Chapter requirements for a system built upon Blockchain
-technology were set. The requirements where chosen in order to create a system
-that is interesting to an organization while still respecting the patients data
-and their access right to it. With the requirements set, Ethereum and
+\emph{In this Chapter we describe the requirements for a system built upon Blockchain
+technology. The requirements where chosen in order to create a system
+that is interesting to an organization while still respecting the patients data access rights. With the requirements set, Ethereum and
 Hyperledger Fabric advantages and disadvantages were weighted for this use
-case. Ultimately, the Hyperledger Fabric Distributed Ledger Platform , with its
-focus on enterprise use and true data segregation, was chosen as the platform
-to build a system that seeks to achieve the purpose mentioned in
-Chapter~\ref{introduction}. A working knowledge of the Fabric platform was
-acquired. A Fabric network is comprised by the ledger, the peers, the
-applications and the Membership Service Provider and CA provider. To test this
-system a network was created to test the interaction possibilities between a
-patient and a doctor, translating into two organizations and two peers. Some
-tests were executed and the system was evaluated against the Confidentiality,
-Integrity and Availability triad model. Symmetric key encryption was required
-to be implemented in order to fulfill the confidentiality requirement set.
-After these changes a system was implemented that successfully met the
-requirements and further conclusions were able to be taken.}
+case. Finally, insight into the design and implementation of the system is given.}
 
-The goal of this thesis is to evaluate the suitability of Blockchain technology
-in managing the identity of patients in an Healthcare organization by
-conceptualizing and implementing a system that fulfills this role. In order to
-fulfill this goal, the development part of this thesis was primarily divided
-into four steps with each step building upon the previous ones. This Chapter
-provides an insight into the workflow used to build the system. The workflow
+The goal of this dissertation is to manage the identity of patients in an Healthcare organization by
+conceptualizing, implementing and evaluating a system that fulfills this role. In order to
+fulfill this goal, the development part of the work described in this dissertation was primarily divided
+into four steps with each step building upon the previous ones. The development workflow
 spans the conceptualization and its associated challenges and ends in the
-implementation of said system. This system was built using some of the
-technologies and concepts described in the previous section.
+implementation of said system.
 
 \section{First Step - Defining Requirements and Choosing a
 Platform}\label{choosingHyperledger}
@@ -47,10 +31,9 @@ The requirements for this work were deemed to be as follows:
     a participant.
   \item The system must allow a patient to record his medical data under the
     approval of an administrator.
-  \item The system must keep information confidential, transparent and have
+  \item The system must keep data confidential, transparent and have
     high availability.
-  \item The system must provide the patient with the ability to share his data
-    with another entity participating in the network, for example sharing
+  \item The system must provide the patient with the ability to share his data with another entity, for example sharing
     information with a doctor.
   \item The system must allow the deletion of a patient's data in some manner,
     if he wishes to do so, in order to comply with European privacy laws,
@@ -74,17 +57,14 @@ permissioned distributed ledgers, which can be run publicly or privately but
 are only open to access and participation through a membership service, such as
 Hyperledger Fabric and Hyperledger Indy.
 
-Ethereum is a popular platform on its own right and has certainly paved the way
-for Blockchain to be used as a platform that can be extended and built upon. It
-has a growing learning ecosystem and community. It is easy to start interacting
+Ethereum has a growing learning ecosystem and community. It is easy to start interacting
 with the network as anyone is able to simply download a client and connect to
-it.  Thanks to the Solidity smart contract language being targeted for the
+it. Thanks to the Solidity (see Section~\ref{ethereumPlatform}) smart contract language being targeted for the
 specific purpose of authoring smart contracts it only allows for a
 deterministic program to be written avoiding potential conflicts in the
-execution of these, for example, in the production network. Also after the
-initial learning barrier of it being a Domain Specific Launguage it becomes a
+execution of these, for example, in the production network. Since Solidity is a Domain Specific Language it is
 platform easy to develop for since it provides a well thought out and well
-organized documentation with a easy to use library of operations.
+organized documentation with an easy to use library of operations.
 
 Ethereum is being used in a great deal of projects around the world proving its
 stability and suitability in a wide variety of use cases. On the other hand,
@@ -93,24 +73,22 @@ personal nature of this data. Also hospitals and Healthcare clinics must obey
 the regulatory laws regarding privacy and usage of this data.
 
 It is also worth noting that while Ethereum can handle private data exchange by
-building upon it, as shown by Barclay, it was not designed with this intent in
+building upon it, as shown by Barclay in his dissertation, it was not designed with this intent in
 mind, therefore these middle ground solutions can prove to be unwise to use at
 scale given Ethereum's and the whole Blockchain's ecosystem past problems with
 scalability.  
 
 Fabric, like Ethereum, was built with the intention of being a general purpose
 use Blockchain. It provides developers with the tools needed to build any
-system they can imagine. However, the latter is clearly focused on making
-organizations feel more at ease by being auditable as it offers an identity
-service and a known environment due to using a membership service provider,
-using a private certificate authority that emits certificates specific for the
+system they can imagine. The latter is clearly focused on making
+organizations feel more at ease by being auditable. It is auditable because it offers an identity
+service by using a membership service provider and a private certificate authority that emits certificates specific for the
 Fabric network. These concerns allow this platform to avoid the same fate
-Internet of Things devices have had in the Healthcare field~\cite{Tana2017}.
-The lack of security regulations and ambiguity in how data was being collected
+Internet of Things devices have had in the Healthcare field~\cite{Tana2017} where the lack of security regulations and ambiguity in how data was being collected
 by these devices has limited their usage and prevented the widespread usage of
 these devices in the Healthcare field.
 
-Fabric also has good amount of development tools that are now maturing and a
+Fabric also has a good amount of development tools that are now maturing and a
 good learning environment with ample documentation about every aspect important
 for a developer looking to get started into it. Fabric is being backed by the
 Linux Foundation and IBM, lending credibility to the project and ensuring that
@@ -124,15 +102,14 @@ Caliper~\cite{performanceScale2017}.
 
 Regarding Fabric's features, it lends itself very well to fulfill the project
 requirements. Fabric's channels and private data segregation at peer level make
-a clear statement that privacy is important in this platform which is in line
-with the requirements that were laid out for this project. It is also worth
+a clear statement that privacy is important in this platform, which is in line
+with the requirements that were laid out for the work described in this dissertation. It is also worth
 noting that many upcoming Blockchain based projects in the Healthcare field are
 using permissioned networks due to these same concerns regarding the privacy of
 the patients while retaining the key benefits of Blockchain such as
 immutability and decentralization. The fact that Fabric has no associated
 currency also means there is no required mining incentives to maintain the
-network, even tough it does require some additional infrastructure acquisitions
-to set up the network, leading to a higher initial investment in a solution
+network, even tough it does require some additional infrastructure to set up the network, leading to a higher initial investment in a solution
 based on this platform.
 
 Both are very interesting platforms, but ultimately it was decided to use
@@ -143,11 +120,11 @@ field. Also, this technology is relatively recent and there is still a great
 lack of knowledge available to the general public, making it a more interesting
 choice from an theoretical standpoint.
 
-\section{Working knowledge of the Platform}
+\section{Hyperledger Fabric Components and Administration}
 
-After choosing to work with Hyperledger Fabric it became necessary to
-understand in further detail what are the components that form a network and
-the tools to manage these components. This section discusses the main
+After selecting Hyperledger Fabric as the work platform, it became necessary to
+understand in further detail what are the main components that form a network and
+the tools available to manage these components. This section discusses the main
 components of a Fabric network and the tools required to create and maintain a
 Fabric network. These components often interact with one another and provide
 the technical infrastructure that comprises this technology.
@@ -157,7 +134,7 @@ the technical infrastructure that comprises this technology.
 An Hyperledger Fabric (HLF) network is defined as the technical infrastructure
 that provides ledger and smart contract services to applications. Smart
 contracts are used to generate transactions and interact with the ledger. The
-network is comprised of several components as presented shortly.
+network is comprised of several components, which are described in the following paragraph.
 
 The ledger is a central component of a HLF network. The ledger is composed by a
 world state and a Blockchain as seen of Figure~\ref{fig:ledgerFabric}. The
@@ -178,9 +155,9 @@ of ordered transactions by the orderer service.
   Fabric Documentation})}
 \end{figure}
 
-Another component is the set of peers participating in the network. A Peer is a
+Another component is the set of peers participating in the network. A peer is a
 node that hosts a copy of the multiple ledgers and smart contracts. There is
-one logical ledger in a Hyperledger Fabric network, even tough in reality, the
+one logical ledger in a Hyperledger Fabric network, even tough, in reality the
 network maintains multiple copies of a ledger that are synchronized through
 consensus. HLF opts to allow multiple ledgers in a network to achieve different
 goals of a greater purpose. This allows the creation of channels of information
@@ -197,14 +174,14 @@ from its owning organization. The mapping of a peer's identity in an
 organization is provided through the membership service provider. 
 
 In fact peers, applications, end users (clients), administrators, channels and
-organizations must have an identity provided by the MSP in order to be able to
+organizations must have an identity provided by the Membership Service Provider (see Section~\ref{distributedLedgerPlatform}) in order to be able to
 interact with the network. Each of these actors has a digital identity
 encapsulated in an X.509 digital certificate standard which must be unique to
 every entity. These determine the exact permissions these have over resources
 and access to information in the network. The MSP issues these certificates
-through the built-in CA component, the Fabric Certificate Authority (CA). The
+through the built-in Certificate Authority (CA) component, the Fabric CA. The
 Fabric CA is a private root CA provider that consists in a CA server and a CA
-client. The MSP also supports Certificate Revocation Lists as seen of
+client. The MSP also supports Certificate Revocation Lists as seen in
 Figure~\ref{fig:membershipFabric}.
 
 \begin{figure}[ht] 
@@ -227,7 +204,7 @@ The \textit{cryptogen} tool generates cryptographic data consuming the file
 \textit{crypto-config.yaml}.
 
 The \textit{configtxgen} tool generates the genesis block for the orderer
-services and the initial transactions.  This tool consumes the file
+services (see Section~\ref{distributedLedgerPlatform}) and the initial transactions.  This tool consumes the file
 \textit{configtx.yaml} that defines configuration parameters for channels, the
 genesis block and the orderer service.
 
@@ -244,7 +221,7 @@ subsection .
 \section{Building the System}
 
 After considering the project goals of investigating the suitability of a
-Blockchain based system to manage patients in Healthcare, the third step was to
+Blockchain based system to manage patients identity data in Healthcare, the third step was to
 build a prototype of a system that would provide a simulation of the production
 network, albeit on a smaller scale. The insights gained from developing a
 simple working system would enable benefits and risks of the approach to be
@@ -253,25 +230,23 @@ identified, and opportunities for further research to be laid out.
 In order to build a solution, the research done before hand was taken into
 account and allowed a global overview of how architecturally a system could be
 built with the components available. After some consideration some approaches
-were reached and are now presented.
+were reached, which are hereby presented in the following sections.
 
 \subsection{Conceptualization and Design}
 
-After some thought it was determined that the information that defines the
+After an analysis of the defined requirements and the platform chosen, it was determined that the information that defines the
 patient's identity is a key requirement to build a system that recognizes
 patients across the Healthcare environment, as discussed in
 Chapter~\ref{background}. An asset could be created through chaincode that
-represents the concept of the patient's identity in this network. An asset is
+represents the concept of the patient's identity in this network. This asset is
 stored in a Fabric network as a key-value pair. The key for this kind of asset
-could be a string. The string could be composed by the string 'Patient\_'
-followed by a patient identification number assigned when the data is entered
+could be a string. This string could be composed by the string 'Patient\_', followed by a patient identification number assigned when the data is entered
 into the Blockchain. Since optimization is not a key concern to build a simple
-prototype in this thesis context, the patient's identification number was
+prototype in the context of the work described in this dissertation, the patient's identification number was
 defined to simply be the order of the data entry starting at number one. This
 ensures that the key is unique and it is easily computable. In short, it was
 decided that the key is formed by the string 'Patient\_' followed by the
-mentioned patient identification number. This key is used to query and access
-information of a patient.
+mentioned patient identification number. This key is used to query and access the patients data.
 
 To aid in interoperability with other systems, as seen in Figure
 \ref{fig:interoperability}, the Fast Healthcare Interoperability Resources
