@@ -1,0 +1,134 @@
+\chapter{Experiments and System Evaluation} 
+\label{experiments}
+
+\emph{In this Chapter the solution created for managing patients identity data
+in a Healthcare context is tested using some specific use cases. Then the
+solution is evaluated against a security model and goals set by this
+dissertation are evaluated.}
+
+To properly evaluate this solution a number of experiments were conducted, as
+follows. First some data would be present on the channel when the user
+interacts that represents his identity in a certain clinic. The patient would
+query the Blockchain for his data and receive his data if everything worked
+accordingly. The second experiment was making the patient share his data with
+the doctor in the channel. The last experiment consisted in the patient trying
+to query data of another patient that was inserted at the genesis of the
+network and seeing if the data was encrypted or was easily readable. The
+outcomes of these experiments can shape the development of the solution as it
+could take these results into consideration and highlight possible problems.
+
+\section{Testing the Built Solution}
+
+With the network in place and the peers set up and registered the experiments
+proposed have now their requirements fulfilled.
+
+The patient used the function provided by the application to query the network
+for his information. He searched for his patient number and was shown his
+information successfully. This shows that the information was recorded with
+success when the chaincode was deployed. The simple way to query personal
+information with an assigned patient number also proved successful and shows
+that this system can be used to store patient's identity data and retrieve it.
+
+Then the patient had to share his information with the doctor. To do this it
+was necessary to assume that the patient had given his patient number to the
+doctor so that he could use the application built to query for that patient
+number. The doctor queried the network for the patient's information and was
+able to access it successfully. This proves that this platform allows
+surprisingly, to very easily share information between a patient and a doctor
+using a smart contract in a simple way.
+
+Finally the patient tried to access another patient's data. It was necessary to
+assume that he was given the patient number by the respective patient. When he
+queried the network for that patient's data it became clear what already had
+arose suspicions in the previous experiments. He was actually able to access
+that data without a problem. This would be okay if the number was willingly
+given to him. However if the number was obtained unwillingly it could prove a
+problem. This meant that the solution currently, did not meet the requirement
+of the information being confidential that was defined previously, even tough
+it is transparent and has high availability since the information was spread
+through multiple peers and could be on multiple channels. It became clear that
+some additional data security measures was needed.
+
+\section{Evaluation of the Built Solution}
+
+It was determined that to evaluate the effectiveness of this system in regards
+to security, a standard for these types of solution was needed. The
+international standard for information security known as the Confidentiality,
+Integrity, and Availability (CIA) triad model was used and the solution was
+evaluated against this standard, in order to draw further conclusions and
+evaluate how secure the built system is, in regards to data security, which is
+a critical concern in this particular field. The three pillars that form this
+standard are the preservation of confidentiality, information availability and
+ensuring information integrity.
+
+\subsection{Confidentiality}
+
+Confidentiality of the information stored in the network was considered a key
+requirement when the requirements were presented. The Hyperledger Fabric was a
+prime candidate for building the solution upon due to its focus on privacy and
+a more enterprise approach to Blockchain development. While it offers many
+features such as channels that truly do segregate information in a way that
+many equivalent platforms cannot do at the moment it is also true that by
+default data will be stored in plain text. 
+
+To solve this problem it was necessary to implement data encryption on top of
+the network using chaincode. This way, even if someone was able to access the
+underlying database or if someone used a tool like Hyperledger Explorer to
+explore the network, all it would see is encrypted data that would require a
+key to decrypt and become human readable. With these considerations in mind,
+even tough there are a number of aspects that define confidentiality it can be
+said that the built system provides a confidential data storage.
+
+\subsection{Integrity}
+
+One of the key aspects of a Blockchain system is the immutability of data. This
+means that once information is written, it cannot be changed or erased. The
+transaction logs assure that the specific version of that asset is recorded
+permanently in the network. In order to comply with privacy regulations some
+data can become only visible as an hash but it still remains there. Therefore
+the integrity of data on this Blockchain platform and solution is also
+preserved.
+
+\subsection{Availability}
+
+Even tough Fabric is a permissioned Distributed Ledger Platform and as such it
+is administrated by an administrator it is also distributed and therefore
+avoids having a single point of attack. By default, it is more available than a
+simple informational system that is centralized. In this aspect, it can be said
+the more the network scales, the more robust it becomes and therefore more
+availability it provides as information redundancy also increases.
+
+\subsection{Thesis Goals}
+
+The goal of this thesis was to evaluate if a system could be built based on
+Blockchain technology to manage the patients identity in the Healthcare
+environment. Using Hyperledger Fabric a system was built that successfuly can
+create, manage and disable patients data. Information can be shared in a secure
+manner and interoperability eases organization into adopting this system. This
+system provides benefits to the medical staff as well as the patients due to
+transparency in how data is handled and secured.
+
+However the costs of deploying this system in a production ready environment
+would be higher compared to a more traditional approach. Since this system is
+built upon a Permissioned Platform, machines to host the central services need
+to be acquired and an administrator of the platform is necessary for the
+necessary maintenance. As the network grows it would become more resilient and
+additional servers could be used to expand the core availability of Blockchain
+components.
+
+There is also the question of scalability. Even tough a Permissioned Blockchain
+is always faster in relation to a Permissionless variant it still is far from
+matching the scalability and performance of the Electronic Payment Management
+System created by SIBS~\footnote{The Sociedade Interbancária de Serviços is a
+company that manages all the debit card payment system in Portugal and that
+operates with all banks. The company is responsible for the Multibanco network.
+The network is comprised by the store payment machines and the automated
+banking machines that offer money withdrawal and payment services, for example.
+As of December 2014, the network had an average of more than 75 million
+operations every month.} for banking transactions, for example. If this system
+was intended for global use then additional approaches would need to be taken
+regarding this matter.
+
+With this said the pace of development has been relatively fast with new
+releases on a quarterly basis that focus on the issues of scalability and
+privacy, two important features pertaining to the system this Thesis proposed.

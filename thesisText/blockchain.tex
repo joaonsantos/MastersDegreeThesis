@@ -3,7 +3,9 @@
 \begin{quote} 
   \emph{The Blockchain, initially used to solve problems in centralized
   financial systems, has inherent characteristics that make it suitable for a
-  variety of use cases beyond its original intended scope. In this Chapter, a more technical overview of the Blockchain technology is presented. And a more in-depth exploration of the Ethereum and Hyperledger Fabric platform
+  variety of use cases beyond its original intended scope. In this Chapter, a
+  more technical overview of the Blockchain technology is presented. And a more
+  in-depth exploration of the Ethereum and Hyperledger Fabric platform
   characteristics is shown.}
 \end{quote}
 
@@ -54,13 +56,35 @@ parties using decentralization and aims to make two different entities trust
 each other through constant replication of the ledger, a security mechanism
 called consensus.
 
-For example, in the Bitcoin's Blockchain case, Jane initializes this process in the Blockchain by signing a transaction that describes some of her money is being sent to Joe's digital wallet address. The transaction is placed in a pool of unconfirmed transactions and broadcasted to every node. Every 10 minutes a miner~\footnote{Bitcoin miners help keep the Bitcoin network secure by approving transactions and then writing in the Blockchain ledger. In a Proof-of-Work consensus based Blockchain, like Bitcoin, miners use special software and hardware to solve complex mathematical problems and are issued a certain number of Bitcoins in exchange, if a solution is found, as an incentive to mining.} solves a hash\footnote{A cryptographic hash function allows one to easily verify that some input data maps to a given hash value. However, if the input data is unknown, it is deliberately difficult to reconstruct it by knowing the stored hash value. The cryptograhic puzzle that miners need to solve is to find an input value, often called nonce, that produces an output hash value that satisfies a defined condition by the mining software.} problem, collects some of these unconfirmed transactions, packages them in a block and broadcasts that he found the solution. The output of the hash function is easily verified, and every miner confirms if the block is considered valid. If consensus is reached by the nodes, the block is added to the Blockchain (written in the ledger) and the new state is persisted on all peers through replication of the ledger. At this point the transaction is confirmed, requiring no middle man to ensure the transaction is trustworthy and valid.
+For example, in the Bitcoin's Blockchain case, Jane initializes this process in
+the Blockchain by signing a transaction that describes some of her money is
+being sent to Joe's digital wallet address. The transaction is placed in a pool
+of unconfirmed transactions and broadcasted to every node. Every 10 minutes a
+miner~\footnote{Bitcoin miners help keep the Bitcoin network secure by
+approving transactions and then writing in the Blockchain ledger. In a
+Proof-of-Work consensus based Blockchain, like Bitcoin, miners use special
+software and hardware to solve complex mathematical problems and are issued a
+certain number of Bitcoins in exchange, if a solution is found, as an incentive
+to mining.} solves a hash\footnote{A cryptographic hash function allows one to
+easily verify that some input data maps to a given hash value. However, if the
+input data is unknown, it is deliberately difficult to reconstruct it by
+knowing the stored hash value. The cryptograhic puzzle that miners need to
+solve is to find an input value, often called nonce, that produces an output
+hash value that satisfies a defined condition by the mining software.} problem,
+collects some of these unconfirmed transactions, packages them in a block and
+broadcasts that he found the solution. The output of the hash function is
+easily verified, and every miner confirms if the block is considered valid. If
+consensus is reached by the nodes, the block is added to the Blockchain
+(written in the ledger) and the new state is persisted on all peers through
+replication of the ledger. At this point the transaction is confirmed,
+requiring no middle man to ensure the transaction is trustworthy and valid.
 
-While consensus has a system performance impact due to the
-necessary replication of data and wasteful energy and computing power in the mining process, it is a mechanism that establishes a set of
-rules that defines if a sequence of transactions is considered valid.
-Different Blockchain implementations often use a variety of consensus protocols to
-balance this trade-off.
+While consensus has a system performance impact due to the necessary
+replication of data and wasteful energy and computing power in the mining
+process, it is a mechanism that establishes a set of rules that defines if a
+sequence of transactions is considered valid.  Different Blockchain
+implementations often use a variety of consensus protocols to balance this
+trade-off.
 
 \section{Permissionless and Permissioned Blockchain Implementations}
 
@@ -133,8 +157,7 @@ industries, by allowing the network to be auditable and assets to be traceable,
 falling back to laws or regulations if a dispute between participating entities
 occurs~\cite{Barclay2017}.
 
-\section{A Decentralized Open Platform - Ethereum}
-\label{ethereumPlatform}
+\section{A Decentralized Open Platform - Ethereum} \label{ethereumPlatform}
 
 Ethereum is a permissionless Blockchain implementation. It is a platform that
 lets anyone build and use decentralized applications commonly named Ðapps. It
@@ -258,8 +281,8 @@ not require mining or an associated currency in order to achieve consensus.
 Fabric introduces the execute-order-validate Blockchain architecture as shown
 on Figure~\ref{fig:executeorder} and does not follow the standard order-execute
 design illustrated on Figure~\ref{fig:orderexecute} \cite{Androulaki2018}. In
-this architecture, when a client sends transactions to the peers specified by
-endorsement policy. Each transaction is then executed and its output is
+this architecture, a client sends transactions to the peers specified by the
+endorsement policy. Each transaction is then executed and the output is
 recorded. After execution, transactions enter the ordering phase. An ordered
 sequence of transactions grouped into blocks are produced using the consensus
 mechanism. Then, these blocks are broadcast to all peers. Fabric orders the
@@ -327,3 +350,37 @@ Looking ahead, Hyperledger Fabric will continue to focus on privacy and
 confidentiality with v1.2 being recently released, v1.3 and 1.4 expected to be
 out this year with further emphasis on these aspects in a regular quarterly
 cadence~\cite{hyperledgerRoadmap2018}.
+
+\section{An Overview of Blockchain Platforms}
+
+In this section a brief comparison is made between the platforms introduced in
+this Chapter. As seen in Table~\ref{tab:blockchainComparison}, different
+Blockchain implementations have different characteristics and focus.
+
+\begin{table}[h!]
+	\centering
+	
+	\begin{tabular}{ p{4cm} p{3.4cm} p{4cm} p{4.4cm} }
+    \textbf{Characteristics} & \textbf{Bitcoin} & \textbf{Ethereum} &
+    \textbf{Fabric} \\ \hline
+    Characteristics & Bitcoin & Ethereum & Hyperledger \\[7pt] Permission
+    Restrictions & Permissionless & Permissionless & Permissioned \\[7pt]
+    Access to Data & Public & Public or Private & Private \\[7pt] Consensus &
+    Proof-of-Work & Proof-of-Work (ethash) & Practical Byzantine Fault Tolerant
+    \\[7pt] Governance & Low, decentralized decision making by community/miners
+    & Medium, core developer group, community improvement proposals & Low,
+    open-governance model based on Linux model \\[7pt] Native Currency & Yes,
+    Bitcoin & Yes, Ether & No \\[7pt] Scripting & Limited possibility &
+    Turing-complete virtual machine, Solidity DSL laguage & Turing-complete
+    scripting chaincode, multiple general purpose language support \\[7pt]
+    Focus & Financial Transactions & General Purpose & Enterprise Focused \\
+		\hline
+	\end{tabular}
+	
+	\caption
+	[Characteristics Comparison between Bitcoin, Ethereum and Fabric.]
+	{Characteristics Comparison between Bitcoin, Ethereum and Fabric.}
+	
+	\label{tab:blockchainComparison}
+\end{table}
+
