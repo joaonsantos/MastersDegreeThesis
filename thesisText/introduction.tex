@@ -13,22 +13,20 @@ The aim of this dissertation is to create a solution for managing the identity
 of patients in the Healthcare environment by using Blockchain technology, and
 in turn evaluate the use of this technology in this specific use case.  Health
 is intrinsically linked with technology as new technologies enable safer and
-better treatments. It is also worth noting that computing devices and networks
-are now easily available and widespread in more develop countries.  Healthcare
-organizations now store patients data on a digital format. The Electronic
-Health Record (EHR) is an abstract concept representing the patients digitally
-stored clinical data and their identity in a medical and clinical context.
+better treatments. Healthcare organizations now store patients data on a
+digital format. The Electronic Health Record (EHR) is an abstract concept
+representing the patients digitally stored clinical data and their identity in
+a medical and clinical context.
 
-Electronic Health Records  have lacked a standard for many years. Fortunately
-there has been some progress regarding this matter recently, as discussed in a
-short while.  Standards are an important aspect to take into account when
-designing an information system because they allow interoperability between
-different organizations with no additional work. The Health Level 7 (HL7) Fast
-Healthcare Interoperability Resources (FHIR) standard is being built primarily
-by the Health Level Seven organization. Over the last few years it has seen a
-significant growth in usage and is an international standard with partnerships
-worldwide. HL7 Portugal is now starting its operations and is building a
-community to support the use of this standard in Portugal~\cite{HealthLevel7}.
+Standards are an important aspect to take into account when designing an
+information system because they allow interoperability between different
+organizations. The Health Level 7 (HL7) Fast Healthcare Interoperability
+Resources (FHIR) standard (see Section~\ref{blockchainHealthcare}), is being
+built primarily by the Health Level Seven organization. Over the last few years
+it has seen a significant growth in usage and is an international standard with
+partnerships worldwide. HL7 Portugal is now starting its operations and is
+building a community to support the use of this standard in
+Portugal~\cite{HealthLevel7}.
 
 Blockchain is often known as the technology behind the Bitcoin cryptocurrency.
 Bitcoin depends on two complementary technologies, digital tokens and a
@@ -40,30 +38,27 @@ replicated across the participating peers. Blockchain, as we know today, was
 conceptualized as the public ledger~\footnote{A ledger is defined as an object
 in which items are regularly recorded, originally business activities and money
 received or paid, but in reality, it can be used to store any type of record.}
-for the Bitcoin cryptocurrency in 2008 by Satoshi Nakamoto, a pen name of, a
-still unknown to this day, individual or organization of individuals. The
-network was implemented in 2009 and many are now finding it has a much broader
-potential across many fields, with some implementations even resembling a
-programming platform to execute code in an autonomous
-manner~\cite{Nakamoto2008}.
+for the Bitcoin cryptocurrency in 2008 by Satoshi Nakamoto~\cite{Nakamoto2008},
+a pen name of, a still unknown to this day, individual or organization of
+individuals.
 
 Traditional Healthcare databases and architectures are increasingly vulnerable
 and a target to groups of malicious actors that possess the technical expertise
 to deny services with Distributed Denial of Service (DDOS) attacks~\footnote{A
 Distributed Denial of Service attack is an attempt to make an online service
 unavailable by overwhelming it with traffic from multiple sources.} or cause a
-data breach~\cite{mcCoy2018}~\footnote{A data breach is the intentional or
-unintentional release of secure or private/confidential information to an
-untrusted environment.}. 
+data breach~\footnote{A data breach is the intentional or unintentional release
+of secure or private/confidential information to an untrusted
+environment.}~\cite{mcCoy2018}. 
 
 Making matters worse other problems spring to mind. The data that comprises the
 identity of a patient is often fragmented across multiple Healthcare
 organizations, in such a way that, to get a true overview of the patients
 history and diagnosis there would be a need to merge all the pieces of
 information stored in data systems that are hosted in architecturally different
-and sometimes competing Healthcare information systems. Transparency is also a
-concern, as a patient does not currently possess the means to track how his
-medical data is being handled.
+Healthcare information systems. Transparency is also a concern, as a patient
+does not currently possess the means to track how his medical data is being
+handled.
 
 As more information becomes available, new insights can be extracted by
 Healthcare professionals that lead to an overall improvement of the patients
