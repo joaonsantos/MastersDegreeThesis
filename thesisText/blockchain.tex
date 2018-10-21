@@ -30,23 +30,25 @@ the structure that holds all transaction information the bank possesses. It is
 a structure that keeps the original purpose of recording all the transactions
 that are made.
 
-Imagine the following situation, Joe is on vacation and needs to borrow money
-from Jane, his wife. Joe calls Jane to ask for some money and Jane tells him it
-will send the money right away. Jane then proceeds to use her homebanking
-system to transfer some of her money to Joe. Finally Jane calls Joe to tell him
-that she made the request to send money to him.  As seen on
-Figure~\ref{fig:centralizedvsdescentralized} Joe and Jane need to use and trust
-the the bank as a middle man in order to complete this transaction. If the bank
-was ever to be unavailable, the bank's database was corrupted or if someone
-with  privileged access was able to intercept the transactions from inside the
-bank then all transactions between Joe and Jane would fail creating additional
-costs to all parties involved. 
+Imagine the following situation, Bob is on vacation and needs to borrow money
+from Alice, his wife. Bob calls Alice to ask for some money and Alice tells him
+it will send the money right away. Jane then proceeds to use her homebanking
+system to transfer some of her money to Bob. Finally Alice calls Bob to tell
+him that she made the request to send money to him.  As seen on
+Figure~\ref{fig:centralizedvsdescentralized} Bob and Alice need to use and
+trust the the bank as a middle man in order to complete this transaction. If
+the bank was ever to be unavailable, the bank's database was corrupted or if
+someone with  privileged access was able to intercept the transactions from
+inside the bank then all transactions between Bob and Alice would fail creating
+additional costs to all parties involved. 
 
 \begin{figure}[h]
   \centering
   \includegraphics[width=1\linewidth]{imgs/blockchainvscentralizedNetwork.png}
   \caption{\label{fig:centralizedvsdescentralized} A comparison between a
-  Centralized Banking System and a Distributed Ledger. (Source:~\href{https://www.imf.org/external/pubs/ft/fandd/}{Finance \& Development}, 2016)}
+  Centralized Banking System and a Distributed Ledger.
+  (Source:~\href{https://www.imf.org/external/pubs/ft/fandd/}{Finance \&
+  Development}, 2016)}
 \end{figure}
 
 For a long time it was necessary, to establish trust between two entities, a
@@ -56,9 +58,9 @@ parties using decentralization and aims to make two different entities trust
 each other through constant replication of the ledger, a security mechanism
 called consensus.
 
-For example, in the Bitcoin's Blockchain case, Jane initializes this process in
-the Blockchain by signing a transaction that describes some of her money is
-being sent to Joe's digital wallet address. The transaction is placed in a pool
+For example, in the Bitcoin's Blockchain case, Alice initializes this process
+in the Blockchain by signing a transaction that describes some of her money is
+being sent to Bob's digital wallet address. The transaction is placed in a pool
 of unconfirmed transactions and broadcasted to every node. Every 10 minutes a
 miner~\footnote{Bitcoin miners help keep the Bitcoin network secure by
 approving transactions and then writing in the Blockchain ledger. In a
@@ -77,7 +79,18 @@ easily verified, and every miner confirms if the block is considered valid. If
 consensus is reached by the nodes, the block is added to the Blockchain
 (written in the ledger) and the new state is persisted on all peers through
 replication of the ledger. At this point the transaction is confirmed,
-requiring no middle man to ensure the transaction is trustworthy and valid.
+requiring no middle man to ensure the transaction is trustworthy and valid. The
+transaction authentication process is shown on
+Figure~\ref{fig:bitcoinTransaction}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=1\linewidth]{imgs/bitcoinTransaction.png}
+  \caption{\label{fig:bitcoinTransaction} Bitcoin Transaction Authentication
+  Process
+  (Source:~\href{http://adilmoujahid.com/images/blockchain-public-crypto.png}{Adil
+  Moujahid}, 2018)}
+\end{figure}
 
 While consensus has a system performance impact due to the necessary
 replication of data and wasteful energy and computing power in the mining
