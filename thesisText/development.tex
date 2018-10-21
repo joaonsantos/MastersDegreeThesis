@@ -36,8 +36,8 @@ The requirements for this work were deemed to be as follows:
     approval of an administrator.
   \item The system must keep data confidential, transparent and have
     high availability.
-  \item The system must provide the patient with the ability to share his data with another entity, for example sharing
-    information with a doctor.
+  \item The system must provide the patient with the ability to share his data
+    with another entity, for example sharing information with a doctor.
   \item The system must allow the deletion of a patient's data in some manner,
     if he wishes to do so, in order to comply with European privacy laws,
     discussed in Section~\ref{blockchainHealthcare}.
@@ -213,9 +213,10 @@ The \textit{cryptogen} tool generates cryptographic data consuming the file
 \textit{crypto-config.yaml}.
 
 The \textit{configtxgen} tool generates the genesis block for the orderer
-services (see Section~\ref{distributedLedgerPlatform}) and the initial transactions.  This tool consumes the file
-\textit{configtx.yaml} that defines configuration parameters for channels, the
-genesis block and the orderer service.
+services (see Section~\ref{distributedLedgerPlatform}) and the initial
+transactions.  This tool consumes the file \textit{configtx.yaml} that defines
+configuration parameters for channels, the genesis block and the orderer
+service.
 
 The \textit{configtxlator} tool is also used to generate channel
 configurations.  Finally the \textit{peer} tool is used to manage the
@@ -451,9 +452,9 @@ client securely. If a patient wanted to share his information with someone he
 would give the other entity his data key and that would allow him to decrypt
 the encrypted patient's data. To complete this system the key would need to be
 set to expire after a set amount of time and refresh itself, as discussed in
-Section \ref{futureWork}. The key could always accessible to the patient by
+Section \ref{futureWork}. The key could always be accessible to the patient by
 accessing the data store where Fabric security mechanisms would ensure the
 certificate attributes are only accessible to the rightful owner.
 
 With this system in place, the last requirement was fulfilled, and the system
-is now considered to be complete regarding the goals of this thesis.
+is now considered to be complete regarding the goals of this dissertation.
