@@ -53,10 +53,10 @@ platform that best fulfills these requirements.
 \subsection{Choosing a Platform}\label{choosePlatform}
 
 Even tough Blockchain platforms normally originate from the realization that
-full centralization has major drawbacks they often have different goals
-translating in architecture differences and different development focus.  These
-range from open networks, such as Ethereum which anyone can join and use, to
-permissioned distributed ledgers, which can be run publicly or privately but
+full centralization has major drawbacks, they often have different goals. These
+translate into architectural differences and different development focuses.
+These range from open networks, such as Ethereum which anyone can join and use,
+to permissioned distributed ledgers, which can be run publicly or privately but
 are only open to access and participation through a membership service, such as
 Hyperledger Fabric and Hyperledger Indy.
 
@@ -100,10 +100,10 @@ for a developer looking to get started into it. Fabric is being backed by the
 Linux Foundation and IBM, lending credibility to the project and ensuring that
 this platform is supported and developed into the foreseeable future, as it is
 being governed by a diverse technical steering committee and by a diverse set
-of maintainers from multiple organizations. In regards to performance the focus
-in this area is clear as the Hyperledger community has appointed a Performance
-and Scale working group to improve performance as well being tasked to
-implement benchmarking framework for Hyperledger projects called Hyperledger
+of maintainers from multiple organizations. In regards to performance, the
+focus in this area is clear, as the Hyperledger community has appointed a
+Performance and Scale working group to improve performance as well being tasked
+to implement benchmarking framework for Hyperledger projects called Hyperledger
 Caliper~\cite{performanceScale2017}.
 
 Regarding Fabric's features, it lends itself very well to fulfill the project
@@ -112,12 +112,12 @@ a clear statement that privacy is important in this platform, which is in line
 with the requirements that were laid out for the work described in this
 dissertation. It is also worth noting that many upcoming Blockchain based
 projects in the Healthcare field are using permissioned networks due to these
-same concerns regarding the privacy of the patients while retaining the key
-benefits of Blockchain such as immutability and decentralization. The fact that
-Fabric has no associated currency also means there is no required mining
-incentives to maintain the network, even tough it does require some additional
-infrastructure to set up the network, leading to a higher initial investment in
-a solution based on this platform.
+same concerns regarding the patients privacy while retaining the key benefits
+of Blockchain such as immutability and decentralization. The fact that Fabric
+has no associated currency also means there is no required mining incentives to
+maintain the network, even tough it does require some additional infrastructure
+to set up the network, leading to a higher initial investment in a solution
+based on this platform.
 
 Both are very interesting platforms, but ultimately it was decided to use
 Hyperledger Fabric as the platform on which to build upon. This decision was
@@ -131,7 +131,7 @@ choice from an theoretical standpoint.
 
 After selecting Hyperledger Fabric as the work platform, it became necessary to
 understand in further detail what are the main components that form a network
-and the tools available to manage these components. This section discusses the
+and the tools available to manage these components. This Section discusses the
 main components of a Fabric network and the tools required to create and
 maintain a Fabric network. These components often interact with one another and
 provide the technical infrastructure that comprises this technology.
@@ -181,7 +181,7 @@ Every peer in the network is assigned a digital certificate by an administrator
 from its owning organization. The mapping of a peer's identity in an
 organization is provided through the membership service provider. 
 
-In fact peers, applications, end users (clients), administrators, channels and
+Peers, applications, end users (clients), administrators, channels and
 organizations must have an identity provided by the Membership Service Provider
 (see Section~\ref{distributedLedgerPlatform}) in order to be able to interact
 with the network. Each of these actors has a digital identity encapsulated in
