@@ -81,6 +81,9 @@
 	citecolor=[rgb]{0.1 0.4 0.1},
 	urlcolor=[rgb]{0.1 0.1 0.4}
 }
+%
+\RequirePackage[defaultlines=3,all]{nowidow}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 %	Configuracao das fontes
@@ -446,7 +449,8 @@
 %
 %
 %
-\newcommand{\@PALAVRASCHAVE}{palavra chave 1, palavra chave 2, palavra chave 3, palavra chave 4, palavra chave 5}
+\newcommand{\@PALAVRASCHAVE}{palavra chave 1, palavra chave 2, palavra chave 3,
+palavra chave 4, palavra chave 5}
 \newcommand{\@KEYWORDS}{keyword 1, keyword 2, keyword 3, keyword 4, keyword 5}
 \DeclareRobustCommand{\tuePALAVRASCHAVE}[2]{%
 	\renewcommand{\@PALAVRASCHAVE}{#1}

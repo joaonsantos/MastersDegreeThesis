@@ -181,6 +181,9 @@
 %
 \tuePREAMBULO {
   \include{agradecimentos}
+  \tableofcontents
+  \listoffigures
+  \listoftables
   \include{acronimos}
   \include{abstract}
   \include{sumario}
@@ -219,10 +222,15 @@
 %
 %
 \tueBIBLIOGRAFIA{
+	\let\oldaddcontentsline\addcontentsline% Store \addcontentsline
+	\renewcommand{\addcontentsline}[3]{}% Make \addcontentsline a no-op
   % Adicionar "-" à quebra de links
   \def\UrlBreaks{\do\/\do-}
+  %
   \bibliographystyle{alpha}
   \bibliography{bibliography.bib}
+  %
+  \let\addcontentsline\oldaddcontentsline% Restore \addcontentsline
 }
 %
 % ----------------------------------------------------------------

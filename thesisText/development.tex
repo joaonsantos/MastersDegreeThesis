@@ -1,12 +1,12 @@
 \chapter{Designing and Building the System} \label{development}
 
-\emph{In this Chapter we describe the requirements for a system built upon
-Blockchain technology. The requirements where chosen in order to create a
-system that is interesting to an organization while still respecting the
-patients data access rights. With the requirements set, Ethereum and
-Hyperledger Fabric advantages and disadvantages were weighted for this use
-case. Finally, insight into the design and implementation of the system is
-given.}
+\begin{quote}
+\emph{This Chapter describes the requirements for a system built upon
+  Blockchain technology. The requirements where chosen in order to create a
+  system that is interesting to an organization while still respecting the
+  patients data access rights. Ethereum and Hyperledger Fabric advantages and
+disadvantages were weighted for this use case. Finally, insight into the design
+and implementation of the system is given.} \end{quote}
 
 The goal of this dissertation is to create a solution to manage the identity of
 patients in an Healthcare organization by conceptualizing, implementing and
@@ -151,9 +151,11 @@ States are, by default, expressed as key-value pairs. The world state is useful
 because it makes it easy for a smart contract to get the current value of these
 states, instead of having to traverse the entire transaction log. The
 Blockchain holds the transaction logs that record the history of changes that
-have resulted in the current world state.  Transactions are collected and
-recorded in an immutable sequence of blocks, in which each block contains a set
-of ordered transactions by the orderer service.
+have resulted in the current world state.
+
+Finally, transactions are collected and recorded in an immutable sequence of
+blocks, in which each block contains a set of ordered transactions by the
+orderer service.
 
 \begin{figure}[ht] 
 	\centering
