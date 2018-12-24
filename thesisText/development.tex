@@ -10,7 +10,7 @@ and implementation of the system is given.} \end{quote}
 
 The goal of this dissertation is to create a solution to manage the identity of
 patients in an Healthcare organization by conceptualizing, implementing and
-evaluating a Blockchain based system that fulfills this role. In order to
+evaluating a Blockchain based system that fulfils this role. In order to
 fulfill this goal, the development part of the work described in this
 dissertation was primarily divided into four steps with each step building upon
 the previous ones. The development workflow spans the conceptualization and its
@@ -47,12 +47,12 @@ These requirements were chosen in order to create a system that is interesting
 to an organization while still respecting the patients data and their access
 right to it. 
 
-After defining the requirements it was nececessary to choose the Blockchain
-platform that best fulfills these requirements.
+After defining the requirements it was necessary to choose the Blockchain
+platform that best fulfils these requirements.
 
 \subsection{Choosing a Platform}\label{choosePlatform}
 
-Even tough Blockchain platforms normally originate from the realization that
+Even though Blockchain platforms normally originate from the realization that
 full centralization has major drawbacks, they often have different goals. These
 translate into architectural differences and different development focuses.
 These range from open networks, such as Ethereum which anyone can join and use,
@@ -64,7 +64,7 @@ Ethereum has a growing learning ecosystem and community. It is easy to start
 interacting with the network as anyone is able to simply download a client and
 connect to it. Thanks to the Solidity (see Section~\ref{ethereumPlatform})
 smart contract language being targeted for the specific purpose of authoring
-smart contracts it only allows for a deterministic program to be written
+smart contracts it only allows for a deterministic program to be written, thus
 avoiding potential conflicts in the execution of these, for example, in the
 production network. Since Solidity is a Domain Specific Language it is platform
 easy to develop for since it provides a well thought out and well organized
@@ -145,7 +145,7 @@ network is comprised of several components, which are described in the
 following paragraph.
 
 The ledger is a central component of a HLF network. The ledger is composed by a
-world state and a Blockchain as seen of Figure~\ref{fig:ledgerFabric}. The
+world state and a Blockchain as seen on Figure~\ref{fig:ledgerFabric}. The
 world state is a database that holds the current values of ledger states.
 States are, by default, expressed as key-value pairs. The world state is useful
 because it makes it easy for a smart contract to get the current value of these
@@ -265,7 +265,7 @@ identification number. This key is used to query and access the patients data.
 
 To aid in interoperability with other systems, the Fast Healthcare
 Interoperability Resources (FHIR) standard by the Health Level 7 organization
-could be used as basis for the fields in the structure used to represent the
+was used as the basis for the fields in the structure, used to represent the
 patient's identity in the Healthcare domain.  Each field of the patient's
 identity structure, defined in a smart contract, would be linked to a field of
 the \href{http://www.hl7.org/fhir/patient.html}{patient structure as presented
@@ -283,7 +283,7 @@ private and does not exist on the rest of the network.  If a third organization
 with another peer representing another health clinic joined the network, then
 another channel could be created between the patient's organization and this
 new organization. If the patient inserts his data in the channel then the
-clinic would be able to view it everytime they wished. 
+clinic would be able to view it anytime they wished. 
 
 Starting in version 1.1 of Fabric the MSP allows Attribute Based Access Control
 meaning the access to the data can depend on the value of certain attributes of
@@ -361,7 +361,7 @@ different organizations. The anchor peer serves as the entry point for another
 organization’s peer on the same channel to communicate with each of the peers
 in the anchor peer’s organization.} in each of the organizations.
 
-An application was also built that allows for user enrollment to create a new
+An application was also built that allows for user enrolment to create a new
 identity in the network. The application is run by a user and uses the
 available SDK to call upon the operations that the smart contract makes
 available. When a new user of the application enters the network, a function in
@@ -391,11 +391,11 @@ Object Notation (JSON) format with information from the network. This API
 allows a query to be made to the network that returns the patients information,
 changing incorrect or outdated information, for example. It also allows an
 administrator to disable the identity structure of someone who is not
-participating in the network actively anymore in order for that information to
-be read-only from that point on, with more operations available. This system
-architecture leads to a modular as well as extensible approach, regarding the
-availability of new operations that become available as soon as new versions of
-the smart contract are deployed.  
+participating in the network actively in a given moment, in order for that
+information to be read-only from that point on, with more operations available.
+This system architecture leads to a modular as well as extensible approach,
+regarding the availability of new operations that become available as soon as
+new versions of the smart contract are deployed.  
 
 \begin{figure}[ht] 
   \centering
@@ -425,7 +425,7 @@ both assets on registration.
 \subsection{Data Confidentiality in Fabric}
 
 During the implementation of the system it became clear that additional
-measures to secure data was needed. Even tough Fabric is focused towards
+measures to secure data was needed. Even though Fabric is focused towards
 privacy and confidentiality, data inserted in a channel between a patient and a
 doctor, for example, would be stored in plain text by default. This means that
 inside the channel any entity would be able to access all data and see its

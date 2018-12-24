@@ -1,16 +1,16 @@
 \chapter{Conclusions and Future Work}
 \label{Conclusion}
 
-\begin{quote}
-\emph{This Chapter presents some remarks about the conclusions observed during
-the course of the work described in this dissertation. Also some possible
-future work is presented based on the findings shown on this document.}
+\begin{quote} \emph{This Chapter presents some remarks about the conclusions
+  observed during the course of the work described in this dissertation. Some
+  possible future work is also presented based on the findings shown on this
+  document.} 
 \end{quote}
 
 In the context of this dissertation a system was built that is capable of
 managing patients identity using Blockchain technology. As this is a relatively
 new technology, there was the need to create simple system in order to reach
-some conclusions. The prototype system leverages this technology in the
+some conclusions. The prototype system built leverages this technology in the
 Healthcare field. The platform chosen was the Hyperledger Fabric Distributed
 Ledger Platform. 
 
@@ -36,15 +36,15 @@ more traditional systems such as data transparency to the patient, immutability
 of data and decentralization.
 
 The patient benefits from transparency because he will be able to see his data
-everytime he wishes to do so, creating a greater degree of trust with the
+anytime he wishes to do so, creating a greater degree of trust with the
 Healthcare organizations than what is possible nowadays. Immutability is
-important to maintain this trust because if he discovers his data was altered
-in any way, then the record of that tampering would be forever recorded and
-could be traced back to the malicious actor due to this platform supporting
-auditability with the Membership Service Provider that issues client identity
-certificates through the built-in CA service.  Decentralization provides
-additional resiliency as it avoids having a single point of failure that could
-be targeted.
+important to maintain this trust because data ends up being altered in any way,
+then the record of that tampering would be forever recorded and could be traced
+back to the malicious actor due to this platform supporting auditability with
+the Membership Service Provider that issues client's identity certificates
+through the built-in CA service. Decentralization provides additional
+resiliency as it avoids having a single point of failure that could be
+targeted.
 
 This work described in this dissertation proves that this technology has many
 applications in this field, and that it can be used more often as the platform
@@ -71,25 +71,25 @@ features are added future work could be built upon the new features added or
 new Hyperledger projects such as Hyperledger Indy. 
 
 Hyperledger Indy was a platform that was not available when this dissertation
-was initially discussed. The platform is interesting choice because of its
+was initially discussed. The platform is an interesting choice because of its
 focus on identity. Some research on this platform could be made to map
 potential similarities to Fabric in ways that could show their common points
-and differences. It could be shown which platform would be more suited for this
-task or the different use cases they excel in could be noted.
+and differences. It could be shown, for example, which platform would be more
+suited for this task or the different use cases they excel in could be noted.
 
 The prototype project could be expanded with a graphical interface, instead of
 the current command line interface, leading to a more intuitive usage of this
 system and additional platforms to be targeted naturally. Further optimization
 efforts could be made regarding channels, encryption methods, data segregation
-and scalability. To improve security the key generated when an entity registers
+and scalability. To improve security, the key generated when an entity registers
 in the network should refresh periodically, to avoid potential identity theft.
 
 Fabric roles could be explored to distinguish between a doctor and a nurse in
-the same Healthcare organization.  This way to access information could be
-created using the Role Based Access Control added to Fabric.  Hyperledger
-Burrow could be used to improve compatibility between Ethereum and Hyperledger
-Fabric and target two platforms with similar smart contract code.  Finally this
-concept could be expanded further and Blockchain could serve as a secure access
-key store that enables secure transmission of access keys to external protected
-servers that store a big amount of data that the Blockchain would not be suited
-for.
+the same Healthcare organization.  Access to information could be regulated
+using the Role Based Access Control added to Fabric.  Hyperledger Burrow could
+be used to improve compatibility between Ethereum and Hyperledger Fabric and
+target two platforms with similar smart contract code.  Finally this concept
+could be expanded further and Blockchain could serve as a secure access key
+store that enables secure transmission of access keys to external protected
+servers that store a big amount of data that would not be suited
+for the Blockchain .

@@ -37,7 +37,7 @@ written and stored. This structure is constantly replicated across a network of
 peers, in opposition to having a single central record history, making it a
 good example of a distributed database~\cite{Barclay2017}.
 
-The purpose of a Blockchain is to estabilish trust between different
+The purpose of a Blockchain is to establish trust between different
 participating parties in a network of distributed systems without the need for
 a trusted middle man~\cite{Drescher2017}. To fulfill this purpose it uses
 cryptographic techniques and digital signatures to, not only verify the
@@ -104,15 +104,15 @@ this method was Peercoin in 2012.
 
 Rather than requiring the peers to perform a certain amount of computational
 work, a Proof-of-Stake system requires the validators to show ownership of a
-certain amount of money. Any participating peer in the network can become a
-validator by sending a special type of transaction that locks their money in a
-deposit, defined as the stake. The creator of a new block is chosen in a
-deterministic way, depending on its wealth and other factors, determined by the
-specific Proof-of-Stake implementation. Validators then participate in the
-process of creating and agreeing to new blocks. Proof-of-Stake based consensus
-algorithms have proven to be difficult to implement~\cite{EthereumSlasher2014},
-leading some Blockchain platforms to consider implementing a mix of
-Proof-of-Work and Proof-of-Stake algorithms.
+certain amount of currency. Any participating peer in the network can become a
+validator by sending a special type of transaction that locks their some of
+their currency in a deposit, defined as the stake. The creator of a new block
+is chosen in a deterministic way, depending on its wealth and other factors,
+determined by the specific Proof-of-Stake implementation. Validators then
+participate in the process of creating and agreeing to new blocks.
+Proof-of-Stake based consensus algorithms have proven to be difficult to
+implement~\cite{EthereumSlasher2014}, leading some Blockchain platforms to
+consider implementing a mix of Proof-of-Work and Proof-of-Stake algorithms.
 
 In the case of a permissioned Blockchain implementation, interactions are made
 among a set of known, identified participants who have a common goal, but do
@@ -176,17 +176,17 @@ Smart contracts are designed in order to minimize the need for trusted
 intermediaries between transacting parties, as well as, the occurrence of
 malicious or accidental exceptions.
 
- In a Blockchain, smart contracts are scripts that describe the logical backed
- of a Decentralized application and are stored on the Blockchain where they
- execute as “autonomous agents” and where they can be instantiated and invoked
- as needed after achieving consensus.  Since they reside on the network, they
- have a unique address. A smart contract is invoked by addressing a transaction
- to it.  It then executes independently and automatically in a prescribed
- manner, according to the data that was included in the invoking transaction.
- Smart contracts allow general purpose computations on the chain.  Smart
- contracts offer an abstract layer of interaction with the ledger, doing away
- with a required background in coding cryptography and mathematics, in order to
- program Blockchain applications~\cite{Wood2017,BlockGeeks2017}.
+In a Blockchain, smart contracts are scripts that describe the logical backend
+of a Decentralized application and are stored on the Blockchain where they
+execute as “autonomous agents” and where they can be instantiated and invoked
+as needed after achieving consensus.  Since they reside on the network, they
+have a unique address. A smart contract is invoked by addressing a transaction
+to it.  It then executes independently and automatically in a prescribed
+manner, according to the data that was included in the invoking transaction.
+Smart contracts allow general purpose computations on the chain.  Smart
+contracts offer an abstract layer of interaction with the ledger, doing away
+with a required background in coding cryptography and mathematics, in order to
+program Blockchain applications~\cite{Wood2017,BlockGeeks2017}.
 
 The Ethereum Blockchain is a permissionless Blockchain, and thus, it must have
 a consensus mechanism to ensure the validation process of every record and, in
@@ -219,7 +219,7 @@ lack of true private transactions and confidential contracts.
 
 These goals are achieved thanks to assigning peers in the network three
 distinct roles and by offering the ability to create channels each with its own
-private ledger.  A peer has have the role of endorser, committer or consenter
+private ledger.  A peer has the role of endorser, committer or consenter
 or multiple roles.  Hyperledger Fabric is intended as a foundation for
 developing applications in a modular fashion, opting for a plug-and-play
 approach to its various components as well as its consensus
@@ -257,8 +257,8 @@ decisions about their own privacy and disclosure of such information.  Indy can
 be used to define connection contracts, revocation and curated reputation, for
 example. Hyperledger Indy was not used in this thesis as it was at the time in
 incubation phase. Documentation was lacking and the platform was not feature
-complete. With this said, Hyperledger Indy is mentioned could be used as future
-work, as explained on Section~\ref{futureWork}.
+complete. With this said, Hyperledger Indy could be used as future work, as
+explained on Section~\ref{futureWork}.
 
 The first network built on Indy was deployed on July 31, 2017, running version
 1.0 of Indy. The Indy Software Development Kit (SDK) was released in August of
@@ -363,7 +363,7 @@ in a secure way and give anonymized access to this data to specialists. Giving
 data rewards users with tokens that represent value~\cite{MediChain2018},
 effectively allowing patients to knowingly monetize their Healthcare data.
 
-Even tough many Blockchain based solutions are still very early on development
+Even though many Blockchain based solutions are still very early on development
 or deployment and many projects do not actually materialize, the disruption
 potential of this technology is clear. All over the world many efforts are
 being made to regulate the high amount of data that is being generated by
@@ -384,9 +384,9 @@ privacy still hold true to the previous 1995 directive, terms of usage as well
 as consent to use data has become more clear to the user of a data-driven
 service.  Therefore, any solution proposed in the Healthcare field must also
 take this legal landscape into consideration which may be a problem. One of the
-key features of Blockchain is immutability which means that data once written
-it is impossible to delete or tamper with. This causes a practical clash
-between this technology and the regulation, even tough they both are aligned in
+key features of Blockchain is immutability which means that data, once written,
+is impossible to delete or tamper with. This causes a practical clash between
+this technology and the regulation, even tough they both are aligned in
 ideological concepts as both seek to return control of data usage and handling
 to their rightful owners. With this in mind it becomes clear that to comply
 with this regulation some additional steps need to be taken by this technology
