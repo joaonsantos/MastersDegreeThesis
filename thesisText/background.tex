@@ -80,10 +80,10 @@ majority of the network agrees upon the sequence of events. For example, in the
 Bitcoin's Blockchain case, consensus is reached by the longest chain rule where
 the longest chain of blocks not only serves as proof of the sequence of events
 witnessed, but as proof that it came from the largest pool of computing power.
-This is due to the fact that the Bitcoin's Blockchain uses a proof of work
-algorithm that relies on brute force to solve a complex mathematical puzzle,
-making the longest chain of blocks the one with the most computing power behind
-it and therefore agreed upon by the majority of the
+This is due to the fact that the Bitcoin's Blockchain uses a Proof-of-Work
+consensus algorithm that relies on brute force to solve a complex mathematical
+puzzle, making the longest chain of blocks the one with the most computing
+power behind it and therefore agreed upon by the majority of the
 network~\cite{Baars2016,Wood2017}, making that chain the most likely to be the
 one that represents the sequence of events witnessed.
 
@@ -96,18 +96,17 @@ electricity in the country is produced by burning coal, resulting in one of the
 biggest carbon footprints in the world. In response to this environmental and
 eventual economic concern over the sustainability of the mining incentives,
 there have been a few alternative algorithms that have eventually appeared.
-Proof-of-Stake, for example, is a consensus algorithm that was
-\href{https://bitcointalk.org/index.php?topic=27787.0}{first suggested on the
-Bitcointalk forum on July 11, 2011}. It is currently in use in various
-currencies as their consensus algorithm and the first digital currency to use
-this method was Peercoin in 2012. 
+Proof-of-Stake, for example, is a consensus algorithm that was first suggested
+on the Bitcointalk forum on July 11, 2011~\cite{bitcoinForums2018}. It is
+currently in use in various currencies as their consensus algorithm and the
+first digital currency to use this method was Peercoin in 2012. 
 
 Rather than requiring the peers to perform a certain amount of computational
 work, a Proof-of-Stake system requires the validators to show ownership of a
 certain amount of currency. Any participating peer in the network can become a
-validator by sending a special type of transaction that locks their some of
-their currency in a deposit, defined as the stake. The creator of a new block
-is chosen in a deterministic way, depending on its wealth and other factors,
+validator by sending a special type of transaction that locks some of their
+currency in a deposit, defined as the stake. The creator of a new block is
+chosen in a deterministic way, depending on its wealth and other factors,
 determined by the specific Proof-of-Stake implementation. Validators then
 participate in the process of creating and agreeing to new blocks.
 Proof-of-Stake based consensus algorithms have proven to be difficult to
@@ -117,9 +116,8 @@ consider implementing a mix of Proof-of-Work and Proof-of-Stake algorithms.
 In the case of a permissioned Blockchain implementation, interactions are made
 among a set of known, identified participants who have a common goal, but do
 not fully trust each other. By relying on the identities of peers, a
-permissioned Blockchain can use a more traditional
-\href{https://en.wikipedia.org/wiki/Byzantine_fault_tolerance}{Byzantine Fault
-Tolerant} (BFT) consensus algorithm~\cite{Sousa2018}.
+permissioned Blockchain can use a more traditional Byzantine Fault Tolerant
+(BFT) consensus algorithm~\cite{Sousa2018,byzantine2018}.
 
 While the Blockchain, we now know today, was conceptualized as the public
 ledger for the Bitcoin cryptocurrency in 2008 by Satoshi Nakamoto and
@@ -219,10 +217,10 @@ lack of true private transactions and confidential contracts.
 
 These goals are achieved thanks to assigning peers in the network three
 distinct roles and by offering the ability to create channels each with its own
-private ledger.  A peer has the role of endorser, committer or consenter
-or multiple roles.  Hyperledger Fabric is intended as a foundation for
-developing applications in a modular fashion, opting for a plug-and-play
-approach to its various components as well as its consensus
+private ledger.  A peer has the role of endorser, committer or consenter or
+multiple roles.  Hyperledger Fabric is intended as a foundation for developing
+applications in a modular fashion, opting for a plug-and-play approach to its
+various components as well as its consensus
 mechanism~\cite{HyperledgerFabricDocs2017}.
 
 Hyperledger Fabric, as discussed, also allows the creation of smart contracts.
@@ -323,31 +321,31 @@ The organization has been keen on expanding their standard internationally as
 work continues on official adoption in other countries. Adding to this, HL7 has
 been providing several events and discussion meetings, as well as, developing
 its learning ecosystem in the form of certifications and web streams, for
-example. In 2017, HL7 has partnered with the
-\href{https://www.hspconsortium.org/}{Health Services Platform Consortium},
-composed of more than a dozen clinical professional societies, committing
-resources for creating and testing clinical data models and thus beginning to
-lay a semantic foundation for achieving interoperability.
+example. In 2017, HL7 has partnered with the Health Services Platform
+Consortium~\cite{hspcWebsite2018}, composed of more than a dozen clinical
+professional societies, committing resources for creating and testing clinical
+data models and thus beginning to lay a semantic foundation for achieving
+interoperability.
 
 There is a greater need for digital security solutions, as the amount of data
 grows in a connected age, where access to the world wide web is easily
-available and every device is part of the
-\href{https://en.wikipedia.org/wiki/Internet_of_things}{Internet of Things}.
-Various industries and the general public are becoming interested in solutions
-to solve problems in this field. Blockchain started as a security solution and
-is now laying the foundation for a change in the underlying flow of our
-economic and social systems~\cite{Zago2018,Marr2018,Long2018}. Some companies
-have already started developing Blockchain applications in the Healthcare field
-and established some key partnerships.
+available and every device is part of the Internet of
+Things~\cite{internetThings2018}.  Various industries and the general public
+are becoming interested in solutions to solve problems in this field.
+Blockchain started as a security solution and is now laying the foundation for
+a change in the underlying flow of our economic and social
+systems~\cite{Zago2018,Marr2018,Long2018}. Some companies have already started
+developing Blockchain applications in the Healthcare field and established some
+key partnerships.
 
 Guardtime has fully deployed their system in 2008, started cooperating in 2011
 and in 2016 announced a partnership with the Estonian Government, where a
 million patient records are now secured by the system. Guardtime uses a system
-that shares the same background as the Bitcoin but is not based on Bitcoin.
-\href{https://guardtime.com/technology}{The Keyless Signature Infrastructure
-system} proves the resilience of Blockchain related concepts, as well as, other
-advances in cryptography. Large companies like Verizon are becoming interested
-in Blockchain technology for their own
+that shares the same background as the Bitcoin but is not based on Bitcoin. The
+Keyless Signature Infrastructure system~\cite{guardtimeKSI2018} proves the
+resilience of Blockchain related concepts, as well as, other advances in
+cryptography. Large companies like Verizon are becoming interested in
+Blockchain technology for their own
 purposes~\cite{GuardTime2018,EstonianGovernmentGuardTime2016}.
 
 Another company, Gem, is collaborating with Phillips Healthcare to explore
@@ -357,7 +355,7 @@ GemOS~\cite{gemOS2018}. Factom, another Blockchain-based service, has also
 announced a partnership with a major US medical services provider
 HealthNautica~\cite{BlockchainCompHealth2017,FactomPartnership2017}.
 
-Recently, a platform called Medichain was introduced. This platform is also
+In 2018, a platform called Medichain was introduced. This platform is also
 based on Blockchain technology and it allows patients to store their own data
 in a secure way and give anonymized access to this data to specialists. Giving
 data rewards users with tokens that represent value~\cite{MediChain2018},

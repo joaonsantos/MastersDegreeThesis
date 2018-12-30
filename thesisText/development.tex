@@ -268,8 +268,7 @@ Interoperability Resources (FHIR) standard by the Health Level 7 organization
 was used as the basis for the fields in the structure, used to represent the
 patient's identity in the Healthcare domain.  Each field of the patient's
 identity structure, defined in a smart contract, would be linked to a field of
-the \href{http://www.hl7.org/fhir/patient.html}{patient structure as presented
-in the FHIR standard}.
+the patient structure as presented in the FHIR standard~\cite{fhir2018}.
 
 The most simple case of an interaction in an Healthcare service is the
 interaction between a patient and a doctor. In HLF, this situation translates
@@ -422,7 +421,7 @@ created, because they had been exceptionally created before hand by the
 administrator to simplify the process. The normal flow would be the creation of
 both assets on registration.
 
-\subsection{Data Confidentiality in Fabric}
+\subsection{Data Confidentiality in Fabric}\label{confidentiality}
 
 During the implementation of the system it became clear that additional
 measures to secure data was needed. Even though Fabric is focused towards
@@ -442,18 +441,17 @@ the data since the data is stored as plain text, as discussed in the previous
 paragraph.
 
 After considering the different possibilities and making some tests it was
-decided to use data encryption. The flow of the operations is designed to be
-simple. When the patient's data is registered he receives a notification to
-keep note of a data key which is used to encrypt data using a traditional
-\href{https://en.wikipedia.org/wiki/SHA-2}{SHA-256 encryption algorithm}. The
-data was encrypted using
-\href{https://www.ibm.com/support/knowledgecenter/en/SSB23S_1.1.0.14/gtps7/s7symm.html}{symmetric
-key encryption} with the generated key being stored on the
-\href{https://en.wikipedia.org/wiki/X.509}{X.509 certificate} of the respective
-client securely. If a patient wanted to share his information with someone he
-would give the other entity his data key and that would allow him to decrypt
-the encrypted patient's data. To complete this system the key would need to be
-set to expire after a set amount of time and refresh itself, as discussed in
+considered necessary to use data encryption, as discussed in
+Section~\ref{tests}. The flow of the operations is designed to be simple. When
+the patient's data is registered he receives a notification to keep note of a
+data key which is used to encrypt data using a traditional SHA-256 encryption
+algorithm~\cite{sha-2_2018}. The data was encrypted using symmetric key
+encryption~\cite{symmetric_cryptography2018} with the generated key being
+stored on the X.509 certificate~\cite{x509_2018} of the respective client
+securely. If a patient wanted to share his information with someone he would
+give the other entity his data key and that would allow him to decrypt the
+encrypted patient's data. To complete this system the key would need to be set
+to expire after a set amount of time and refresh itself, as discussed in
 Section \ref{futureWork}. The key could always be accessible to the patient by
 accessing the data store where Fabric security mechanisms would ensure the
 certificate attributes are only accessible to the rightful owner.

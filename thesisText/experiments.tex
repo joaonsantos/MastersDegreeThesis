@@ -19,7 +19,7 @@ network and seeing if the data was encrypted or was easily readable. The
 outcomes of these experiments can shape the development of the solution as it
 could take these results into consideration and highlight possible problems.
 
-\section{Testing the Built Solution}
+\section{Testing the Built Solution}\label{tests}
 
 With the network in place and the peers set up and registered the experiments
 proposed have now their requirements fulfilled.
@@ -31,7 +31,7 @@ success when the chaincode was deployed. The simple way to query personal
 information with an assigned patient number also proved successful and shows
 that this system can be used to store patient's identity data and retrieve it.
 
-Then the patient had to share his information with the doctor. To do this it
+Then the patient had to share his information with the doctor. To proceed, it
 was necessary to assume that the patient had given his patient number to the
 doctor so that he could use the application built to query for that patient
 number. The doctor queried the network for the patient's information and was
@@ -49,7 +49,9 @@ This meant that the solution currently, did not meet the requirement of the
 information being confidential that was defined previously, even tough it is
 transparent and has high availability since the information was spread through
 multiple peers and could be on multiple channels. It became clear that some
-additional data security measures was needed.
+additional data security measures was needed. After implementing data
+encryption (see Section~\ref{confidentiality}), data was effectively encrypted
+and could not be seen, fulfilling the original goal.
 
 \section{Evaluation of the Built Solution}
 
@@ -99,15 +101,15 @@ preserved.
 Even though Fabric is a permissioned Distributed Ledger Platform and as such it
 is administrated by an administrator it is also distributed and therefore
 avoids having a single point of attack. By default, it is more available than a
-simple informational system that is centralized. In this aspect, it can be said
-the more the network scales, the more robust it becomes and therefore more
-availability it provides as information redundancy also increases.
+simple informational system that is centralized. In this aspect it can be said
+that, the more the network scales, the more robust it becomes and therefore
+more availability it provides as information redundancy also increases.
 
 \subsection{Review of the System Goals}
 
-Using Hyperledger Fabric a system was built that successfully can create, manage
-and disable patients data. Information can be shared in a secure manner and
-interoperability eases organization into adopting this system. This system
+Using Hyperledger Fabric a system was built that successfully can create,
+manage and disable patients data. Information can be shared in a secure manner
+and interoperability eases organization into adopting this system. This system
 provides benefits to the medical staff as well as the patients due to
 transparency in how data is handled and secured.
 
@@ -119,19 +121,19 @@ necessary maintenance. As the network grows it would become more resilient and
 additional servers could be used to expand the core availability of Blockchain
 components.
 
-There is also the question of scalability. Even though a Permissioned Blockchain
-is always faster in relation to a Permissionless variant it still is far from
-matching the scalability and performance of the Electronic Payment Management
-System created by SIBS~\footnote{The Sociedade Interbancária de Serviços is a
-company that manages all the debit card payment system in Portugal and that
-operates with all banks. The company is responsible for the Multibanco network.
-The network is comprised by the store payment machines and the automated
-banking machines that offer money withdrawal and payment services, for example.
-As of December 2014, the network had an average of more than 75 million
-operations every month.} for banking transactions, for example. If this system
-was intended for global use then additional approaches would need to be taken
-regarding this matter.
+There is also the question of scalability. Even though a Permissioned
+Blockchain is always faster in relation to a Permissionless variant it still is
+far from matching the scalability and performance of the Electronic Payment
+Management System created by SIBS~\footnote{The Sociedade Interbancária de
+Serviços is a company that manages all the debit card payment system in
+Portugal and that operates with all banks. The company is responsible for the
+Multibanco network.  The network is comprised by the store payment machines and
+the automated banking machines that offer money withdrawal and payment
+services, for example.  As of December 2014, the network had an average of more
+than 75 million operations every month.} for banking transactions, for example.
+If this system was intended for global use, then additional approaches would
+need to be taken regarding this matter.
 
-With this said the pace of development has been relatively fast with new
+With this said, the pace of development has been relatively fast with new
 releases on a quarterly basis that focus on the issues of scalability and
 privacy, two important features pertaining to the system this Thesis proposed.
